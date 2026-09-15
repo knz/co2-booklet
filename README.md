@@ -117,6 +117,7 @@ Current:
 |------|---------|
 | `input.txt` | Seed input: topics, symptoms, ineffective measures, myths. |
 | `script-sketch.md` | First script drafted by another agent. Reference only, see below. |
+| `input2.txt` | Second input: core messages and revised direction for the script. |
 | `site/` | Static site deployed to GitHub Pages (currently a placeholder landing page). |
 | `.github/workflows/pages.yml` | Builds and deploys the site. |
 | `PUBLISHING.md` | GitHub Pages set-up and maintenance. |

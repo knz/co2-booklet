@@ -78,6 +78,10 @@ Content rules:
 Key files:
 
 - `input.txt` — seed topics from the user; the authoritative scope.
+- `input2.txt` — second input from the user: core messages and revised
+  direction for the script.
+- `script.md` — working script (draft 2) for infographic and booklet:
+  shared facts, page-by-page text with source tags, open points.
 - `script-sketch.md` — earlier draft by another agent. Reference for
   structure only: it targets 16–24 pages and contains unsourced or
   apparently incorrect figures, an invented-looking case study section and a

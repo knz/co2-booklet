@@ -37,7 +37,56 @@ Content Guidelines:
 
 ## Project Overview
 
-... TBD ...
+Information material about indoor CO₂ in homes in Diemen (NL), supporting a
+city council motion by a council fraction. The motion asks for awareness
+about CO₂ build-up and a programme where residents can temporarily borrow a
+CO₂ meter. The fraction publishes the material, not the municipality. See
+`README.md` for the full outline.
+
+Deliverables (all in Dutch and English):
+
+- **Infographic:** one A5 sheet, Dutch on one side, English on the other,
+  with a QR code to the landing page.
+- **Booklet:** max 4 A4 pages of content, printed as 8 A5 pages; more
+  explanation plus evidence and links; available as PDF.
+- **Landing page:** https://knz.github.io/co2-booklet/ (QR target). Visitor
+  chooses NL or EN, then sees the infographic in that language as an inline
+  image with links to the PDFs underneath. Use the `frontend-design` skill
+  when designing it; Tailwind CSS and daisyUI components are accepted.
+
+Audience: the median Diemen resident at any education level, and immigrants.
+Keep language plain (Dutch at roughly B1 level is the working proposal).
+
+Toolchain: Typst sources in this repository, compiled to PDF (and images for
+the landing page). GitHub Actions (`.github/workflows/pages.yml`) deploys
+`site/` to GitHub Pages on push to `master`; see `PUBLISHING.md`. The landing
+page URL is printed in the QR code and must stay stable: no repository
+rename or move, landing page stays at the site root.
+
+Content rules:
+
+- **Never name the political party or council fraction** behind the motion —
+  not in the materials, and not in README, CLAUDE.md, changelogs or commit
+  messages either (the repository is public).
+- Every factual claim (numbers, thresholds, health effects) needs a
+  checkable source in the shared reference list.
+- Persuasive tone is allowed, but wording must not go beyond what the source
+  supports; mixed findings are not presented as settled.
+- CO₂ thresholds and key figures are defined once and shared between the
+  infographic and the booklet.
+
+Key files:
+
+- `input.txt` — seed topics from the user; the authoritative scope.
+- `script-sketch.md` — earlier draft by another agent. Reference for
+  structure only: it targets 16–24 pages and contains unsourced or
+  apparently incorrect figures, an invented-looking case study section and a
+  questionable meter table. Do not copy figures from it without verifying
+  them.
+- `README.md` — project outline, decisions, proposed layout, open decisions.
+- `PUBLISHING.md` — GitHub Pages set-up and QR/URL stability notes.
+- `site/` — static site deployed to GitHub Pages (placeholder for now).
+- `changelog/` — per-task decision log (see rules above).
 
 ## Require clarification and plan approval before making code changes
 

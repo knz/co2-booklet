@@ -1,0 +1,47 @@
+# Builds the site and deploys it to GitHub Pages.
+# One-time repository set-up: see PUBLISHING.md.
+name: Deploy site to GitHub Pages
+
+on:
+  push:
+    branches: [master]
+  # Allows running the workflow manually from the Actions tab.
+  workflow_dispatch:
+
+# Only one deployment at a time; do not cancel a deployment in progress.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      # Placeholder stage: site/ is deployed as-is. Once Typst sources exist,
+      # add steps here to install Typst (e.g. typst-community/setup-typst),
+      # compile the infographic and booklet (PDF, plus images for the landing
+      # page), and copy the outputs into site/.
+
+      - name: Upload site as Pages artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: site/
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

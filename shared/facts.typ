@@ -6,6 +6,10 @@
 #let url = "https://knz.github.io/co2-booklet/"
 #let sources-checked = "15 September 2026"
 
+// Colophon (user, 2026-09-16).
+#let publisher = "Thaumogen Consulting BV"
+#let text-date = "September 2026"
+
 // F1 Outdoor CO₂, NOAA 2025 annual means.
 #let outdoor = 425
 
@@ -33,6 +37,17 @@
 #let workplace-limit = 5000
 #let workplace-hours = 8
 
+// Short-term poisoning threshold used in the booklet (user, 2026-09-16).
+// The literature report supports: no measurable effects in healthy adults
+// after short exposures up to 20,000 ppm; symptoms above ~50,000 ppm. The
+// exact 10,000 ppm figure has no source of its own.
+#let poisoning-min = 10000
+
+// Level above which the booklet says long-term effects are being studied
+// (user, 2026-09-16). No source found for 1,400 ppm; the report could not
+// trace the Dutch 1,400 ppm figures used elsewhere.
+#let longterm-concern = 1400
+
 // F8 Toxic levels (NIOSH 1994; Azuma 2018).
 #let toxic-symptoms = 50000
 #let unconscious-min = 70000
@@ -57,8 +72,12 @@
 // F12 Origin of ~1,000 ppm.
 #let pettenkofer-period = "1850s"
 
-// F13 Meter price in euro (Milieu Centraal 2026).
-#let meter-price-min = 80
+// F13 Meter price in euro. Milieu Centraal 2026 gives €80–300. The €50
+// starting price comes from a market check of Dutch and EU retail listings
+// on 2026-09-16: several models whose manufacturer specifies an NDIR sensor
+// were offered at about €50. Both documents now say "from about €50", so
+// meter-price-max is currently unused. Caveats in the changelog.
+#let meter-price-min = 50
 #let meter-price-max = 300
 
 // F14 Good indoor humidity in percent.

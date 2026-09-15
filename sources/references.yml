@@ -207,6 +207,42 @@ azuma2018: # A17
   parent: { type: periodical, title: Environment International, volume: 121 }
   serial-number: { doi: 10.1016/j.envint.2018.08.059 }
 
+permentier2017: # C6
+  type: article
+  title: "Carbon dioxide poisoning: a literature review of an often forgotten cause of intoxication in the emergency department"
+  author: ["Permentier K", "Vercammen S", "Soetaert S", "Schellemans C"]
+  date: 2017
+  page-range: "14"
+  parent: { type: periodical, title: International Journal of Emergency Medicine, volume: 10 }
+  serial-number: { doi: 10.1186/s12245-017-0142-y }
+
+maniscalco2022: # A9
+  type: article
+  title: Physiological responses, self-reported health effects, and cognitive performance during exposure to carbon dioxide at 20 000 ppm
+  author: ["Maniscalco J", "Hoffmeyer F", "Monsé C", "Jettkant B", "Marek E", "Brüning T", "Bünger J", "Sucker K"]
+  date: 2022
+  page-range: "e12939"
+  parent: { type: periodical, title: Indoor Air, volume: 32, issue: 1 }
+  serial-number: { doi: 10.1111/ina.12939 }
+
+lowther2021: # A16
+  type: article
+  title: "Low level carbon dioxide indoors—a pollution indicator or a pollutant? A health-based perspective"
+  author: ["Lowther SD", "Dimitroulopoulou S", "Foxall K", "Shrubsole C", "Cheek E", "Gadeberg B", "Sepai O"]
+  date: 2021
+  page-range: "125"
+  parent: { type: periodical, title: Environments, volume: 8, issue: 11 }
+  serial-number: { doi: 10.3390/environments8110125 }
+
+jacobson2019: # A18
+  type: article
+  title: Direct human health risks of increased atmospheric carbon dioxide
+  author: ["Jacobson TA", "Kler JS", "Hernke MT", "Braun RK", "Meyer KC", "Funk WE"]
+  date: 2019
+  page-range: 691–701
+  parent: { type: periodical, title: Nature Sustainability, volume: 2 }
+  serial-number: { doi: 10.1038/s41893-019-0323-1 }
+
 niosh-idlh: # C2
   type: web
   title: Carbon dioxide – Immediately Dangerous to Life or Health Concentrations (IDLH)

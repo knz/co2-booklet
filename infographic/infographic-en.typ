@@ -43,22 +43,24 @@
 #grid(
   columns: (1fr, 1fr),
   column-gutter: 5mm,
-  [
+  row-gutter: 1.5mm,
+  // Text cells have a fixed height, so I1 and I2 start at the same height.
+  block(width: 100%, height: 21mm)[
     // Sources: Fan 2023 (sleep); Kang 2024; Strøm-Tejsen 2016 [§1d];
     // WHO 2009; Milieu Centraal [§14].
     #block-head(1)[Stale air, poorer sleep]
     In studies, people slept less deeply and woke up more often in poorly
     ventilated bedrooms. Too little fresh air also raises the risk of damp
     and mould.
-    #placeholder("I1", "Bed, closed window and closed door; small mould spot in the corner.", height: 28mm)
   ],
-  [
+  block(width: 100%, height: 21mm)[
     // Sources: ASHRAE 2025; HSE [§3, §9]; Zhang 2016, Chen 2023 [§4].
     #block-head(2)[CO₂ shows how fresh the air is]
     Everyone breathes out CO₂. When too little fresh air comes in, CO₂ goes
     up. You can't smell it, but a CO₂ meter shows it.
-    #placeholder("I2", "Person breathing out; CO₂ meter display.", height: 28mm)
   ],
+  placeholder("I1", "Bed, closed window and closed door; small mould spot in the corner.", height: 28mm),
+  placeholder("I2", "Person breathing out; CO₂ meter display.", height: 28mm),
 )
 
 // ---- Block 3
@@ -89,7 +91,9 @@
   item("I5", "Icon: mechanical ventilation switch", true)[Mechanical ventilation: leave it on.],
   item("I8", "Icon: air conditioner", false)[Air conditioner],
   [],
-  item("I9", "Icon: window opened once a day (clock)", false)[Airing only once a day],
+  // Wording follows the booklet, which says "at most twice a day (only in
+  // the evening, only in the morning, or both)"; shortened for the list.
+  item("I9", "Icon: window opened briefly, morning and evening (clock)", false)[Airing at most twice a day],
 )
 
 // ---- Footer
@@ -106,10 +110,10 @@
     #tbd[Borrow a CO₂ meter: \[where\] · \[how long\] · \[how to reserve\].]
 
     // [F13; HSE §10]
-    Or buy a meter with an "NDIR" sensor (about €#f.meter-price-min–#f.meter-price-max).
+    Or buy a meter with an "NDIR" sensor (from about €#f.meter-price-min).
 
     #text(size: 6pt, fill: muted)[Sources: see the booklet, via the QR code.] \
-    #text(size: 6pt, fill: muted)[#tbd[Publisher line and date (no party or fraction name).]]
+    #text(size: 6pt, fill: muted)[Published by #f.publisher · #f.text-date]
   ],
   [
     #qrcode(f.url, width: 21mm)

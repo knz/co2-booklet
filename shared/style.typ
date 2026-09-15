@@ -57,14 +57,6 @@
     below: 0.45em,
     text(size: 9.8pt, weight: "bold", fill: accent, it.body),
   )
-  set footnote.entry(
-    separator: line(length: 20%, stroke: 0.4pt + muted),
-    clearance: 0.5em,
-    gap: 0.2em,
-    indent: 0pt,
-  )
-  show footnote.entry: set text(size: 6pt, fill: muted)
-  show footnote.entry: set par(leading: 0.4em)
   show link: set text(hyphenate: false)
   doc
 }
@@ -107,8 +99,9 @@
 
 // Start of a script page (booklet). Records the script page number, so
 // build.sh can report on which PDF page each script page starts.
-#let script-page(n) = {
-  if n > 1 { pagebreak() }
+// `new-page: false` continues on the current page (script pages merged).
+#let script-page(n, new-page: true) = {
+  if n > 1 and new-page { pagebreak() }
   [#metadata(n) <script-page>]
 }
 
@@ -206,20 +199,46 @@
   [#parts.join(". "). #if loc != none [#loc]]
 }
 
-#let _cite-one(key) = context {
-  let lbl = label("src-" + key)
-  if key in _cited.get() {
-    ref(lbl)
-  } else {
-    _cited.update(s => s + (key,))
-    [#footnote(format-ref(key))#lbl]
+#let calc-tag = _tag("(calc)")
+
+// Number of an entry, or none if it has not been cited yet.
+#let _index-of(entries, key) = {
+  let found = none
+  for (i, e) in entries.enumerate() {
+    if e.key == key { found = i + 1 }
   }
+  found
+}
+
+#let _cite-one(key, body: none) = context {
+  let entries = _cited.get()
+  let n = _index-of(entries, key)
+  if n == none {
+    n = entries.len() + 1
+    _cited.update(es => es + ((key: key, body: body),))
+  }
+  super(str(n))
 }
 
 // Cite one or more sources: #src("kang2024", "fan2023sleep")
-#let src(..keys) = keys.pos().map(_cite-one).join(super[,])
+#let src(..keys) = keys.pos().map(k => _cite-one(k)).join(super[,])
 
-// Our own arithmetic from sourced inputs: cites the sources, then adds a
-// footnote that explains the calculation.
-#let ourcalc(what, ..keys) = [#src(..keys)#super[,]#footnote[Our calculation: #what]#if draft [#_tag("(calc)")]]
-#let calc-tag = _tag("(calc)")
+// A numbered entry that is not a source, e.g. our own calculation. Give it
+// an id; citing the same id again reuses its number.
+#let note-cite(id, body: none) = _cite-one(id, body: body)
+
+// Our own arithmetic from sourced inputs: cites the sources, then a
+// numbered note that explains the calculation.
+#let ourcalc(id, what, ..keys) = [#src(..keys)#super[,]#note-cite(id, body: [Our calculation: #what])#if draft [#calc-tag]]
+
+// The numbered reference list, printed at the end of the document.
+#let reference-list(size: 5.9pt, cols: 2) = context {
+  let entries = _cited.final()
+  set text(size: size)
+  set par(leading: 0.38em, spacing: 0.4em)
+  columns(cols, gutter: 4mm, {
+    for (i, e) in entries.enumerate() {
+      block(spacing: 0.4em, [#super(str(i + 1))~#if e.body != none { e.body } else { format-ref(e.key) }])
+    }
+  })
+}

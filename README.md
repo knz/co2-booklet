@@ -116,8 +116,10 @@ Prototype conventions:
 
 - Visuals to commission are hatched placeholder boxes with an ID (I1–I9 on
   the infographic, B1–B3 in the booklet) and the brief from the script.
-- Citations in the booklet are footnotes: one number per source, reused
-  when the source is cited again. The infographic has no footnotes.
+- Citations in the booklet are numbered in order of first appearance, one
+  number per source, reused when the source is cited again. The numbered
+  list of all sources is printed at the end of the booklet. The
+  infographic has no citations.
 - Numbers from the shared facts table come from `shared/facts.typ`.
 
 Open choices:
@@ -191,8 +193,10 @@ or dropped.
 
 Status: script draft 2 in `script.md`; English Typst prototypes of the
 infographic and booklet with visual placeholders. The booklet prototype
-currently runs over 8 pages (see `changelog/20260916-prototype-docs.md`).
-Placeholder site and deploy workflow in place.
+fits 8 A5 pages: script pages 2 and 3 share a page, and the numbered
+reference list fills the last one and a half pages (see
+`changelog/20260916-prototype-docs.md`). Placeholder site and deploy
+workflow in place.
 
 Open:
 

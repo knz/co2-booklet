@@ -42,9 +42,6 @@ through gaps. Then grilles, windows or a ventilation system have to bring in
 the fresh air#src("mc-natuurlijke", "signalen2024"). A room without a grille,
 with the window closed, gets little fresh air at all. #inference
 
-#cut[RIVM thinks that many people ventilated less during the 2022–2023 energy
-  crisis#src("rivm-radon2024").]
-
 == In this booklet
 Why fresh air matters, how a CO₂ meter shows whether you get enough, and what
 you can do.
@@ -57,18 +54,11 @@ you can do.
 
 == Sleep
 // §1d
-In several studies, researchers changed how much fresh air came into
-bedrooms, sometimes without the sleepers knowing. With less fresh air (CO₂
-from about 1,000 to 2,500 ppm during the night), people slept less deeply and
-woke up more often#src("stromtejsen2016", "fan2023sleep", "kang2024"). In one
-study, people also felt more rested after nights with better
+Studies show that with less fresh air (CO₂ from about 1,000 to 2,500 ppm
+during the night), people sleep less deeply and wake up more
+often#src("stromtejsen2016", "fan2023sleep", "kang2024"). In one study,
+people also felt more rested after nights with better
 ventilation#src("stromtejsen2016").
-
-The differences were small, for example about #f.kang-low-awake-min to
-#f.kang-high-awake-min extra minutes awake per night#src("kang2024"). Most
-studies involved young, healthy adults.
-
-#placeholder("B2", "Simple sleep-stage bar (deep / light / awake), schematic, no data values.", height: 14mm)
 
 == Stuffy rooms during the day
 // §1b–1c
@@ -81,43 +71,12 @@ Breathing, cooking and showering add moisture to the air. Without enough
 ventilation it stays inside. That raises the risk of damp and mould, which
 are linked to breathing problems, allergies and asthma#src("who2009", "mc-woning").
 
-#info-box(title: [What people say they notice])[
-  // non-specific symptoms: §4a
-  #text(size: 7.4pt, style: "italic")[These are personal experiences, not
-    measured results. These complaints can have many causes; a meter shows
-    whether stale air could be one of them.]
-  #set text(size: 7.4pt)
-  #table(
-    columns: (1fr, 2fr),
-    fill: white,
-    table.header[People say…][What studies found],
-    ["I wake up with a headache."],
-    [More headaches in stuffy rooms during the day#src("zhang2017"). The one
-      bedroom study that asked about headaches found no
-      difference#src("stromtejsen2016").],
-
-    ["I feel foggy and can't concentrate."],
-    // §1a
-    [Studies disagree. Some found lower scores on a demanding decision test
-      in stale or CO₂-rich air#src("satish2012", "allen2016")\; others did
-      not#src("rodeheffer2018", "scully2019", "chen2023").],
-
-    ["I wake up tired."],
-    [In one study people felt more rested after better-ventilated
-      nights#src("stromtejsen2016").],
-
-    [#cut-tag "I get irritable."],
-    // §2
-    [Not studied for stuffy bedrooms. Poor sleep in general can affect
-      mood#src("palmer2024")\; whether the small sleep effects above are
-      enough is not known.],
-  )
-]
-
 // =====================================================================
 // Page 3 — CO₂: a sign of how fresh the air is
 
-#script-page(3)
+// Script page 3 continues on the same page as script page 2
+// (user, 2026-09-16).
+#script-page(3, new-page: false)
 = CO₂: a sign of how fresh the air is
 
 == Where CO₂ comes from
@@ -136,33 +95,25 @@ someone coming in from outside notices it straight
 away#src("gunnarsen1992", "zhang2017").
 
 == Is CO₂ itself harmful?
-// §1a, §3, §5
-Not at the levels found in homes, as far as studies show.
-
-- In experiments where only pure CO₂ was added to well-ventilated rooms, most
-  studies found no effect on headaches, tiredness or simple tasks, even at
-  5,000 ppm for a few hours#src("zhang2016", "zhang2017", "chen2023", "fan2023meta").
-  Tests of complex decision-making gave mixed results#src("fan2023meta").
-- Workplaces may average up to #ppm(f.workplace-limit) over a working
-  day#src("arboregeling", "eu2006").
-- CO₂ becomes poisonous only at tens of thousands of ppm, far above home
-  levels#src("niosh-idlh", "azuma2018").
+// Text replaced on user instruction, 2026-09-16. See the changelog: the
+// 10,000 ppm and 1,400 ppm figures have no source of their own, and the
+// report rates chronic effects at indoor levels as not yet studied.
+Short-term CO₂ poisoning only occurs at #ppm(f.poisoning-min) or
+higher#src("azuma2018", "permentier2017", "maniscalco2022"). The effects of
+long-term exposure to elevated CO₂ (above #ppm(f.longterm-concern)) are still
+being studied#src("lowther2021", "jacobson2019"). Some studies report
+cognitive impairment#src("satish2012", "allen2016"), others elevated chronic
+stress#src("kang2024", "jacobson2019").
 
 #level-scale()
-
-The advice to stay around #num(f.guide-abroad)–#ppm(f.nl-reference) is about
-fresh air. It goes back to the #f.pettenkofer-period, when the scientist Max
-von Pettenkofer used CO₂ as a sign of stale air#src("ashrae2025", "uba2008").
-
-Studies lasted hours to weeks. No study has followed people at home levels
-for months or years.
+#text(size: 6.5pt, fill: muted)[Levels in the scale: outdoor
+  air#src("noaa2025"), workplace limit#src("arboregeling", "eu2006"),
+  poisoning#src("niosh-idlh", "azuma2018").]
 
 == What a CO₂ meter does not show
 CO₂ is not a full measure of air quality#src("ashrae2025"). Smoke, cooking
 fumes, fumes from paint or cleaning products, and damp are not measured by a
-CO₂ meter. An empty room shows low CO₂ even if its ventilation is
-poor. #inference Sleep researchers note that watching CO₂ alone may not be
-enough for undisturbed sleep#src("akimoto2025").
+CO₂ meter.
 
 // =====================================================================
 // Page 4 — What level is good? Advice here and abroad
@@ -202,19 +153,21 @@ enough#src("gezondheidsraad2010", "rivm-ggd2023"). Milieu Centraal: up to
     [#ppm(f.guide-abroad)], [all indoor spaces (not industry)], [recommended norm (FHI)],
 
     [Flanders (Belgium)#src("flanders2018")],
-    [#ppm(f.flanders-above) above outdoor air (≈~#ppm(f.flanders-abs))#footnote[Our
-        calculation: the value above outdoor air plus outdoor air of about
-        #ppm(f.outdoor).] <calc-abroad> #calc-tag],
+    [#ppm(f.flanders-above) above outdoor air (≈~#ppm(f.flanders-abs))#note-cite(
+        "calc-abroad",
+        body: [Our calculation: the value above outdoor air plus outdoor air
+          of about #ppm(f.outdoor).],
+      )#calc-tag],
     [homes and public buildings], [guide value in a regional decree],
 
     [Finland#src("finland545")],
-    [#ppm(f.finland-above) above outdoor air (≈~#ppm(f.finland-abs))#ref(<calc-abroad>)],
+    [#ppm(f.finland-above) above outdoor air (≈~#ppm(f.finland-abs))#note-cite("calc-abroad")],
     [homes], [binding: authorities can act above this],
 
-    [#cut-tag Denmark#src("br18")],
+    [Denmark#src("br18")],
     [#ppm(1000) (design)], [schools, day care], [building regulation BR18 §447],
 
-    [#cut-tag France#src("france2022")],
+    [France#src("france2022")],
     [#ppm(800) fine; above #num(1500) act quickly],
     [schools, childcare, care facilities], [binding since 2023],
   )
@@ -222,16 +175,14 @@ enough#src("gezondheidsraad2010", "rivm-ggd2023"). Milieu Centraal: up to
 
 == Bedrooms
 Sleep researchers advise keeping bedroom CO₂ below #ppm(f.bedroom-max),
-preferably below #ppm(f.bedroom-preferred). This is advice from the research
-group whose studies make up most of the evidence, not a legal
-limit#src("akimoto2025").
+preferably below #ppm(f.bedroom-preferred). Scientific evidence suggests we
+should revise our legal limits#src("akimoto2025").
 
 == How common is it in Dutch homes?
 // §7
 In a national study of about #num(f.tno-homes) Dutch homes, measured around
 #f.tno-year, almost half of main bedrooms went above #ppm(f.nl-reference) at
-least once during the measured week#src("tno2007", "rivm2007"). No newer
-national measurements were found.
+least once during the measured week#src("tno2007", "rivm2007").
 
 // =====================================================================
 // Page 5 — Measure it yourself
@@ -244,8 +195,11 @@ national measurements were found.
     · \[what you get: meter, short instruction\].]
 ]
 
-Or buy one: a CO₂ meter costs about
-€#f.meter-price-min–#f.meter-price-max#src("mc-natuurlijke"). Milieu Centraal
+Or buy one: a CO₂ meter with an NDIR sensor can be found starting at about
+€#f.meter-price-min#note-cite("market-check", body: [Check of Dutch and EU
+  retail listings, 16 September 2026: several meters whose manufacturer
+  specifies an NDIR sensor were offered from about €#f.meter-price-min. The
+  consumer organisation Milieu Centraal gives €80–300.]). Milieu Centraal
 also advises measuring, or borrowing a meter, in the living room and
 bedrooms#src("mc-natuurlijke").
 
@@ -253,8 +207,7 @@ bedrooms#src("mc-natuurlijke").
 // §10
 Choose a meter with an NDIR sensor. Meters that show "eCO₂" or "CO₂
 equivalent" do not measure CO₂; they estimate it from other
-gases#src("hse"). In Belgium such estimating meters may no longer be sold
-since March 2024#src("prevent").
+gases#src("hse").
 
 == Where to put it
 Guidance for workplaces and public buildings says:
@@ -304,17 +257,18 @@ closed and one night with it open, and compare. #advice
 - *Plants.* Plants do not measurably lower CO₂ in a home. Even in very bright
   light you would need hundreds to more than a thousand plants to take up the
   CO₂ of one person, and in the dark plants give off
-  CO₂#ourcalc([plant count from the CO₂ uptake per plant that Gubb et al.
+  CO₂#ourcalc("calc-plants", [plant count from the CO₂ uptake per plant that Gubb et al.
     measured under very bright light, and about 30 g of CO₂ per hour for one
     person at home (Persily & de Jonge).], "gubb2018", "persily2017").
 - *Air purifier or air conditioner.* They clean or cool the air that is
   already inside. They don't bring in outdoor air, so they don't lower
   CO₂#src("epa", "rehva2021").
-- *Airing once a day.* Airing refreshes the air, but once the window is
-  closed, CO₂ rises again while people are in the room. As an example: one
+- *Airing at most twice a day (only in the evening, only in the morning, or
+  both).* Airing refreshes the air, but once the window is closed, CO₂ rises
+  again while people are in the room. As an example: one
   adult in a closed bedroom of #f.example-room-m3 m³ with no air leaking in
   adds roughly #ppm(f.example-rise-per-hour) per
-  hour#ourcalc([about 13 litres of CO₂ per hour for one adult man at rest
+  hour#ourcalc("calc-airing", [about 13 litres of CO₂ per hour for one adult man at rest
     (Persily & de Jonge), spread over #f.example-room-m3 m³ of air with no
     air exchange.], "persily2017"). Real rooms leak some air, so the rise
   slows. Keep the grilles open as well#src("mc-natuurlijke").
@@ -414,25 +368,24 @@ the window wide open, and keep grilles open#src("uba-lueften").
 
 - Milieu Centraal, ventilation: #ref-url("mc-woning")
 - RIVM, "Binnenmilieu in woningen": #ref-url("rivm-woningen")
-- Brandweer.nl, "Koolmonoxide": #ref-url("brandweer-co")
 
-#tbd[Check these URLs before print.]
+// URLs checked by hand and confirmed (user, 2026-09-16).
 
-== Sources
-The sources for this booklet are given in the footnotes on each page.
-#tbd[Full source list on the landing page.]
-
-#v(6mm)
+#v(4mm)
 #align(center)[
-  #qrcode(f.url, width: 32mm)
+  #qrcode(f.url, width: 30mm)
   #v(-1mm)
   More information and sources \
   #link(f.url)
 ]
 
-#v(1fr)
+#v(4mm)
 == About this booklet
-#tbd[Publisher line (no party or fraction name).] \
-#tbd[Date of the text.] \
+Published by #f.publisher. \
+#f.text-date. \
 Sources checked on #f.sources-checked. \
 This booklet gives general information. It is not medical advice.
+
+== Sources
+#tbd[Also to be published as a list on the landing page.]
+#reference-list()

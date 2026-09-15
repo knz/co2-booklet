@@ -42,10 +42,18 @@ typst eval "${args[@]}" --in booklet/booklet-en.typ --format json \
   | python3 -c 'import json, sys
 starts = json.load(sys.stdin)
 total = int(sys.argv[1])
-for i, (n, page) in enumerate(starts):
-    end = starts[i + 1][1] if i + 1 < len(starts) else total + 1
+# Script pages that start on the same PDF page share it: report them together.
+groups = []
+for n, page in starts:
+    if groups and groups[-1][1] == page:
+        groups[-1][0].append(n)
+    else:
+        groups.append([[n], page])
+for i, (ns, page) in enumerate(groups):
+    end = groups[i + 1][1] if i + 1 < len(groups) else total + 1
     used = end - page
-    print("  script p%d: %d%s" % (n, used, "  <- runs over" if used > 1 else ""))' "$total"
+    label = "+".join("p%d" % n for n in ns)
+    print("  script %s: %d%s" % (label, used, "  <- runs over" if used > len(ns) else ""))' "$total"
 
 echo
 echo "Visual placeholders:"

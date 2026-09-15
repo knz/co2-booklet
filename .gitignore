@@ -2,3 +2,6 @@
 \#*\#
 node_modules
 .venv
+
+# Local copies of consulted sources (copyrighted; not published)
+/sources/archive/

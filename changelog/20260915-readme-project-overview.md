@@ -149,3 +149,14 @@ yet — these are items to check, not conclusions.
   the site goes live; literature check on health effects and thresholds;
   Typst skeleton with shared definitions and QR code; infographic message
   and structure; landing page (with frontend-design skill).
+
+## Follow-up: go-live check (2026-09-15)
+
+- User reports having followed `PUBLISHING.md`; asked to check the
+  deployment. User also enabled passwordless push/pull for agent sessions
+  (local detail kept out of repo docs).
+- Result: remote `origin` configured, `master` pushed and is the default
+  branch; Pages `build_type` is `workflow`; workflow run "Deploy site to
+  GitHub Pages" on push of commit faac535 completed successfully (21s);
+  https://knz.github.io/co2-booklet/ returns HTTP 200 with the placeholder
+  page. The workflow (including checkout v7) works as written.

@@ -1,0 +1,472 @@
+# Reference list for the infographic and booklet (Hayagriva YAML).
+# Built from the source list in the literature report (local only,
+# sources/archive/_report.md, section 3). Report IDs in comments.
+# Retrieval/consultation date for all entries: 2026-09-15.
+# Author names: "Surname Initials". Keys are used with #src("key").
+
+# --- Health: sleep -------------------------------------------------------
+
+stromtejsen2016: # B1
+  type: article
+  title: The effects of bedroom air quality on sleep and next-day performance
+  author: ["Strøm-Tejsen P", "Zukowska D", "Wargocki P", "Wyon DP"]
+  date: 2016
+  page-range: 679–686
+  parent: { type: periodical, title: Indoor Air, volume: 26, issue: 5 }
+  serial-number: { doi: 10.1111/ina.12254 }
+
+fan2023sleep: # B4
+  type: article
+  title: A single-blind field intervention study of whether increased bedroom ventilation improves sleep quality
+  author: ["Fan X", "Liao C", "Matsuo K", "Verniers K", "Laverge J", "Neyrinck B", "Pollet I", "Fang L", "Lan L", "Sekhar C", "Wargocki P"]
+  date: 2023
+  page-range: "163805"
+  parent: { type: periodical, title: Science of the Total Environment, volume: 884 }
+  serial-number: { doi: 10.1016/j.scitotenv.2023.163805 }
+
+kang2024: # B5
+  type: article
+  title: "Ventilation causing an average CO2 concentration of 1,000 ppm negatively affects sleep: a field-lab study on healthy young people"
+  author: ["Kang M", "Yan Y", "Guo C", "Liu Y", "Fan X", "Wargocki P", "Lan L"]
+  date: 2024
+  page-range: "111118"
+  parent: { type: periodical, title: Building and Environment, volume: 249 }
+  serial-number: { doi: 10.1016/j.buildenv.2023.111118 }
+
+akimoto2025: # 1d, full text
+  type: article
+  title: New research on bedroom ventilation and sleep quality suggests that building standards should be revisited (ASHRAE 1837-RP)
+  author: ["Akimoto M", "Fan X", "Lan L", "Sekhar C", "Tanabe S", "Wyon DP", "Wargocki P"]
+  date: 2025
+  page-range: 905–916
+  parent: { type: periodical, title: Science and Technology for the Built Environment, volume: 31, issue: 8 }
+  serial-number: { doi: 10.1080/23744731.2025.2531317 }
+
+palmer2024: # B16
+  type: article
+  title: "Sleep loss and emotion: a systematic review and meta-analysis of over 50 years of experimental research"
+  author: ["Palmer CA", "Bower JL", "Cho KW", "Clementi MA", "Lau S", "Oosterhoff B", "Alfano CA"]
+  date: 2024
+  page-range: 440–463
+  parent: { type: periodical, title: Psychological Bulletin, volume: 150, issue: 4 }
+  serial-number: { doi: 10.1037/bul0000410 }
+
+# --- Health: cognition, headache, stuffy rooms ---------------------------
+
+satish2012: # A1
+  type: article
+  title: "Is CO2 an indoor pollutant? Direct effects of low-to-moderate CO2 concentrations on human decision-making performance"
+  author: ["Satish U", "Mendell MJ", "Shekhar K", "Hotchi T", "Sullivan D", "Streufert S", "Fisk WJ"]
+  date: 2012
+  page-range: 1671–1677
+  parent: { type: periodical, title: Environmental Health Perspectives, volume: 120, issue: 12 }
+  serial-number: { doi: 10.1289/ehp.1104789 }
+
+allen2016: # A2
+  type: article
+  title: "Associations of cognitive function scores with carbon dioxide, ventilation, and volatile organic compound exposures in office workers: a controlled exposure study of green and conventional office environments"
+  author: ["Allen JG", "MacNaughton P", "Satish U", "Santanam S", "Vallarino J", "Spengler JD"]
+  date: 2016
+  page-range: 805–812
+  parent: { type: periodical, title: Environmental Health Perspectives, volume: 124, issue: 6 }
+  serial-number: { doi: 10.1289/ehp.1510037 }
+
+scully2019: # A4
+  type: article
+  title: Effects of acute exposures to carbon dioxide on decision making and cognition in astronaut-like subjects
+  author: ["Scully RR", "Basner M", "Nasrini J", "Lam CW", "Hermosillo E", "Gur RC"]
+  date: 2019
+  page-range: "17"
+  parent: { type: periodical, title: npj Microgravity, volume: 5 }
+  serial-number: { doi: 10.1038/s41526-019-0071-6 }
+
+rodeheffer2018: # A5
+  type: article
+  title: Acute exposure to low-to-moderate carbon dioxide levels and submariner decision making
+  author: ["Rodeheffer CD", "Chabal S", "Clarke JM", "Fothergill DM"]
+  date: 2018
+  page-range: 520–525
+  parent: { type: periodical, title: Aerospace Medicine and Human Performance, volume: 89, issue: 6 }
+  serial-number: { doi: 10.3357/AMHP.5010.2018 }
+
+zhang2017: # A6
+  type: article
+  title: Effects of exposure to carbon dioxide and bioeffluents on perceived air quality, self-assessed acute health symptoms, and cognitive performance
+  author: ["Zhang X", "Wargocki P", "Lian Z", "Thyregod C"]
+  date: 2017
+  page-range: 47–64
+  parent: { type: periodical, title: Indoor Air, volume: 27, issue: 1 }
+  serial-number: { doi: 10.1111/ina.12284 }
+
+zhang2016: # A27
+  type: article
+  title: Human responses to carbon dioxide, a follow-up study at recommended exposure limits in non-industrial environments
+  author: ["Zhang X", "Wargocki P", "Lian Z"]
+  date: 2016
+  page-range: 162–171
+  parent: { type: periodical, title: Building and Environment, volume: 100 }
+  serial-number: { doi: 10.1016/j.buildenv.2016.02.014 }
+
+chen2023: # A28
+  type: article
+  title: Effects of short-term exposure to moderate pure carbon dioxide levels on cognitive performance, health symptoms and perceived indoor environment quality
+  author: ["Chen D", "Huebner G", "Bagkeris E", "Ucci M", "Mumovic D"]
+  date: 2023
+  page-range: "110967"
+  parent: { type: periodical, title: Building and Environment, volume: 245 }
+  serial-number: { doi: 10.1016/j.buildenv.2023.110967 }
+
+fan2023meta: # A29
+  type: article
+  title: "Short-term exposure to indoor carbon dioxide and cognitive task performance: a systematic review and meta-analysis"
+  author: ["Fan Y", "Cao X", "Zhang J", "Lai D", "Pang L"]
+  date: 2023
+  page-range: "110331"
+  parent: { type: periodical, title: Building and Environment, volume: 237 }
+  serial-number: { doi: 10.1016/j.buildenv.2023.110331 }
+
+norback2013: # A25
+  type: article
+  title: "Carbon dioxide (CO2) demand-controlled ventilation in university computer classrooms and possible effects on headache, fatigue and perceived indoor environment: an intervention study"
+  author: ["Norbäck D", "Nordström K", "Zhao Z"]
+  date: 2013
+  page-range: 199–209
+  parent: { type: periodical, title: International Archives of Occupational and Environmental Health, volume: 86, issue: 2 }
+  serial-number: { doi: 10.1007/s00420-012-0756-6 }
+
+gunnarsen1992: # B21 (unnumbered row)
+  type: article
+  title: Adaptation to indoor air pollution
+  author: ["Gunnarsen L", "Fanger PO"]
+  date: 1992
+  page-range: 43–54
+  parent: { type: periodical, title: Environment International, volume: 18, issue: 1 }
+  serial-number: { doi: 10.1016/0160-4120(92)90209-M }
+
+# --- Schools -------------------------------------------------------------
+
+fisk2017: # E22
+  type: article
+  title: "The ventilation problem in schools: literature review"
+  author: ["Fisk WJ"]
+  date: 2017
+  page-range: 1039–1051
+  parent: { type: periodical, title: Indoor Air, volume: 27, issue: 6 }
+  serial-number: { doi: 10.1111/ina.12403 }
+
+haverinen2011: # E24
+  type: article
+  title: Association between substandard classroom ventilation rates and students' academic achievement
+  author: ["Haverinen-Shaughnessy U", "Moschandreas DJ", "Shaughnessy RJ"]
+  date: 2011
+  page-range: 121–131
+  parent: { type: periodical, title: Indoor Air, volume: 21, issue: 2 }
+  serial-number: { doi: 10.1111/j.1600-0668.2010.00686.x }
+
+wargocki2020: # E23
+  type: article
+  title: The relationships between classroom air quality and children's performance in school
+  author: ["Wargocki P", "Porras-Salazar JA", "Contreras-Espinoza S", "Bahnfleth W"]
+  date: 2020
+  page-range: "106749"
+  parent: { type: periodical, title: Building and Environment, volume: 173 }
+  serial-number: { doi: 10.1016/j.buildenv.2020.106749 }
+
+# --- CO₂ as a ventilation indicator; toxic levels ------------------------
+
+ashrae2025: # A19
+  type: report
+  title: ASHRAE Position Document on Indoor Carbon Dioxide
+  author: ASHRAE
+  date: 2025
+  url: { value: "https://www.ashrae.org/file%20library/about/position%20documents/pd-on-indoor-carbon-dioxide-english.pdf", date: "2026-09-15" }
+
+persily2015: # B23
+  type: article
+  title: Indoor carbon dioxide concentrations in ventilation and indoor air quality standards
+  author: ["Persily A"]
+  date: 2015
+  note: Proceedings of the 36th AIVC Conference, Madrid, pp. 810–819
+  url: { value: "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=919027", date: "2026-09-15" }
+
+persily2017: # E12
+  type: article
+  title: Carbon dioxide generation rates for building occupants
+  author: ["Persily A", "de Jonge L"]
+  date: 2017
+  page-range: 868–879
+  parent: { type: periodical, title: Indoor Air, volume: 27, issue: 5 }
+  serial-number: { doi: 10.1111/ina.12383 }
+
+azuma2018: # A17
+  type: article
+  title: "Effects of low-level inhalation exposure to carbon dioxide in indoor environments: a short review on human health and psychomotor performance"
+  author: ["Azuma K", "Kagi N", "Yanagi U", "Osawa H"]
+  date: 2018
+  page-range: 51–56
+  parent: { type: periodical, title: Environment International, volume: 121 }
+  serial-number: { doi: 10.1016/j.envint.2018.08.059 }
+
+niosh-idlh: # C2
+  type: web
+  title: Carbon dioxide – Immediately Dangerous to Life or Health Concentrations (IDLH)
+  author: NIOSH
+  date: 1994
+  url: { value: "https://www.cdc.gov/niosh/idlh/124389.html", date: "2026-09-15" }
+
+arboregeling: # C35
+  type: web
+  title: Arbeidsomstandighedenregeling, Bijlage XIII (Lijst wettelijke grenswaarden), version from 27-08-2026
+  url: { value: "https://wetten.overheid.nl/BWBR0008587/2026-08-27", date: "2026-09-15" }
+
+eu2006: # C1
+  type: web
+  title: Commission Directive 2006/15/EC establishing a second list of indicative occupational exposure limit values
+  author: European Commission
+  date: 2006
+  url: { value: "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32006L0015", date: "2026-09-15" }
+
+noaa2025: # B27
+  type: web
+  title: Trends in Atmospheric Carbon Dioxide (annual means, global and Mauna Loa)
+  author: NOAA Global Monitoring Laboratory
+  date: 2026
+  url: { value: "https://gml.noaa.gov/ccgg/trends/global.html", date: "2026-09-15" }
+
+# --- Netherlands: guidance, rules, data ----------------------------------
+
+gezondheidsraad2010: # D3
+  type: report
+  title: Binnenluchtkwaliteit in basisscholen
+  author: Gezondheidsraad
+  date: 2010
+  url: { value: "https://www.gezondheidsraad.nl/documenten/adviezen/2010/04/29/binnenluchtkwaliteit-in-basisscholen", date: "2026-09-15" }
+
+rivm-ggd2023: # D4
+  type: web
+  title: "GGD-richtlijn medische milieukunde: ventilatie op school en gezondheid"
+  author: RIVM
+  date: 2023
+  url: { value: "https://www.rivm.nl/ggd-richtlijn-mmk-ventilatie-scholen", date: "2026-09-15" }
+
+mc-natuurlijke: # E14
+  type: web
+  title: Natuurlijke ventilatie
+  author: Milieu Centraal
+  date: 2026
+  url: { value: "https://www.milieucentraal.nl/energie-besparen/ventilatie/natuurlijke-ventilatie/", date: "2026-09-15" }
+
+mc-woning: # E13
+  type: web
+  title: Woning ventileren
+  author: Milieu Centraal
+  date: 2026
+  url: { value: "https://www.milieucentraal.nl/energie-besparen/ventilatie/woning-ventileren/", date: "2026-09-15" }
+
+iplo-nieuwbouw: # D1
+  type: web
+  title: "Ventilatie: regels bij nieuwbouw (Bbl)"
+  author: IPLO
+  date: 2026
+  url: { value: "https://iplo.nl/regelgeving/regels-voor-activiteiten/technische-bouwactiviteit/nieuwbouw/rijksregels/ventilatie/", date: "2026-09-15" }
+
+iplo-bestaand: # D2
+  type: web
+  title: "Ventilatie: regels bij bestaande bouw (Bbl)"
+  author: IPLO
+  date: 2026
+  url: { value: "https://iplo.nl/regelgeving/regels-voor-activiteiten/in-stand-houden-bestaand-bouwwerk/rijksregels/ventilatie/", date: "2026-09-15" }
+
+tno2007: # D7
+  type: report
+  title: Gezondheidsaspecten van woningen in Nederland
+  author: ["van Dongen J", "Vos H"]
+  date: 2007
+  note: TNO-rapport 2007-D-R0188/A
+  url: { value: "https://www.vzinfo.nl/sites/default/files/2021-11/tno-rapport_gezondheidsaspecten_van_woningen.pdf", date: "2026-09-15" }
+
+rivm2007: # D8
+  type: report
+  title: Gezondheidkundige advieswaarden binnenmilieu, een update
+  author: ["Dusseldorp A", "van Bruggen M"]
+  date: 2007
+  note: RIVM rapport 609021043/2007
+  url: { value: "https://www.rivm.nl/bibliotheek/rapporten/609021043.pdf", date: "2026-09-15" }
+
+signalen2024: # D14
+  type: web
+  title: Binnenluchtkwaliteit scholen en woningen
+  author: Signalen Leefomgeving en Gezondheid
+  date: 2024
+  url: { value: "https://signalenleefomgeving.nl/signalen/binnenluchtkwaliteit-scholen-en-woningen", date: "2026-09-15" }
+
+rivm-radon2024: # D27
+  type: web
+  title: Radon in Nederlandse woningen, werkplekken en gebouwen. Resultaten meetcampagne 2022–2023
+  author: RIVM
+  date: 2024
+  url: { value: "https://www.rivm.nl/publicaties/radon-in-nederlandse-woningen-werkplekken-en-gebouwen", date: "2026-09-15" }
+
+bader2009: # D20
+  type: report
+  title: "Mechanische ventilatie in nieuwbouwwoningen: gebruik, geluidsniveau en beleving"
+  author: ["Bader S", "Blaauboer RO"]
+  date: 2009
+  note: RIVM briefrapport 610790007/2009
+  url: { value: "https://www.rivm.nl/bibliotheek/rapporten/610790007.pdf", date: "2026-09-15" }
+
+rigo2009: # D21
+  type: report
+  title: "Mechanische ventilatie in nieuwbouwwoningen: ervaringen en oordelen van bewoners over de kwaliteit van ventilatie en de eigen gezondheid"
+  author: ["Leidelmeijer K", "Menkveld M", "Cozijnsen E", "Heemskerk H"]
+  date: 2009
+  note: RIGO
+  url: { value: "https://www.rivm.nl/sites/default/files/2018-11/Mechanische%20ventilatie%20in%20nieuwbouwwoningen%20(RIGO%202009).pdf", date: "2026-09-15" }
+
+bba2011: # D16
+  type: report
+  title: Onderzoek naar de kwaliteit van ventilatiesystemen in nieuwbouw eengezinswoningen
+  author: ["van Dijken F", "Boerstra AC"]
+  date: 2011
+  note: BBA Binnenmilieu
+  url: { value: "https://www.co2-meters.nl/documentatie/rapport_ventilatie_nieuwbouwwoningen.pdf", date: "2026-09-15" }
+
+rvo-isde: # D32
+  type: web
+  title: "ISDE: Ventilatie woningeigenaren"
+  author: RVO
+  date: 2026
+  url: { value: "https://www.rvo.nl/subsidies-financiering/isde/woningeigenaren/ventilatie", date: "2026-09-15" }
+
+co2meter2023: # E21 (commercial vendor blog; only explicit source found)
+  type: web
+  title: Can a carbon monoxide detector detect carbon dioxide?
+  author: CO2Meter.com
+  date: 2023
+  url: { value: "https://www.co2meter.com/blogs/news/can-a-carbon-monoxide-detector-detect-carbon-dioxide", date: "2026-09-15" }
+
+brandweer-co: # E19
+  type: web
+  title: Koolmonoxide
+  author: Brandweer Nederland
+  date: 2026
+  url: { value: "https://www.brandweer.nl/onderwerpen/koolmonoxide/", date: "2026-09-15" }
+
+# --- Abroad ---------------------------------------------------------------
+
+healthcanada2021: # C9
+  type: web
+  title: "Residential indoor air quality guidelines: carbon dioxide"
+  author: Health Canada
+  date: 2021
+  url: { value: "https://www.canada.ca/en/health-canada/services/publications/healthy-living/residential-indoor-air-quality-guidelines-carbon-dioxide.html", date: "2026-09-15" }
+
+uba2008: # C8
+  type: article
+  title: Gesundheitliche Bewertung von Kohlendioxid in der Innenraumluft
+  author: Ad-hoc-Arbeitsgruppe Innenraumrichtwerte (UBA)
+  date: 2008
+  page-range: 1358–1369
+  parent: { type: periodical, title: Bundesgesundheitsblatt, volume: 51 }
+  serial-number: { doi: 10.1007/s00103-008-0707-2 }
+
+fhi2015: # C29
+  type: report
+  title: Anbefalte faglige normer for inneklima
+  author: Folkehelseinstituttet
+  date: 2015
+  note: Rapport 2015:1
+  url: { value: "https://www.fhi.no/globalassets/dokumenterfiler/rapporter/2015/anbefalte-faglige-normer-for-inneklima-pdf.pdf", date: "2026-09-15" }
+
+flanders2018: # C36
+  type: web
+  title: Besluit van de Vlaamse Regering van 13 juli 2018 tot wijziging van het Binnenmilieubesluit, bijlage (richt- en interventiewaarden)
+  note: Belgisch Staatsblad 7 September 2018
+  date: 2018
+  url: { value: "https://www.ejustice.just.fgov.be/mopdf/2018/09/07_1.pdf", date: "2026-09-15" }
+
+finland545: # C39
+  type: web
+  title: Decree on Health-related Conditions of Housing and Other Residential Buildings (545/2015), English translation
+  author: Ministry of Social Affairs and Health, Finland
+  date: 2015
+  url: { value: "https://finlex.fi/en/legislation/translations/2015/eng/545", date: "2026-09-15" }
+
+br18: # C27
+  type: web
+  title: Bygningsreglement 2018 (BR18) §447, Ventilation af daginstitutioner og undervisningsrum
+  url: { value: "https://www.bygningsreglementet.dk/tekniske-bestemmelser/22/krav/447/", date: "2026-09-15" }
+
+france2022: # C22
+  type: web
+  title: Arrêté du 27 décembre 2022 fixant les conditions de réalisation de la mesure à lecture directe de la concentration en dioxyde de carbone dans l'air intérieur
+  date: 2022
+  url: { value: "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000046830005", date: "2026-09-15" }
+
+# --- Measuring ------------------------------------------------------------
+
+hse: # E1
+  type: web
+  title: "Ventilation in the workplace: using CO2 monitors"
+  author: Health and Safety Executive (UK)
+  url: { value: "https://www.hse.gov.uk/ventilation/using-co2-monitors.htm", date: "2026-09-15" }
+
+prevent: # E2
+  type: web
+  title: "CO2-meters: voorwaarden en plaatsing"
+  author: Prevent (Belgium)
+  url: { value: "https://www.prevent.be/nl/kennisbank/co2-meters-voorwaarden-en-plaatsing", date: "2026-09-15" }
+
+# --- What helps and what doesn't ------------------------------------------
+
+gubb2018: # E8
+  type: article
+  title: Can houseplants improve indoor air quality by removing CO2 and increasing relative humidity?
+  author: ["Gubb C", "Blanusa T", "Griffiths A", "Pfrang C"]
+  date: 2018
+  page-range: 1191–1201
+  parent: { type: periodical, title: "Air Quality, Atmosphere & Health", volume: 11, issue: 10 }
+  serial-number: { doi: 10.1007/s11869-018-0618-9 }
+
+epa: # E17
+  type: web
+  title: Guide to Air Cleaners in the Home, 2nd edition
+  author: US EPA
+  url: { value: "https://www.epa.gov/indoor-air-quality-iaq/guide-air-cleaners-home", date: "2026-09-15" }
+
+rehva2021: # E16
+  type: report
+  title: REHVA COVID-19 guidance document, version 4.1
+  author: REHVA
+  date: 2021
+  url: { value: "https://www.rehva.eu/fileadmin/user_upload/REHVA_COVID-19_guidance_document_V4.1_15042021.pdf", date: "2026-09-15" }
+
+who2009: # E18
+  type: report
+  title: "WHO Guidelines for Indoor Air Quality: Dampness and Mould (executive summary)"
+  author: WHO Regional Office for Europe
+  date: 2009
+  url: { value: "https://www.ncbi.nlm.nih.gov/books/NBK143943/", date: "2026-09-15" }
+
+uba-lueften: # E15
+  type: web
+  title: "Wie lüfte ich richtig? Tipps und Tricks zur Schimmelvermeidung"
+  author: Umweltbundesamt
+  date: 2024
+  url: { value: "https://www.umweltbundesamt.de/themen/gesundheit/umwelteinfluesse-auf-den-menschen/schimmel/wie-luefte-ich-richtig-tipps-tricks-zur", date: "2026-09-15" }
+
+uba2020: # E4
+  type: report
+  title: Lüften in Schulen. Empfehlungen des Umweltbundesamtes
+  author: Umweltbundesamt
+  date: 2020
+  url: { value: "https://www.kmk.org/fileadmin/Dateien/pdf/PresseUndAktuelles/2020/2020-10-15_Umweltbundesamt_Lueften-in-Schulen.pdf", date: "2026-09-15" }
+
+# --- More information (booklet p8) ----------------------------------------
+
+rivm-woningen: # D6
+  type: web
+  title: Binnenmilieu in woningen
+  author: RIVM
+  date: 2026
+  url: { value: "https://www.rivm.nl/binnenmilieu/binnenmilieu-in-woningen", date: "2026-09-15" }

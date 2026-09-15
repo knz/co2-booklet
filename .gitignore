@@ -5,3 +5,6 @@ node_modules
 
 # Local copies of consulted sources (copyrighted; not published)
 /sources/archive/
+
+# Build output (see build.sh)
+/build/

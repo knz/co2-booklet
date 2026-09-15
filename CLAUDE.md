@@ -89,6 +89,14 @@ Key files:
   them.
 - `README.md` — project outline, decisions, proposed layout, open decisions.
 - `PUBLISHING.md` — GitHub Pages set-up and QR/URL stability notes.
+- `infographic/`, `booklet/` — Typst prototypes (English so far), built
+  with `./build.sh` into `build/`. Visuals are placeholders.
+- `shared/facts.typ` — the shared facts (F1–F15); use these values instead
+  of typing numbers into the documents.
+- `shared/style.typ`, `shared/diagrams.typ` — styles, helpers (`src`,
+  `placeholder`, `tbd`, `cut`) and data diagrams.
+- `sources/references.yml` — tracked reference list (Hayagriva YAML), keys
+  used with `#src("key")`.
 - `site/` — static site deployed to GitHub Pages (placeholder for now).
 - `changelog/` — per-task decision log (see rules above).
 

@@ -100,10 +100,31 @@ Seed topics, from `input.txt`:
   placeholder page; Typst build steps are added once there are sources.
   One-time set-up and URL stability notes: see [PUBLISHING.md](PUBLISHING.md).
 
+Building locally (Typst 0.15, `pdfinfo` from poppler-utils):
+
+```
+./build.sh                 # draft mode: TBD highlights, cut candidates, (calc)/(advice) tags
+DRAFT=false ./build.sh     # without draft markers
+BANDS=B ./build.sh         # colour-band option B (script.md §1)
+```
+
+Output: `build/booklet-en.pdf`, `build/infographic-en.pdf`,
+`build/infographic-en.png`. The script reports how many PDF pages each
+script page uses (overflow) and lists the visual placeholders to commission.
+
+Prototype conventions:
+
+- Visuals to commission are hatched placeholder boxes with an ID (I1–I9 on
+  the infographic, B1–B3 in the booklet) and the brief from the script.
+- Citations in the booklet are footnotes: one number per source, reused
+  when the source is cited again. The infographic has no footnotes.
+- Numbers from the shared facts table come from `shared/facts.typ`.
+
 Open choices:
 
-- QR code generation: a Typst package (for example `tiaoma`) or an external
-  generator whose output is committed. To evaluate.
+- QR code generation: the prototype uses the Typst package `tiaoma` 0.3.0
+  (downloaded on first build). To confirm.
+- Font: Noto Sans in the prototype, provisional.
 - Image format for the infographic on the landing page (PNG or SVG).
 - Fonts, and which Typst version to pin in the workflow.
 - How to include Tailwind/daisyUI: a CDN script, or a build step in the
@@ -124,15 +145,16 @@ Current:
 | `PUBLISHING.md` | GitHub Pages set-up and maintenance. |
 | `changelog/` | Per-task notes on specifications, decisions and progress. |
 | `CLAUDE.md` | Working rules for agent sessions in this repository. |
+| `infographic/infographic-en.typ` | Typst prototype of the A5 infographic, English side. |
+| `booklet/booklet-en.typ` | Typst prototype of the booklet, English, 8 A5 pages in reading order. |
+| `shared/facts.typ` | Shared facts F1–F15 from `script.md` (thresholds, figures, colour bands). |
+| `shared/style.typ` | Page setup, styles, placeholders, draft markers, citation helper. |
+| `shared/diagrams.typ` | Data diagrams drawn from the shared facts (colour-band scale, level scale). |
+| `sources/references.yml` | Reference list (Hayagriva YAML) for all cited sources. |
+| `build.sh` | Local build into `build/` (ignored by git). |
 
-Proposed (not created yet):
-
-| Path | Purpose |
-|------|---------|
-| `infographic/` | Typst source for the A5 infographic (NL side, EN side). |
-| `booklet/` | Typst source for the booklet (NL, EN). |
-| `shared/` | Shared Typst code: colours, CO₂ thresholds, QR code, common styles. |
-| `sources/` | Reference list (bibliography) and notes on each source. |
+Not created yet: Dutch versions (`*-nl.typ`), landing page content, Typst
+build steps in the workflow.
 
 ## About `script-sketch.md`
 
@@ -167,8 +189,10 @@ or dropped.
 
 ## Open decisions and status
 
-Status: project set-up. Placeholder site and deploy workflow in place; no
-content or Typst sources yet.
+Status: script draft 2 in `script.md`; English Typst prototypes of the
+infographic and booklet with visual placeholders. The booklet prototype
+currently runs over 8 pages (see `changelog/20260916-prototype-docs.md`).
+Placeholder site and deploy workflow in place.
 
 Open:
 

@@ -1,0 +1,48 @@
+We're considering creating an informational booklets about the risks
+of CO2 in dutch homes. Below are the considerations we already have in
+scope.
+
+---
+CO2
+
+- short term vs long term. 5000+ vs 1000ppm
+- ndir sensor vs voc derivation; sensor placement in room; use sensor history to track evolution through a night
+- legal limits in other countries
+- open windows: CO2 vs humidity
+
+
+Symptoms of medium term exposure (multiple hours, like during the night)
+- reduced intelligence
+- brain fog
+- headaches
+- less sleep quality, insomnia
+Indirect:
+- anxiety
+- depression
+- anger / sour relationships in the house
+
+
+Relevance
+- not a new problem: do you remember stuffed classrooms in winter when you were young?
+- until recently not as much a problem in homes because of poor insulation. More a problem now we insulate better
+- always a problem in rooms without windows or closed windows without ventilation gap
+
+
+Ineffective:
+- plants
+- open windows once (morning/evening)
+- AC
+- air filter
+
+
+Unrelated problems/solutions
+- VOCs: mostly in kitchens, can be removed with carbon activated filters. We care more about living spaces (living room, bedroom) and these filters don't apply to CO2
+- CO: very poisonous, but also quite rare and the effects are immediately visible. CO detectors don't detect elevated CO2
+
+myth busting:
+- "CO₂ is harmless—it’s what we breathe out!" -> Truth: While not toxic like CO, chronic exposure at >1,000 ppm impairs cognition and health
+- "I don’t feel anything, so it’s fine." -> Truth: Symptoms are subtle (e.g., brain fog feels like "normal tiredness"). Many people adapt without realizing they’re impaired.
+- "My house is old and drafty, so I’m safe." -> Truth: Drafts ≠ ventilation. Old homes can have pockets of high CO₂ (e.g., a sealed bedroom with closed doors).
+- "Plants help a little." -> Truth: A 10m² room would need ~100 large plants to match the CO₂ removal of one open window. Effectively zero impact.
+- "Air purifiers with CO₂ sensors are enough." -> Truth: Most consumer air purifiers do NOT remove CO₂ (they lack gas-phase filters for CO₂). Only dedicated CO₂ scrubbers (expensive, industrial) work.
+

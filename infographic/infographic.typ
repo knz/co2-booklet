@@ -16,6 +16,7 @@
   ("I3", "Icon: open ventilation grille"),
   ("I4", "Icon: window slightly open"),
   ("I5", "Icon: mechanical ventilation switch"),
+  ("I10", "Icon: heat-recovery ventilation unit (WTW): fresh air in, warmth kept in"),
 )
 #let not-icons = (
   ("I6", "Icon: plant"),

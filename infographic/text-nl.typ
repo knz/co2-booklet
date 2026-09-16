@@ -37,6 +37,7 @@
     [Laat ventilatieroosters open, dag en nacht.],
     [Geen roosters? Zet een raam op een kier.],
     [Mechanische ventilatie: laat die aanstaan.],
+    [Warmteterugwinning (wtw): frisse lucht binnen, warmte blijft binnen. Ook per kamer.],
   ),
   not-replace-head: [Dit vervangt ventileren niet],
   not-replace: (

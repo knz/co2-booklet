@@ -299,6 +299,16 @@ mc-woning: # E13
   date: 2026
   url: { value: "https://www.milieucentraal.nl/energie-besparen/ventilatie/woning-ventileren/", date: "2026-09-15" }
 
+mc-balans: # added 2026-09-16 for the HRV point; no report ID, not in the
+  # original literature review. Covers all four claims made about HRV:
+  # fresh outdoor air in, WTW pre-warming, the summer bypass, and
+  # decentralised (per-room) balanced ventilation.
+  type: web
+  title: "Balansventilatie: onderhoud en gebruik"
+  author: Milieu Centraal
+  date: 2026
+  url: { value: "https://www.milieucentraal.nl/energie-besparen/ventilatie/balansventilatie/", date: "2026-09-16" }
+
 iplo-nieuwbouw: # D1
   type: web
   title: "Ventilatie: regels bij nieuwbouw (Bbl)"

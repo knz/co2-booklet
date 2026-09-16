@@ -6,8 +6,8 @@
 
 #let t = (
   lang: "en",
-  title-plain: "CO₂ at home: measure, understand, ventilate",
-  title: [CO₂ at home],
+  title-plain: "Healthy air, healthy home: measure, understand, ventilate",
+  title: [Healthy air, healthy home],
   subtitle: [measure, understand, ventilate],
 
   // Colour-band scale on page 4.
@@ -234,6 +234,13 @@
         often delivered less air than
         required#src("bader2009", "rigo2009", "bba2011"). If your meter
         shows high values, try a higher setting. #advice],
+      [*Ventilation with heat recovery (HRV).* A balanced ventilation
+        system with a heat-recovery unit ("wtw") brings in fresh outdoor
+        air and uses the warmth of the air going out to pre-warm it, so you
+        lose less heat in winter. When the air outside is cooler than
+        inside, a bypass lets it in directly. There are also units for a
+        single room, called decentralised balanced
+        ventilation#src("mc-balans").],
       [*Above #ppm(f.nl-reference)?* Open the grille or window
         further#src("mc-natuurlijke").],
     ),

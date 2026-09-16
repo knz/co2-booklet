@@ -189,7 +189,7 @@ SOURCES_TEMPLATE = """<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Bronnen / Sources — CO₂</title>
-<meta name="description" content="Bronnenlijst bij de informatie over CO₂ in huis. Reference list for the information about CO₂ at home.">
+<meta name="description" content="Bronnenlijst bij de informatie over gezonde lucht in huis. Reference list for the information about healthy air at home.">
 <meta name="robots" content="index, follow">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="style.css">
@@ -229,7 +229,7 @@ SOURCES_SECTION = """<div class="lang" lang="%(lang)s">
 
 COPY = {
     "nl": {
-        "wordmark": "CO₂ in huis",
+        "wordmark": "Gezonde lucht, gezond huis",
         "navlabel": "Taal",
         "title": "Bronnen",
         "lede": (
@@ -239,7 +239,7 @@ COPY = {
         "back": "Terug naar de startpagina",
     },
     "en": {
-        "wordmark": "CO₂ at home",
+        "wordmark": "Healthy air, healthy home",
         "navlabel": "Language",
         "title": "Sources",
         "lede": (

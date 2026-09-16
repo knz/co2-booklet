@@ -8,8 +8,8 @@
 
 #let t = (
   lang: "nl",
-  title-plain: "CO₂ in huis: meten, begrijpen, ventileren",
-  title: [CO₂ in huis],
+  title-plain: "Gezonde lucht, gezond huis: meten, begrijpen, ventileren",
+  title: [Gezonde lucht, gezond huis],
   subtitle: [meten, begrijpen, ventileren],
 
   // Kleurenschaal op pagina 4.
@@ -242,6 +242,13 @@
         het geluid, en vaak minder lucht gaven dan
         vereist#src("bader2009", "rigo2009", "bba2011"). Laat je meter hoge
         waarden zien, zet hem dan een stand hoger. #advice],
+      [*Ventilatie met warmteterugwinning (wtw).* Een
+        balansventilatiesysteem met een wtw-unit brengt frisse buitenlucht
+        binnen en gebruikt de warmte van de lucht die naar buiten gaat om
+        die buitenlucht alvast op te warmen. Zo verlies je in de winter
+        minder warmte. Is de lucht buiten koeler dan binnen, dan laat een
+        bypass die lucht rechtstreeks binnen. Er zijn ook units voor één
+        kamer: decentrale balansventilatie#src("mc-balans").],
       [*Boven #ppm(f.nl-reference)?* Zet het rooster of het raam verder
         open#src("mc-natuurlijke").],
     ),

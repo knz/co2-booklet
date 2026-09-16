@@ -281,7 +281,9 @@ h1 {
   font-size: clamp(2rem, 8.5vw, 2.75rem);
   line-height: 1.05;
   letter-spacing: -0.005em;
-  margin: 2rem 0 0.75rem;
+  /* Tight under the h1: a deck line follows it on both language sections.
+     .gate__title sets its own margin, so the gate is unaffected. */
+  margin: 2rem 0 0.4rem;
 }
 
 h2 {
@@ -294,6 +296,18 @@ h2 {
 
 p {
   margin: 0 0 1rem;
+}
+
+/* The deck carries the second half of the headline idea: what the CO₂
+   number stands for. The h1 says why to measure, the deck says what the
+   measurement represents, the lede explains the mechanism. Sized between
+   the two so the three read as one descending statement. */
+.deck {
+  font-size: 1.3125rem;
+  line-height: 1.4;
+  font-weight: 600;
+  color: var(--teal);
+  margin: 0 0 0.9rem;
 }
 
 .lede {

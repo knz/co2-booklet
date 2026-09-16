@@ -42,6 +42,7 @@
     [Keep ventilation grilles open, day and night.],
     [No grilles? Put a window ajar.],
     [Mechanical ventilation: leave it on.],
+    [Heat recovery (HRV): fresh air in, heat stays in. Also per room.],
   ),
   not-replace-head: [This does not replace ventilation],
   not-replace: (

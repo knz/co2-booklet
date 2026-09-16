@@ -35,7 +35,7 @@
   helps-head: [Wat helpt],
   helps: (
     [Laat ventilatieroosters open, dag en nacht.],
-    [Geen roosters? Zet een klein raam op een kier als je thuis bent.],
+    [Geen roosters? Zet een raam op een kier.],
     [Mechanische ventilatie: laat die aanstaan.],
   ),
   not-replace-head: [Dit vervangt ventileren niet],
@@ -49,7 +49,7 @@
   footer-head: [Meet het zelf],
   lending: [Leen een CO₂-meter: \[waar\] · \[hoe lang\] · \[hoe reserveren\].],
   buy: [Of koop een meter met een "NDIR"-sensor (vanaf ongeveer € #f.meter-price-min).],
-  sources-line: [Bronnen: zie het boekje, via de QR-code.],
+  sources-line: [Bronnen: zie de gids, via de QR-code.],
   colophon: [Uitgegeven door #f.publisher · september 2026],
   qr-caption: [Meer informatie \ en bronnen],
 )

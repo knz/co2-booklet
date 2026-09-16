@@ -226,8 +226,8 @@
       [*Grilles open.* Keep ventilation grilles open, day and night, all
         year. They don't need to be fully open. Clean them at least once a
         year#src("mc-natuurlijke").],
-      [*No grilles?* Put a small window slightly open when you are
-        home#src("mc-natuurlijke").],
+      [*No grilles?* Ensure there's a window ajar in the rooms where you
+        live#src("mc-natuurlijke").],
       [*Mechanical ventilation.* Leave the fan on at all
         times#src("mc-woning"). Studies of new Dutch homes found systems
         were often left on the lowest setting, partly because of noise, and
@@ -353,6 +353,5 @@
       Sources checked on 15 September 2026. \
       This booklet gives general information. It is not medical advice.],
     sources-head: [Sources],
-    sources-note: [Also to be published as a list on the landing page.],
   ),
 )

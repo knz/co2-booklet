@@ -199,6 +199,5 @@
   t.p8.colophon
 
   heading(level: 2, t.p8.sources-head)
-  tbd(t.p8.sources-note)
   reference-list()
 }

@@ -35,7 +35,7 @@
       binnenbrengen#src("mc-natuurlijke", "signalen2024"). In een kamer
       zonder rooster, met het raam dicht, komt bijna geen frisse lucht
       binnen. #inference],
-    about-head: [In dit boekje],
+    about-head: [In deze gids],
     about: [Waarom frisse lucht belangrijk is, hoe een CO₂-meter laat zien
       of je genoeg frisse lucht krijgt, en wat je zelf kunt doen.],
   ),
@@ -234,8 +234,8 @@
       [*Roosters open.* Laat ventilatieroosters open, dag en nacht, het hele
         jaar door. Ze hoeven niet helemaal open te staan. Maak ze minstens
         één keer per jaar schoon#src("mc-natuurlijke").],
-      [*Geen roosters?* Zet een klein raam op een kier als je thuis
-        bent#src("mc-natuurlijke").],
+      [*Geen roosters?* Zorg dat er een raam op een kier staat in de kamers
+        waar je bent#src("mc-natuurlijke").],
       [*Mechanische ventilatie.* Laat de ventilator altijd
         aanstaan#src("mc-woning"). Onderzoek in nieuwe Nederlandse woningen
         liet zien dat systemen vaak op de laagste stand stonden, deels door
@@ -359,12 +359,11 @@
       [RIVM, "Binnenmilieu in woningen": #ref-url("rivm-woningen")],
     ),
     qr-caption: [Meer informatie en bronnen],
-    colophon-head: [Over dit boekje],
+    colophon-head: [Over deze gids],
     colophon: [Uitgegeven door #f.publisher. \
       september 2026. \
       Bronnen gecontroleerd op 15 september 2026. \
-      Dit boekje geeft algemene informatie. Het is geen medisch advies.],
+      Deze gids geeft algemene informatie. Het is geen medisch advies.],
     sources-head: [Bronnen],
-    sources-note: [Wordt ook als lijst op de website gepubliceerd.],
   ),
 )

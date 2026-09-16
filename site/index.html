@@ -1,25 +1,194 @@
 <!doctype html>
 <html lang="nl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CO₂ in huis / CO₂ at home</title>
-  <style>
-    body { font-family: system-ui, sans-serif; max-width: 36rem; margin: 3rem auto; padding: 0 1rem; line-height: 1.5; color: #1a1a1a; background: #fff; }
-    h1 { font-size: 1.6rem; }
-    section + section { margin-top: 2rem; border-top: 1px solid #ddd; padding-top: 1rem; }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CO₂ in huis / CO₂ at home</title>
+<meta name="description" content="CO₂ in je slaapkamer: wat het betekent, hoe je het meet en wat helpt. CO₂ at home: what it means, how to measure it, and what helps.">
+<meta property="og:title" content="CO₂ in huis / CO₂ at home">
+<meta property="og:description" content="Frisse lucht in je slaapkamer? Meet het. — Fresh air in your bedroom? Measure it.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://knz.github.io/co2-booklet/">
+<meta property="og:image" content="https://knz.github.io/co2-booklet/assets/infographic-nl.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<script>
+/* Sets the initial language before the page paints, so a returning visitor
+   never sees the gate flash or the wrong language. app.js handles clicks. */
+(function(){var d=document.documentElement;d.className='js';
+var h=location.hash.replace('#','');var l=(h==='nl'||h==='en')?h:null;
+try{if(!l)l=localStorage.getItem('co2-lang');}catch(e){}
+if(l==='nl'||l==='en'){d.setAttribute('data-lang',l);d.lang=l;}})();
+</script>
 </head>
 <body>
-  <!-- Placeholder. Will be replaced by the landing page: choose NL or EN,
-       then see the infographic in that language with links to the PDFs. -->
-  <section lang="nl">
-    <h1>CO₂ in huis</h1>
-    <p>Deze pagina is in voorbereiding. Binnenkort vindt u hier informatie over CO₂ in huis: wat het is, hoe u het meet en wat helpt.</p>
-  </section>
-  <section lang="en">
-    <h1>CO₂ at home</h1>
-    <p>This page is being prepared. Soon you will find information here about CO₂ at home: what it is, how to measure it, and what helps.</p>
-  </section>
+
+<!-- The choice comes first: a visitor arriving from the printed QR code
+     picks a language before anything else. Without JavaScript this is
+     hidden and both languages are shown one after the other. -->
+<div class="gate">
+  <div class="gate__inner">
+    <h1 class="gate__title"><span lang="nl">CO₂ in huis</span><span lang="en">CO₂ at home</span></h1>
+    <div class="gate__choice">
+      <a class="gate__button" href="#nl" data-lang-choice="nl" hreflang="nl" lang="nl">Nederlands</a>
+      <a class="gate__button" href="#en" data-lang-choice="en" hreflang="en" lang="en">English</a>
+    </div>
+  </div>
+  <div class="gate__bands" aria-hidden="true"><span></span><span></span><span></span></div>
+</div>
+
+<div class="page">
+
+<!-- ==================== Nederlands ==================== -->
+<div class="lang" lang="nl">
+  <header class="topbar"><div class="topbar__inner">
+    <span class="wordmark">CO₂ in huis</span>
+    <nav class="langswitch" aria-label="Taal">
+      <a href="#nl" data-lang-choice="nl" aria-current="true" hreflang="nl">NL</a>
+      <a href="#en" data-lang-choice="en" hreflang="en">EN</a>
+    </nav>
+  </div></header>
+
+  <main class="wrap">
+    <h1>Frisse lucht in je slaapkamer? Meet het!</h1>
+    <p class="lede">Iedereen ademt CO₂ uit. Komt er te weinig frisse lucht
+      binnen, dan loopt de CO₂ op. Je ruikt het niet, maar een CO₂-meter
+      laat het zien.</p>
+    <p>In onderzoeken sliepen mensen minder diep en werden ze vaker wakker
+      in slecht geventileerde slaapkamers. Te weinig frisse lucht vergroot
+      ook de kans op vocht en schimmel.</p>
+
+    <h2>Hoeveel is te veel?</h2>
+    <!-- The bar repeats what the legend and the list below say in words,
+         so it is hidden from screen readers rather than read out twice. -->
+    <div class="scale" aria-hidden="true">
+      <div class="scale__above"><span class="scale__pin"><b>1.000 ppm</b></span></div>
+      <div class="scale__bar"><span></span><span></span><span></span></div>
+      <div class="scale__ticks">
+        <span>buiten ≈ 425</span><span class="t1200">1.200</span><span>2.000 ppm</span>
+      </div>
+    </div>
+    <ul class="legend">
+      <li><i class="is-good"></i><span><b>Goed</b> — tot 750 ppm</span></li>
+      <li><i class="is-fair"></i><span><b>Kan beter</b> — 750 tot 1.200 ppm</span></li>
+      <li><i class="is-high"></i><span><b>Te hoog: ventileer meer</b> — boven 1.200 ppm</span></li>
+    </ul>
+    <ul class="levels">
+      <li>Nederland: het advies is om onder 1.200 ppm te blijven.</li>
+      <li>Canada, Duitsland en Noorwegen: 1.000 ppm als richtwaarde voor binnenlucht.</li>
+      <li>Slaaponderzoekers: onder 1.000 ppm in slaapkamers.</li>
+    </ul>
+
+    <h2 class="visually-hidden">De infographic</h2>
+    <a class="sheet" href="assets/infographic-nl.pdf">
+      <img src="assets/infographic-nl.webp" width="1165" height="1654" loading="lazy"
+        alt="Infographic: Frisse lucht in je slaapkamer? Meet het! Met uitleg over
+             CO₂ en slapen, een kleurenschaal van 425 tot 2.000 ppm, en wat wel en
+             niet helpt tegen te veel CO₂.">
+    </a>
+    <p class="sheet-note">Open de infographic als pdf om alles goed te kunnen lezen.</p>
+    <ul class="downloads">
+      <li><a href="assets/infographic-nl.pdf">Infographic <em>pdf, A5</em></a></li>
+      <li><a href="assets/booklet-nl.pdf">Gids <em>pdf, 8 pagina’s</em></a></li>
+    </ul>
+
+    <div class="measure-it">
+      <h2>Meet het zelf</h2>
+      <p><span class="tbd">Leen een CO₂-meter: [waar] · [hoe lang] · [hoe reserveren].</span></p>
+      <p>Of koop een meter met een “NDIR”-sensor (vanaf ongeveer € 50).</p>
+    </div>
+  </main>
+
+  <footer class="foot"><div class="wrap">
+    <h2>Meer weten?</h2>
+    <ul>
+      <li>Milieu Centraal, ventileren:
+        <a href="https://www.milieucentraal.nl/energie-besparen/ventilatie/woning-ventileren/">milieucentraal.nl</a></li>
+      <li>RIVM, Binnenmilieu in woningen:
+        <a href="https://www.rivm.nl/binnenmilieu/binnenmilieu-in-woningen">rivm.nl</a></li>
+      <li><a href="sources.html#nl">Alle bronnen bij deze informatie</a></li>
+    </ul>
+    <p class="colophon">Uitgegeven door Thaumogen Consulting BV, september 2026.
+      Bronnen gecontroleerd op 15 september 2026.
+      Dit geeft algemene informatie. Het is geen medisch advies.</p>
+  </div></footer>
+</div>
+
+<!-- ==================== English ==================== -->
+<div class="lang" lang="en">
+  <header class="topbar"><div class="topbar__inner">
+    <span class="wordmark">CO₂ at home</span>
+    <nav class="langswitch" aria-label="Language">
+      <a href="#nl" data-lang-choice="nl" hreflang="nl">NL</a>
+      <a href="#en" data-lang-choice="en" aria-current="true" hreflang="en">EN</a>
+    </nav>
+  </div></header>
+
+  <main class="wrap">
+    <h1>Fresh air in your bedroom? Measure it.</h1>
+    <p class="lede">Everyone breathes out CO₂. When too little fresh air
+      comes in, CO₂ goes up. You can’t smell it, but a CO₂ meter shows
+      it.</p>
+    <p>In studies, people slept less deeply and woke up more often in
+      poorly ventilated bedrooms. Too little fresh air also raises the risk
+      of damp and mould.</p>
+
+    <h2>How much is too much?</h2>
+    <div class="scale" aria-hidden="true">
+      <div class="scale__above"><span class="scale__pin"><b>1,000 ppm</b></span></div>
+      <div class="scale__bar"><span></span><span></span><span></span></div>
+      <div class="scale__ticks">
+        <span>outdoors ≈ 425</span><span class="t1200">1,200</span><span>2,000 ppm</span>
+      </div>
+    </div>
+    <ul class="legend">
+      <li><i class="is-good"></i><span><b>Good</b> — up to 750 ppm</span></li>
+      <li><i class="is-fair"></i><span><b>Could be better</b> — 750 to 1,200 ppm</span></li>
+      <li><i class="is-high"></i><span><b>Too high: ventilate more</b> — above 1,200 ppm</span></li>
+    </ul>
+    <ul class="levels">
+      <li>Netherlands: advice is to stay below 1,200 ppm.</li>
+      <li>Canada, Germany and Norway: 1,000 ppm guide value for indoor air.</li>
+      <li>Sleep researchers: below 1,000 ppm in bedrooms.</li>
+    </ul>
+
+    <h2 class="visually-hidden">The infographic</h2>
+    <a class="sheet" href="assets/infographic-en.pdf">
+      <img src="assets/infographic-en.webp" width="1165" height="1654" loading="lazy"
+        alt="Infographic: Fresh air in your bedroom? Measure it. With an explanation
+             of CO₂ and sleep, a colour scale from 425 to 2,000 ppm, and what does
+             and does not help against too much CO₂.">
+    </a>
+    <p class="sheet-note">Open the infographic as a pdf to read it at full size.</p>
+    <ul class="downloads">
+      <li><a href="assets/infographic-en.pdf">Infographic <em>pdf, A5</em></a></li>
+      <li><a href="assets/booklet-en.pdf">Booklet <em>pdf, 8 pages</em></a></li>
+    </ul>
+
+    <div class="measure-it">
+      <h2>Measure it yourself</h2>
+      <p><span class="tbd">Borrow a CO₂ meter: [where] · [how long] · [how to reserve].</span></p>
+      <p>Or buy a meter with an “NDIR” sensor (from about €50).</p>
+    </div>
+  </main>
+
+  <footer class="foot"><div class="wrap">
+    <h2>Want to know more?</h2>
+    <ul>
+      <li>Milieu Centraal, ventilation (Dutch):
+        <a href="https://www.milieucentraal.nl/energie-besparen/ventilatie/woning-ventileren/">milieucentraal.nl</a></li>
+      <li>RIVM, indoor environment in homes (Dutch):
+        <a href="https://www.rivm.nl/binnenmilieu/binnenmilieu-in-woningen">rivm.nl</a></li>
+      <li><a href="sources.html#en">All sources behind this information</a></li>
+    </ul>
+    <p class="colophon">Published by Thaumogen Consulting BV, September 2026.
+      Sources checked on 15 September 2026.
+      This gives general information. It is not medical advice.</p>
+  </div></footer>
+</div>
+
+</div>
+<script src="app.js" defer></script>
 </body>
 </html>

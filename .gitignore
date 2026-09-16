@@ -8,3 +8,9 @@ node_modules
 
 # Build output (see build.sh)
 /build/
+
+# Generated into the site by tools/build-site.py. The hand-written sources
+# are site/index.html, site/style.css, site/app.js, site/favicon.svg and
+# site/fonts/.
+/site/assets/
+/site/sources.html

@@ -4,9 +4,24 @@ The site is published at **https://knz.github.io/co2-booklet/** from the
 repository https://github.com/knz/co2-booklet.
 
 A GitHub Actions workflow (`.github/workflows/pages.yml`) runs on every push
-to `master`. It uploads the contents of `site/` and deploys them to GitHub
-Pages. For now `site/` holds a placeholder page; later the workflow will also
-compile the Typst sources and copy the results into the site.
+to `master`. It installs Typst 0.15.1, runs `./build.sh` (which compiles the
+infographic and the booklet in both languages and then runs
+`tools/build-site.py` to fill `site/assets/` and generate
+`site/sources.html`), and deploys the contents of `site/` to GitHub Pages.
+
+Two consequences worth knowing:
+
+- **A document that outgrows its print format fails the deploy.**
+  `build.sh` exits non-zero when the booklet needs more than 8 A5 pages or
+  the infographic more than one, so the site keeps the last good version
+  instead of publishing a document that no longer fits.
+- **The build needs network access** beyond the checkout: the QR code comes
+  from the Typst package `tiaoma`, fetched from the package registry.
+
+The published documents are built with `DRAFT=true`, so they keep their
+draft markers while the visuals are still placeholders (decision
+2026-09-16). Change this in the workflow's build step when the visuals
+land.
 
 ## One-time set-up
 

@@ -93,12 +93,16 @@ Seed topics, from `input.txt`:
   [Typst](https://typst.app/), kept as text files in this repository, and
   compiled to PDF (for print and download) and to an image of each
   infographic side (for the landing page).
-- The landing page is a static HTML page in `site/`. Tailwind CSS and
-  daisyUI components may be used.
-- A GitHub Actions workflow (`.github/workflows/pages.yml`) deploys `site/`
-  to GitHub Pages on every push to `master`. It currently deploys a
-  placeholder page; Typst build steps are added once there are sources.
-  One-time set-up and URL stability notes: see [PUBLISHING.md](PUBLISHING.md).
+- The landing page is a static HTML page in `site/`, written by hand: no
+  framework, no build step and no third-party request at run time. Tailwind
+  and daisyUI were considered and dropped (decision 2026-09-16): the page is
+  one screen of content and is the target of a printed QR code, so it has to
+  load fast on mobile data and keep working for years without a dependency
+  going stale.
+- A GitHub Actions workflow (`.github/workflows/pages.yml`) compiles the
+  Typst sources, assembles `site/` and deploys it to GitHub Pages on every
+  push to `master`. One-time set-up and URL stability notes: see
+  [PUBLISHING.md](PUBLISHING.md).
 
 Building locally (Typst 0.15, `pdfinfo` from poppler-utils):
 
@@ -113,7 +117,14 @@ TAGS=true ./build.sh       # show the (advice)/(calc)/(inference)/(assumption) t
 Output per language: `build/booklet-<lang>.pdf`,
 `build/infographic-<lang>.pdf` and `build/infographic-<lang>.png`. The
 script reports how many PDF pages each script page uses (overflow) and
-lists the visual placeholders to commission.
+lists the visual placeholders to commission. It exits non-zero when a
+document runs over its page budget, which is what makes the deploy fail
+rather than publish a document that no longer fits its print format.
+
+When both languages are built, `build.sh` finishes by running
+`tools/build-site.py`, which fills `site/assets/` (infographic as lossless
+WebP, plus the four PDFs) and generates `site/sources.html` from
+`sources/references.yml`. Open `site/index.html` in a browser to preview.
 
 Prototype conventions:
 
@@ -139,11 +150,16 @@ Open choices:
 
 - QR code generation: the prototype uses the Typst package `tiaoma` 0.3.0
   (downloaded on first build). To confirm.
-- Font: Noto Sans in the prototype, provisional.
-- Image format for the infographic on the landing page (PNG or SVG).
-- Fonts, and which Typst version to pin in the workflow.
-- How to include Tailwind/daisyUI: a CDN script, or a build step in the
-  workflow that produces a static CSS file.
+- Font for the printed documents: Noto Sans in the prototype, provisional.
+  (The landing page is settled: Fira Sans, self-hosted.)
+
+Settled on 2026-09-16:
+
+- Image format for the infographic on the landing page: **lossless WebP**
+  at the native pixel size. Measured on this material, lossy WebP is both
+  larger (q82: 144 kB against 126 kB) and rings around the text, and
+  downscaling first makes the lossless file bigger, not smaller.
+- Typst version pinned in the workflow: 0.15.1.
 
 ## Repository layout
 
@@ -155,7 +171,10 @@ Current:
 | `script-sketch.md` | First script drafted by another agent. Reference only, see below. |
 | `input2.txt` | Second input: core messages and revised direction for the script. |
 | `script.md` | Working script (draft 2) for the infographic and booklet, with shared facts and source tags. |
-| `site/` | Static site deployed to GitHub Pages (currently a placeholder landing page). |
+| `site/index.html` | Landing page: language gate, then the infographic and the downloads per language. |
+| `site/style.css`, `site/app.js` | Hand-written styles and the language choice. No framework. |
+| `site/favicon.svg`, `site/fonts/` | Icon, and the Fira Sans subsets (SIL OFL, see `site/fonts/OFL.txt`). |
+| `tools/build-site.py` | Fills `site/assets/` and generates `site/sources.html`. Run by `build.sh` and by the workflow. |
 | `.github/workflows/pages.yml` | Builds and deploys the site. |
 | `PUBLISHING.md` | GitHub Pages set-up and maintenance. |
 | `changelog/` | Per-task notes on specifications, decisions and progress. |
@@ -168,8 +187,8 @@ Current:
 | `sources/references.yml` | Reference list (Hayagriva YAML) for all cited sources. |
 | `build.sh` | Local build into `build/` (ignored by git). |
 
-Not created yet: landing page content and Typst build steps in the
-workflow.
+Generated, and git-ignored: `build/`, `site/assets/` and
+`site/sources.html`. Nothing built is committed.
 
 ## About `script-sketch.md`
 

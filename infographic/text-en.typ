@@ -40,7 +40,7 @@
   helps-head: [What helps],
   helps: (
     [Keep ventilation grilles open, day and night.],
-    [No grilles? Put a small window ajar when you are home.],
+    [No grilles? Put a window ajar.],
     [Mechanical ventilation: leave it on.],
   ),
   not-replace-head: [This does not replace ventilation],

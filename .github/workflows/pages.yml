@@ -1,4 +1,4 @@
-# Builds the site and deploys it to GitHub Pages.
+# Builds the documents and the site, and deploys them to GitHub Pages.
 # One-time repository set-up: see PUBLISHING.md.
 name: Deploy site to GitHub Pages
 
@@ -22,10 +22,38 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
 
-      # Placeholder stage: site/ is deployed as-is. Once Typst sources exist,
-      # add steps here to install Typst (e.g. typst-community/setup-typst),
-      # compile the infographic and booklet (PDF, plus images for the landing
-      # page), and copy the outputs into site/.
+      # Pinned: the documents must compile the same way here as they do
+      # locally. build.sh also fetches the QR code package (tiaoma) from
+      # the Typst package registry on first use, so this step needs network.
+      - name: Install Typst
+        uses: typst-community/setup-typst@v5.2.0
+        with:
+          typst-version: '0.15.1'
+
+      # pdfinfo, for the page-count check in build.sh.
+      - name: Install poppler-utils
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq poppler-utils
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Install Python dependencies
+        run: python -m pip install --quiet pillow pyyaml
+
+      # DRAFT=true: the published documents keep their draft markers while
+      # the visuals are still placeholders (user, 2026-09-16).
+      #
+      # build.sh exits non-zero when a document runs over its page budget
+      # (booklet 8 A5 pages, infographic 1), which fails this job instead of
+      # publishing a document that no longer fits its print format. It then
+      # runs tools/build-site.py, which writes site/assets/ and
+      # site/sources.html.
+      - name: Build documents and assemble the site
+        run: DRAFT=true ./build.sh
 
       - name: Upload site as Pages artifact
         uses: actions/upload-pages-artifact@v5

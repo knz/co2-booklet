@@ -74,4 +74,11 @@ for doc in infographic/infographic-en.typ booklet/booklet-en.typ; do
 for v in json.load(sys.stdin): print("  %s: %s" % (v["id"], v["brief"]))'
 done
 
+echo
+if [ -n "${langs##*en*}" ] || [ -n "${langs##*nl*}" ]; then
+  echo "site: skipped, needs both languages (LANGS=\"$langs\")"
+else
+  python3 tools/build-site.py
+fi
+
 exit $status

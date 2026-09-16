@@ -4,11 +4,12 @@
 
 // Landing page (QR target). Must stay stable, see PUBLISHING.md.
 #let url = "https://knz.github.io/co2-booklet/"
-#let sources-checked = "15 September 2026"
 
-// Colophon (user, 2026-09-16).
+// Colophon (user, 2026-09-16). The publisher name is the same in both
+// languages; the date wording ("September 2026" / "september 2026") and
+// the date the sources were checked (2026-09-15) live in the per-language
+// text files.
 #let publisher = "Thaumogen Consulting BV"
-#let text-date = "September 2026"
 
 // F1 Outdoor CO₂, NOAA 2025 annual means.
 #let outdoor = 425
@@ -103,17 +104,19 @@
 #let band-red = rgb("#d4493f")
 #let band-darkred = rgb("#8c1d18")
 
+// Band labels are text and live in the per-language text files, in this
+// order; `fg` is the colour to write them in.
 #let bands = if bands-option == "B" {
   (
-    (from: 0, to: mc-good-max, color: band-green, text: white, label: "Good"),
-    (from: mc-good-max, to: nl-reference, color: band-yellow, text: black, label: "Could be better"),
-    (from: nl-reference, to: uba-elevated-max, color: band-red, text: white, label: "Too high: ventilate more"),
-    (from: uba-elevated-max, to: none, color: band-darkred, text: white, label: "Act now"),
+    (from: 0, to: mc-good-max, color: band-green, fg: white),
+    (from: mc-good-max, to: nl-reference, color: band-yellow, fg: black),
+    (from: nl-reference, to: uba-elevated-max, color: band-red, fg: white),
+    (from: uba-elevated-max, to: none, color: band-darkred, fg: white),
   )
 } else {
   (
-    (from: 0, to: mc-good-max, color: band-green, text: white, label: "Good"),
-    (from: mc-good-max, to: nl-reference, color: band-yellow, text: black, label: "Could be better"),
-    (from: nl-reference, to: none, color: band-red, text: white, label: "Too high: ventilate more"),
+    (from: 0, to: mc-good-max, color: band-green, fg: white),
+    (from: mc-good-max, to: nl-reference, color: band-yellow, fg: black),
+    (from: nl-reference, to: none, color: band-red, fg: white),
   )
 }

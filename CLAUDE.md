@@ -89,8 +89,12 @@ Key files:
   them.
 - `README.md` — project outline, decisions, proposed layout, open decisions.
 - `PUBLISHING.md` — GitHub Pages set-up and QR/URL stability notes.
-- `infographic/`, `booklet/` — Typst prototypes (English so far), built
-  with `./build.sh` into `build/`. Visuals are placeholders.
+- `infographic/`, `booklet/` — Typst prototypes in Dutch and English, built
+  with `./build.sh` into `build/`. Visuals are placeholders. Each document
+  is one layout file (`booklet.typ`, `infographic.typ`) plus a text file
+  per language (`text-en.typ`, `text-nl.typ`) and a thin entry point per
+  language; put structure in the layout file and words in the text files,
+  so the languages cannot drift apart.
 - `shared/facts.typ` — the shared facts (F1–F15); use these values instead
   of typing numbers into the documents.
 - `shared/style.typ`, `shared/diagrams.typ` — styles, helpers (`src`,

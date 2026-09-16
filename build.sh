@@ -1,9 +1,13 @@
 #!/usr/bin/env bash
-# Builds the infographic and booklet prototypes into build/.
+# Builds the infographic and booklet prototypes, in both languages, into
+# build/.
 #
 #   ./build.sh                 draft mode (TBD highlights, cut tags)
 #   DRAFT=false ./build.sh     without draft markers
 #   BANDS=B ./build.sh         colour-band option B (see script.md §1)
+#   LANGS="nl" ./build.sh      one language only
+#   TAGS=true ./build.sh       show the (advice)/(calc)/(inference)/
+#                              (assumption) provenance tags, hidden by default
 #
 # Needs typst (0.15) and network access on the first run to fetch the QR
 # code package. Uses pdfinfo (poppler-utils) for the page-count check.
@@ -12,13 +16,11 @@ cd "$(dirname "$0")"
 
 draft="${DRAFT:-true}"
 bands="${BANDS:-A}"
-args=(--root . --input "draft=$draft" --input "bands=$bands")
+langs="${LANGS:-en nl}"
+tags="${TAGS:-false}"
+args=(--root . --input "draft=$draft" --input "bands=$bands" --input "tags=$tags")
 
 mkdir -p build
-
-typst compile "${args[@]}" booklet/booklet-en.typ build/booklet-en.pdf
-typst compile "${args[@]}" infographic/infographic-en.typ build/infographic-en.pdf
-typst compile "${args[@]}" --pages 1 --ppi 200 infographic/infographic-en.typ build/infographic-en.png
 
 status=0
 check_pages() {
@@ -31,15 +33,23 @@ check_pages() {
     echo "ok: $pdf ($pages page(s))"
   fi
 }
-check_pages build/booklet-en.pdf 8
-check_pages build/infographic-en.pdf 1
 
-echo
-echo "Booklet: PDF pages used per script page:"
-total=$(pdfinfo build/booklet-en.pdf | awk '/^Pages:/ {print $2}')
-typst eval "${args[@]}" --in booklet/booklet-en.typ --format json \
-  'query(<script-page>).map(it => (it.value, it.location().page()))' \
-  | python3 -c 'import json, sys
+for lang in $langs; do
+  typst compile "${args[@]}" "booklet/booklet-$lang.typ" "build/booklet-$lang.pdf"
+  typst compile "${args[@]}" "infographic/infographic-$lang.typ" "build/infographic-$lang.pdf"
+  typst compile "${args[@]}" --pages 1 --ppi 200 \
+    "infographic/infographic-$lang.typ" "build/infographic-$lang.png"
+  check_pages "build/booklet-$lang.pdf" 8
+  check_pages "build/infographic-$lang.pdf" 1
+done
+
+for lang in $langs; do
+  echo
+  echo "Booklet ($lang): PDF pages used per script page:"
+  total=$(pdfinfo "build/booklet-$lang.pdf" | awk '/^Pages:/ {print $2}')
+  typst eval "${args[@]}" --in "booklet/booklet-$lang.typ" --format json \
+    'query(<script-page>).map(it => (it.value, it.location().page()))' \
+    | python3 -c 'import json, sys
 starts = json.load(sys.stdin)
 total = int(sys.argv[1])
 # Script pages that start on the same PDF page share it: report them together.
@@ -54,9 +64,10 @@ for i, (ns, page) in enumerate(groups):
     used = end - page
     label = "+".join("p%d" % n for n in ns)
     print("  script %s: %d%s" % (label, used, "  <- runs over" if used > len(ns) else ""))' "$total"
+done
 
 echo
-echo "Visual placeholders:"
+echo "Visual placeholders (same in both languages):"
 for doc in infographic/infographic-en.typ booklet/booklet-en.typ; do
   typst eval "${args[@]}" --in "$doc" --format json 'query(<visual>).map(it => it.value)' \
     | python3 -c 'import json, sys

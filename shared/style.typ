@@ -17,24 +17,31 @@
 
 #let body-font = ("Noto Sans",)
 
-// Numbers with thousands separators: 1200 -> "1,200".
-#let num(n) = {
+// Document language, set by `setup`. Dutch groups thousands with a full
+// stop (1.200), English with a comma (1,200).
+#let doc-lang = state("doc-lang", "en")
+
+#let _grouped(n, sep) = {
   let s = str(n)
   let out = ""
   let len = s.len()
   for (i, c) in s.clusters().enumerate() {
-    if i > 0 and calc.rem(len - i, 3) == 0 { out += "," }
+    if i > 0 and calc.rem(len - i, 3) == 0 { out += sep }
     out += c
   }
   out
 }
+
+// Numbers with thousands separators: 1200 -> "1,200" (en), "1.200" (nl).
+#let num(n) = context _grouped(n, if doc-lang.get() == "nl" { "." } else { "," })
 #let ppm(n) = [#num(n)~ppm]
 
 // ---------------------------------------------------------------------
 // Page setup
 
-#let setup(doc, title: "", size: 8.8pt) = {
+#let setup(doc, title: "", size: 8.8pt, lang: "en") = {
   set document(title: title)
+  doc-lang.update(lang)
   set page(
     paper: "a5",
     margin: (x: 12mm, top: 12mm, bottom: 14mm),
@@ -43,7 +50,7 @@
     },
     header-ascent: 40%,
   )
-  set text(font: body-font, size: size, fill: ink, lang: "en")
+  set text(font: body-font, size: size, fill: ink, lang: lang)
   set par(leading: 0.55em, spacing: 0.75em)
   set list(indent: 0.1em, body-indent: 0.45em, spacing: 0.4em, marker: text(fill: accent)[•])
   set table(stroke: 0.4pt + rule, inset: (x: 1.6mm, y: 1.2mm))
@@ -64,7 +71,13 @@
 // ---------------------------------------------------------------------
 // Draft markers
 
-#let _tag(label) = if draft {
+// Provenance tags — (advice), (calc), (inference), (assumption) — are
+// hidden by default (user, 2026-09-16). Turn them back on with
+// `--input tags=true`, or `TAGS=true ./build.sh`. The TBD highlight and the
+// cut-candidate tag are not affected: they mark work still to do.
+#let show-tags = sys.inputs.at("tags", default: "false") != "false"
+
+#let _tag(label, visible: draft) = if visible {
   box(
     inset: (x: 1pt, y: 0.5pt),
     baseline: 0.5pt,
@@ -82,11 +95,11 @@
 } else { body }
 
 // Practical advice derived from sourced statements (script marker).
-#let advice = _tag("(advice)")
+#let advice = _tag("(advice)", visible: show-tags)
 // Assumption not backed by a source (script open points).
-#let assumption = _tag("(assumption)")
+#let assumption = _tag("(assumption)", visible: show-tags)
 // Follows from a sourced mechanism, not stated as such in a source.
-#let inference = _tag("(inference)")
+#let inference = _tag("(inference)", visible: show-tags)
 // First to go if a page runs over.
 #let cut-tag = _tag("CUT CANDIDATE")
 #let cut(body) = if draft {
@@ -159,6 +172,12 @@
 #let refs = yaml("/sources/references.yml")
 #let _cited = state("cited-sources", ())
 
+// The URL of a source, as a link (used for the "more information" list).
+#let ref-url(key) = {
+  let u = refs.at(key).url
+  link(if type(u) == str { u } else { u.value })
+}
+
 #let _authors(a) = {
   if a == none { return none }
   if type(a) == str { return a }
@@ -199,7 +218,7 @@
   [#parts.join(". "). #if loc != none [#loc]]
 }
 
-#let calc-tag = _tag("(calc)")
+#let calc-tag = _tag("(calc)", visible: show-tags)
 
 // Number of an entry, or none if it has not been cited yet.
 #let _index-of(entries, key) = {
@@ -229,7 +248,7 @@
 
 // Our own arithmetic from sourced inputs: cites the sources, then a
 // numbered note that explains the calculation.
-#let ourcalc(id, what, ..keys) = [#src(..keys)#super[,]#note-cite(id, body: [Our calculation: #what])#if draft [#calc-tag]]
+#let ourcalc(id, what, ..keys) = [#src(..keys)#super[,]#note-cite(id, body: [Our calculation: #what])#calc-tag]
 
 // The numbered reference list, printed at the end of the document.
 #let reference-list(size: 5.9pt, cols: 2) = context {

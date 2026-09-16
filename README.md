@@ -103,19 +103,32 @@ Seed topics, from `input.txt`:
 Building locally (Typst 0.15, `pdfinfo` from poppler-utils):
 
 ```
-./build.sh                 # draft mode: TBD highlights, cut candidates, (calc)/(advice) tags
+./build.sh                 # draft mode: TBD highlights and cut candidates
 DRAFT=false ./build.sh     # without draft markers
 BANDS=B ./build.sh         # colour-band option B (script.md §1)
+LANGS="nl" ./build.sh      # one language only
+TAGS=true ./build.sh       # show the (advice)/(calc)/(inference)/(assumption) tags
 ```
 
-Output: `build/booklet-en.pdf`, `build/infographic-en.pdf`,
-`build/infographic-en.png`. The script reports how many PDF pages each
-script page uses (overflow) and lists the visual placeholders to commission.
+Output per language: `build/booklet-<lang>.pdf`,
+`build/infographic-<lang>.pdf` and `build/infographic-<lang>.png`. The
+script reports how many PDF pages each script page uses (overflow) and
+lists the visual placeholders to commission.
 
 Prototype conventions:
 
+- Each document is split into a layout file and one text file per language,
+  so Dutch and English keep the same structure and cannot drift apart. Only
+  the words live in `text-en.typ` / `text-nl.typ`.
+- Dutch is written at roughly B1 and uses "je". Numbers follow the language:
+  `1,200 ppm` in English, `1.200 ppm` in Dutch.
 - Visuals to commission are hatched placeholder boxes with an ID (I1–I9 on
-  the infographic, B1–B3 in the booklet) and the brief from the script.
+  the infographic, B1–B3 in the booklet) and the brief from the script. The
+  briefs stay English in both languages: they are production notes.
+- The provenance tags "(advice)", "(calc)", "(inference)" and
+  "(assumption)" are hidden by default; `TAGS=true` shows them for review.
+  The TBD highlight and CUT CANDIDATE tag still follow draft mode, and all
+  of these stay English: they are production notes.
 - Citations in the booklet are numbered in order of first appearance, one
   number per source, reused when the source is cited again. The numbered
   list of all sources is printed at the end of the booklet. The
@@ -147,16 +160,16 @@ Current:
 | `PUBLISHING.md` | GitHub Pages set-up and maintenance. |
 | `changelog/` | Per-task notes on specifications, decisions and progress. |
 | `CLAUDE.md` | Working rules for agent sessions in this repository. |
-| `infographic/infographic-en.typ` | Typst prototype of the A5 infographic, English side. |
-| `booklet/booklet-en.typ` | Typst prototype of the booklet, English, 8 A5 pages in reading order. |
+| `infographic/infographic.typ` | Layout of the A5 infographic; `text-en.typ` and `text-nl.typ` hold the words, `infographic-en.typ` and `infographic-nl.typ` are the entry points. |
+| `booklet/booklet.typ` | Layout of the booklet (8 A5 pages in reading order); `text-en.typ` and `text-nl.typ` hold the words, `booklet-en.typ` and `booklet-nl.typ` are the entry points. |
 | `shared/facts.typ` | Shared facts F1–F15 from `script.md` (thresholds, figures, colour bands). |
 | `shared/style.typ` | Page setup, styles, placeholders, draft markers, citation helper. |
 | `shared/diagrams.typ` | Data diagrams drawn from the shared facts (colour-band scale, level scale). |
 | `sources/references.yml` | Reference list (Hayagriva YAML) for all cited sources. |
 | `build.sh` | Local build into `build/` (ignored by git). |
 
-Not created yet: Dutch versions (`*-nl.typ`), landing page content, Typst
-build steps in the workflow.
+Not created yet: landing page content and Typst build steps in the
+workflow.
 
 ## About `script-sketch.md`
 

@@ -1,6 +1,6 @@
-// Data diagrams drawn from the shared facts. Illustrations are commissioned
-// separately; these can be restyled by the illustrator, but their numbers
-// come from facts.typ.
+// Data diagrams drawn from the shared facts. Numbers come from facts.typ;
+// all wording is passed in by the caller, so the diagrams work in any
+// language. Illustrations are commissioned separately.
 
 #import "/shared/facts.typ" as f
 #import "/shared/style.typ": num, ink, muted, accent
@@ -18,20 +18,21 @@
 )
 
 // Filled colour bands between lo and hi, scaled to width w, at offset y.
-#let _bands(lo, hi, w, y, h, labels: true) = {
+// `labels` is one label per band, in the order of facts.bands.
+#let _bands(lo, hi, w, y, h, labels: ()) = {
   let x(v) = (calc.max(lo, calc.min(v, hi)) - lo) / (hi - lo) * w
-  for b in f.bands {
+  for (i, b) in f.bands.enumerate() {
     let to = if b.to == none { hi } else { b.to }
     if to > lo and b.from < hi {
       let x0 = x(b.from)
       let x1 = x(to)
       place(top + left, dx: x0, dy: y, rect(width: x1 - x0, height: h, fill: b.color, stroke: none))
-      if labels {
+      if i < labels.len() {
         place(top + left, dx: x0, dy: y, box(
           width: x1 - x0,
           height: h,
           inset: (x: 1pt),
-          align(center + horizon, text(size: 6.2pt, weight: "bold", fill: b.text, b.label)),
+          align(center + horizon, text(size: 6.2pt, weight: "bold", fill: b.fg, labels.at(i))),
         ))
       }
     }
@@ -41,8 +42,11 @@
 // Colour-band scale from outdoor air to 2,000+ ppm, with markers for
 // outdoor air and 1,000 ppm. Used on the infographic and booklet p4.
 #let band-scale(
+  band-labels: (),
+  marker-label: [],
+  outdoor-label: [],
+  unit-label: [ppm],
   bar-height: 8mm,
-  marker-label: [#num(f.guide-abroad) ppm: advised abroad and by sleep researchers],
 ) = layout(size => {
   let w = size.width - 3mm // room for the arrow tip
   let lo = 400
@@ -51,7 +55,7 @@
   let y0 = 4.5mm
   let h = bar-height
   block(width: size.width, height: y0 + h + 5.5mm, breakable: false, spacing: 0.9em, {
-    _bands(lo, hi, w, y0, h)
+    _bands(lo, hi, w, y0, h, labels: band-labels)
     // arrow tip at the open end
     place(top + left, dx: w, dy: y0, polygon(
       fill: f.bands.last().color,
@@ -76,38 +80,38 @@
     // axis ticks below
     let y = y0 + h
     _vtick(x(f.outdoor), y, 1.2mm)
-    _label(x(f.outdoor) - 0.6mm, y + 1.4mm, [outdoors ≈ #num(f.outdoor)], anchor: left)
+    _label(x(f.outdoor) - 0.6mm, y + 1.4mm, outdoor-label, anchor: left)
     for v in (f.mc-good-max, f.guide-abroad, f.nl-reference, 2000) {
       _vtick(x(v), y, 1.2mm)
       _label(x(v), y + 1.4mm, num(v), width: 12mm)
     }
-    _label(size.width, y + 1.4mm, [ppm], width: 12mm, anchor: right)
+    _label(size.width, y + 1.4mm, unit-label, width: 12mm, anchor: right)
   })
 })
 
 // Level scale with breaks: home levels, workplace limit, toxic levels.
-// Booklet p3. Each panel has its own scale.
-#let level-scale() = layout(size => {
+// Booklet p3. Each panel has its own scale. `titles` and `captions` hold
+// three entries each, in that order.
+#let level-scale(titles: (), captions: ()) = layout(size => {
   let w = size.width
   let gap = 5mm
   let pw = (w - 2 * gap) / 3
   let y0 = 4mm
   let h = 5.5mm
   let panels = (
-    (lo: 400, hi: 3000, title: [Homes], ticks: (1000, 2000, 3000),
-      caption: [Levels you can find at home]),
-    (lo: 3000, hi: 10000, title: [Workplaces], ticks: (f.workplace-limit, 10000),
-      caption: [#num(f.workplace-limit): limit for workplaces, averaged over #f.workplace-hours hours]),
-    (lo: 10000, hi: f.unconscious-max, title: [Poisonous], ticks: (f.toxic-symptoms, f.unconscious-max),
-      caption: [From about #num(f.toxic-symptoms): headache, dizziness, breathlessness. #num(f.unconscious-min)–#num(f.unconscious-max): unconsciousness]),
+    (lo: 400, hi: 3000, ticks: (1000, 2000, 3000)),
+    (lo: 3000, hi: 10000, ticks: (f.workplace-limit, 10000)),
+    (lo: 10000, hi: f.unconscious-max, ticks: (f.toxic-symptoms, f.unconscious-max)),
   )
   block(width: w, height: y0 + h + 14mm, breakable: false, spacing: 0.9em, {
     for (i, p) in panels.enumerate() {
       let x0 = i * (pw + gap)
       let x(v) = x0 + (v - p.lo) / (p.hi - p.lo) * pw
-      place(top + left, dx: x0, dy: 0mm, text(size: 6.5pt, weight: "bold", fill: accent, p.title))
+      if i < titles.len() {
+        place(top + left, dx: x0, dy: 0mm, text(size: 6.5pt, weight: "bold", fill: accent, titles.at(i)))
+      }
       if i == 0 {
-        place(top + left, dx: x0, dy: 0mm, box(width: pw, height: y0 + h, _bands(p.lo, p.hi, pw, y0, h, labels: false)))
+        place(top + left, dx: x0, dy: 0mm, box(width: pw, height: y0 + h, _bands(p.lo, p.hi, pw, y0, h)))
       } else if i == 1 {
         place(top + left, dx: x0, dy: y0, rect(width: pw, height: h, fill: gradient.linear(f.band-red, f.band-darkred)))
       } else {
@@ -119,7 +123,7 @@
         ))
       }
       let y = y0 + h
-      for (j, v) in p.ticks.enumerate() {
+      for v in p.ticks {
         _vtick(x(v), y, 1.2mm)
         if v == p.hi {
           _label(x(v) + 0.3mm, y + 1.4mm, num(v), width: 12mm, anchor: right)
@@ -127,7 +131,9 @@
           _label(x(v), y + 1.4mm, num(v), width: 12mm)
         }
       }
-      _label(x0, y + 4.6mm, p.caption, width: pw, anchor: left, size: 5.8pt)
+      if i < captions.len() {
+        _label(x0, y + 4.6mm, captions.at(i), width: pw, anchor: left, size: 5.8pt)
+      }
       // scale break between panels
       if i < 2 {
         place(top + left, dx: x0 + pw + gap / 2 - 1.6mm, dy: y0 - 0.6mm, text(size: 10pt, fill: muted, "//"))

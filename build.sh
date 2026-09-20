@@ -8,6 +8,8 @@
 #   LANGS="nl" ./build.sh      one language only
 #   TAGS=true ./build.sh       show the (advice)/(calc)/(inference)/
 #                              (assumption) provenance tags, hidden by default
+#   ICONS=rows ./build.sh      infographic block 4 as icon + text on one
+#                              line, instead of the default icon tiles
 #
 # Needs typst (0.15) and network access on the first run to fetch the QR
 # code package. Uses pdfinfo (poppler-utils) for the page-count check.
@@ -18,9 +20,16 @@ draft="${DRAFT:-true}"
 bands="${BANDS:-A}"
 langs="${LANGS:-en nl}"
 tags="${TAGS:-false}"
-args=(--root . --input "draft=$draft" --input "bands=$bands" --input "tags=$tags")
+icons="${ICONS:-large}"
+args=(--root . --input "draft=$draft" --input "bands=$bands" --input "tags=$tags" \
+      --input "icons=$icons")
 
 mkdir -p build
+
+# Which visual IDs have an asset. Typst cannot test for a file, so this
+# writes visuals/manifest.json for it to read; an ID that is missing keeps
+# its hatched placeholder box.
+python3 tools/scan-visuals.py > /dev/null
 
 status=0
 check_pages() {
@@ -67,11 +76,18 @@ for i, (ns, page) in enumerate(groups):
 done
 
 echo
-echo "Visual placeholders (same in both languages):"
+echo "Visuals still to make (same in both languages):"
 for doc in infographic/infographic-en.typ booklet/booklet-en.typ; do
   typst eval "${args[@]}" --in "$doc" --format json 'query(<visual>).map(it => it.value)' \
     | python3 -c 'import json, sys
-for v in json.load(sys.stdin): print("  %s: %s" % (v["id"], v["brief"]))'
+done_ = 0
+for v in json.load(sys.stdin):
+    if v.get("asset"):
+        done_ += 1
+    else:
+        print("  %s: %s" % (v["id"], v["brief"]))
+if done_:
+    print("  (%d placed from visuals/)" % done_)'
 done
 
 echo

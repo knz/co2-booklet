@@ -27,8 +27,8 @@
   outdoor-label: [buiten ≈ #num(f.outdoor)],
   unit-label: [ppm],
   levels: (
-    [Nederland: het advies is om onder #ppm(f.nl-reference) te blijven.],
-    [Canada, Duitsland en Noorwegen: #ppm(f.guide-abroad) als richtwaarde voor binnenlucht.],
+    [Nederland: het vroegere advies is om onder #ppm(f.nl-reference) te blijven.],
+    [Andere landen, nieuwere richtlijnen: #ppm(f.guide-abroad) richtwaarde voor binnenlucht.],
     [Slaaponderzoekers: onder #ppm(f.bedroom-max) in slaapkamers.],
   ),
 
@@ -37,7 +37,7 @@
     [Laat ventilatieroosters open, dag en nacht.],
     [Geen roosters? Zet een raam op een kier.],
     [Mechanische ventilatie: laat die aanstaan.],
-    [Warmteterugwinning (wtw): frisse lucht binnen, warmte blijft binnen. Ook per kamer.],
+    [WTW: frisse lucht binnen, kou blijft buiten. Ook per kamer mogelijk.],
   ),
   not-replace-head: [Dit vervangt ventileren niet],
   not-replace: (

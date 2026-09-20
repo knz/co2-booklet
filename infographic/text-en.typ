@@ -29,8 +29,8 @@
   outdoor-label: [outdoors ≈ #num(f.outdoor)],
   unit-label: [ppm],
   levels: (
-    [Netherlands: advice is to stay below #ppm(f.nl-reference).],
-    [Canada, Germany and Norway: #ppm(f.guide-abroad) guide value for indoor air.],
+    [Netherlands: old advice is to stay below #ppm(f.nl-reference).],
+    [Other countries, newer advice: #ppm(f.guide-abroad) guide value for indoor air.],
     [Sleep researchers: below #ppm(f.bedroom-max) in bedrooms.],
   ),
 
@@ -42,7 +42,7 @@
     [Keep ventilation grilles open, day and night.],
     [No grilles? Put a window ajar.],
     [Mechanical ventilation: leave it on.],
-    [Heat recovery (HRV): fresh air in, heat stays in. Also per room.],
+    [Heat recovery (HRV): fresh air in, cold stays out. Also possible per room.],
   ),
   not-replace-head: [This does not replace ventilation],
   not-replace: (

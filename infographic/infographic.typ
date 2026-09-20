@@ -47,6 +47,53 @@
   [#text(weight: "bold", fill: if ok { f.band-green } else { f.band-red }, if ok [✓] else [✗]) #body],
 )
 
+// Block 4 layout. "large" (default since 2026-09-20, user) gives each item
+// a tile with the icon above the label; at 13 mm the icons carry meaning
+// rather than sitting as marks beside the text. "rows" is the earlier
+// layout, icon and text on one line, kept for comparison. Select with
+// `--input icons=rows`, or `ICONS=rows ./build.sh`.
+#let icons-variant = sys.inputs.at("icons", default: "large")
+
+#let tile-size = 12mm
+
+// The ✓ / ✗ has no line to sit on in the tile layout, so it becomes a
+// badge on the corner of the icon.
+//
+// The marks are drawn, not set as the glyphs ✓ and ✗. Those two glyphs do
+// not share a centre in Noto Sans: ✗ sits visibly off-centre in the disc
+// while ✓ looks about right, and the offset would change with the font.
+// Drawing them puts both exactly in the middle and gives them the same
+// stroke weight.
+#let _mark-box = 2.6mm
+#let _mark-stroke = (paint: white, thickness: 0.9pt, cap: "round")
+
+#let sense-mark(ok) = box(width: _mark-box, height: _mark-box, {
+  if ok {
+    place(line(start: (14%, 54%), end: (40%, 80%), stroke: _mark-stroke))
+    place(line(start: (40%, 80%), end: (86%, 22%), stroke: _mark-stroke))
+  } else {
+    place(line(start: (18%, 18%), end: (82%, 82%), stroke: _mark-stroke))
+    place(line(start: (82%, 18%), end: (18%, 82%), stroke: _mark-stroke))
+  }
+})
+
+#let sense-badge(ok) = circle(
+  radius: 2.1mm,
+  fill: if ok { f.band-green } else { f.band-red },
+  stroke: 0.8pt + white,
+  inset: 0pt,
+  align(center + horizon, sense-mark(ok)),
+)
+
+#let tile(id, brief, ok, body) = align(center)[
+  #box(width: tile-size, height: tile-size)[
+    #place(placeholder(id, brief, width: tile-size, height: tile-size, compact: true))
+    #place(bottom + right, dx: 2.4mm, dy: 1.6mm, sense-badge(ok))
+  ]
+  #v(-0.4mm)
+  #text(size: 6.5pt, body)
+]
+
 #let render(t) = {
   show: setup.with(title: t.title-plain, size: 8.4pt, lang: t.lang)
   set page(margin: (x: 9mm, top: 9mm, bottom: 8mm))
@@ -91,26 +138,59 @@
 
   // ---- Block 4: what helps, what does not replace ventilation
   v(1mm)
-  let rows = calc.max(t.helps.len(), t.not-replace.len())
-  let cells = ()
-  for i in range(rows) {
-    cells.push(if i < t.helps.len() {
-      item(helps-icons.at(i).at(0), helps-icons.at(i).at(1), true, t.helps.at(i))
-    } else { [] })
-    cells.push(if i < t.not-replace.len() {
-      item(not-icons.at(i).at(0), not-icons.at(i).at(1), false, t.not-replace.at(i))
-    } else { [] })
+  let helps-head = text(size: 10pt, weight: "bold", fill: accent, t.helps-head)
+  let not-head = text(size: 10pt, weight: "bold", fill: accent, t.not-replace-head)
+
+  if icons-variant == "large" {
+    // Two tiles per side per row, so each side keeps its own half of the
+    // sheet and the ✓ column still reads as a column.
+    let cells = ()
+    for r in range(2) {
+      for i in (r * 2, r * 2 + 1) {
+        cells.push(if i < t.helps.len() {
+          tile(helps-icons.at(i).at(0), helps-icons.at(i).at(1), true, t.helps.at(i))
+        } else { [] })
+      }
+      for i in (r * 2, r * 2 + 1) {
+        cells.push(if i < t.not-replace.len() {
+          tile(not-icons.at(i).at(0), not-icons.at(i).at(1), false, t.not-replace.at(i))
+        } else { [] })
+      }
+    }
+    grid(
+      columns: (1fr, 1fr, 1fr, 1fr),
+      column-gutter: 3mm,
+      row-gutter: 2mm,
+      grid.cell(colspan: 2, helps-head),
+      grid.cell(colspan: 2, not-head),
+      ..cells,
+    )
+  } else {
+    let rows = calc.max(t.helps.len(), t.not-replace.len())
+    let cells = ()
+    for i in range(rows) {
+      cells.push(if i < t.helps.len() {
+        item(helps-icons.at(i).at(0), helps-icons.at(i).at(1), true, t.helps.at(i))
+      } else { [] })
+      cells.push(if i < t.not-replace.len() {
+        item(not-icons.at(i).at(0), not-icons.at(i).at(1), false, t.not-replace.at(i))
+      } else { [] })
+    }
+    grid(
+      columns: (1fr, 1fr),
+      column-gutter: 5mm,
+      row-gutter: 1.6mm,
+      helps-head,
+      not-head,
+      ..cells,
+    )
   }
-  grid(
-    columns: (1fr, 1fr),
-    column-gutter: 5mm,
-    row-gutter: 1.6mm,
-    text(size: 10pt, weight: "bold", fill: accent, t.helps-head),
-    text(size: 10pt, weight: "bold", fill: accent, t.not-replace-head),
-    ..cells,
-  )
 
   // ---- Footer
+  // The 2.5mm is a hard minimum gap above the rule, not decoration: it
+  // turns "block 4 has grown into the footer" from a collision you have to
+  // spot by eye into a page overflow, which build.sh fails on.
+  v(2.5mm)
   v(1fr)
   line(length: 100%, stroke: 0.5pt + rule)
   grid(

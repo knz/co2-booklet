@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 280" width="620" height="280">
+  <!-- I2: a person breathing out; the breath drifts toward a CO2 meter.
+       The meter display is deliberately BLANK - a number on it would be a
+       factual claim with no source behind it. Flat profile, no perspective. -->
+  <g stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- Same framed panel as I1, so the two blocks read as a pair on the
+         sheet rather than one framed image beside one floating one. -->
+    <rect x="18" y="14" width="584" height="222" fill="#e4f0f3"/>
+    <rect x="18" y="236" width="584" height="26" fill="#c9d3d8"/>
+    <rect x="18" y="14" width="584" height="248" rx="6" fill="none" stroke="#1d2a33" stroke-width="3"/>
+
+    <!-- person in profile, facing right -->
+    <rect x="136" y="172" width="28" height="22" fill="#ffffff" stroke="#1d2a33" stroke-width="3"/>
+    <path d="M92 242 C 96 206, 118 190, 150 188 C 182 190, 204 206, 208 242 Z" fill="#e4f0f3" stroke="#1d2a33" stroke-width="3"/>
+    <path d="M150 46 C 184 46, 208 72, 206 104 C 205 114, 201 116, 198 118 L215 141 C 218 144, 216 148, 211 148 L201 149 C 197 149, 195 152, 198 155 C 203 158, 203 162, 197 164 C 195 170, 190 176, 182 180 C 172 186, 160 188, 150 188 C 130 188, 110 178, 102 160 C 94 144, 92 122, 94 104 C 97 72, 118 46, 150 46 Z" fill="#ffffff" stroke="#1d2a33" stroke-width="3"/>
+    <path d="M95 132 C 88 124, 88 96, 94 80 C 104 54, 128 42, 152 42 C 184 42, 206 66, 206 100 C 206 105, 201 105, 200 100 C 195 78, 178 66, 152 68 C 126 70, 108 86, 104 114 C 103 124, 101 132, 95 132 Z" fill="#1f6f8b" stroke="#1d2a33" stroke-width="3"/>
+    <circle cx="180" cy="106" r="4.5" fill="#1d2a33"/>
+    <path d="M170 95 C 176 91, 186 91, 192 96" fill="none" stroke="#1d2a33" stroke-width="2.6"/>
+    <ellipse cx="198" cy="159" rx="6" ry="4.5" fill="#1d2a33"/>
+
+    <!-- breath, drifting right and spreading toward the meter -->
+    <g fill="none" stroke="#1f6f8b" stroke-width="2.6" opacity="0.45">
+      <path d="M214 152 C 254 142, 288 126, 336 120"/>
+      <path d="M214 168 C 256 172, 296 164, 342 152"/>
+    </g>
+    <g fill="#1f6f8b">
+      <circle cx="226" cy="160" r="4" opacity="0.5"/>
+      <circle cx="256" cy="148" r="5.5" opacity="0.45"/>
+      <circle cx="262" cy="172" r="4.5" opacity="0.4"/>
+      <circle cx="296" cy="136" r="6.5" opacity="0.4"/>
+      <circle cx="304" cy="168" r="5" opacity="0.35"/>
+      <circle cx="338" cy="148" r="7.5" opacity="0.32"/>
+      <circle cx="348" cy="120" r="5.5" opacity="0.3"/>
+      <circle cx="374" cy="160" r="6" opacity="0.26"/>
+      <circle cx="386" cy="128" r="7" opacity="0.22"/>
+    </g>
+
+    <!-- CO2 meter, blank display -->
+    <path d="M464 222 L450 242 L528 242 L514 222 Z" fill="#e4f0f3" stroke="#1d2a33" stroke-width="3"/>
+    <rect x="406" y="92" width="166" height="130" rx="14" fill="#ffffff" stroke="#1d2a33" stroke-width="3"/>
+    <rect x="424" y="110" width="130" height="66" rx="6" fill="#e4f0f3" stroke="#1d2a33" stroke-width="2.6"/>
+    <g fill="none" stroke="#c9d3d8" stroke-width="2.4">
+      <rect x="437" y="122" width="19" height="42" rx="3"/>
+      <rect x="465" y="122" width="19" height="42" rx="3"/>
+      <rect x="493" y="122" width="19" height="42" rx="3"/>
+      <rect x="521" y="122" width="19" height="42" rx="3"/>
+    </g>
+    <g stroke="#1d2a33" stroke-width="2">
+      <circle cx="448" cy="196" r="7" fill="#3f9b5c"/>
+      <circle cx="481" cy="196" r="7" fill="#f0c233"/>
+      <circle cx="514" cy="196" r="7" fill="#d4493f"/>
+      <circle cx="548" cy="196" r="6" fill="#ffffff"/>
+    </g>
+  </g>
+</svg>

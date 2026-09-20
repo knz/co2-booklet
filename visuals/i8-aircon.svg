@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <!-- I8: split-unit air conditioner on a wall, blowing downward -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="4" y="9" width="40" height="15" rx="4" fill="#e4f0f3" stroke="#1d2a33" stroke-width="2.8"/>
+    <path d="M9 19.5 L39 19.5" stroke="#1d2a33" stroke-width="2.2"/>
+    <circle cx="37" cy="14" r="1.8" fill="#1f6f8b"/>
+    <path d="M10 27 L34 27" stroke="#1f6f8b" stroke-width="2.6"/>
+    <g stroke="#1f6f8b" stroke-width="2.6">
+      <path d="M14 33 L18.5 37.5 L23 33"/>
+      <path d="M25 33 L29.5 37.5 L34 33"/>
+      <path d="M19.5 40.5 L24 45 L28.5 40.5"/>
+    </g>
+  </g>
+</svg>

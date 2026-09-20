@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <!-- I3: open ventilation grille, air passing through.
+       Slats are tilted and few: three thin horizontal lines read as a line
+       of text at 7 mm, which is how the first sketch failed. -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="5" y="12" width="28" height="24" rx="3" fill="#e4f0f3" stroke="#1d2a33" stroke-width="2.8"/>
+    <g stroke="#1f6f8b" stroke-width="3.2">
+      <path d="M11 19.5 L27 16.5"/>
+      <path d="M11 26 L27 23"/>
+      <path d="M11 32 L27 29"/>
+    </g>
+    <g stroke="#1f6f8b" stroke-width="2.6">
+      <path d="M36 18.5 L44 18.5"/>
+      <path d="M40.5 15 L44 18.5 L40.5 22"/>
+      <path d="M36 29.5 L44 29.5"/>
+      <path d="M40.5 26 L44 29.5 L40.5 33"/>
+    </g>
+  </g>
+</svg>

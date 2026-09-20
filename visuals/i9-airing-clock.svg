@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <!-- I9: airing the room on a schedule - window, with a clock badge -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="4" y="5" width="31" height="31" rx="2" fill="#e4f0f3" stroke="#1d2a33" stroke-width="2.8"/>
+    <path d="M19.5 5 L19.5 36" stroke="#1d2a33" stroke-width="2.2"/>
+    <path d="M4 20.5 L35 20.5" stroke="#1d2a33" stroke-width="2.2"/>
+    <circle cx="35" cy="35" r="9.5" fill="#ffffff" stroke="#1d2a33" stroke-width="2.6"/>
+    <g stroke="#1f6f8b" stroke-width="2.2">
+      <path d="M35 35 L35 29.5"/>
+      <path d="M35 35 L39 37.5"/>
+    </g>
+  </g>
+</svg>

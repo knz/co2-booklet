@@ -112,6 +112,7 @@ DRAFT=false ./build.sh     # without draft markers
 BANDS=B ./build.sh         # colour-band option B (script.md §1)
 LANGS="nl" ./build.sh      # one language only
 TAGS=true ./build.sh       # show the (advice)/(calc)/(inference)/(assumption) tags
+ICONS=rows ./build.sh      # infographic block 4 as icon + text on one line
 ```
 
 Output per language: `build/booklet-<lang>.pdf`,
@@ -133,9 +134,21 @@ Prototype conventions:
   the words live in `text-en.typ` / `text-nl.typ`.
 - Dutch is written at roughly B1 and uses "je". Numbers follow the language:
   `1,200 ppm` in English, `1.200 ppm` in Dutch.
-- Visuals to commission are hatched placeholder boxes with an ID (I1–I9 on
-  the infographic, B1–B3 in the booklet) and the brief from the script. The
-  briefs stay English in both languages: they are production notes.
+- Visuals carry an ID (I1–I10 on the infographic, B1–B3 in the booklet). An
+  ID with an asset in `visuals/` is drawn; one without keeps a hatched
+  placeholder box with its brief, and `build.sh` lists what is still open.
+  The briefs stay English in both languages: they are production notes.
+- The infographic visuals are sketched as SVG in `visuals/`, in one shared
+  style contract (`visuals/README.md`). The eight icons are the final
+  assets and stay vector. The two scenes, I1 and I2, are input for an image
+  generator: the SVG fixes the composition and palette, a generator is
+  asked to improve the render, and the result goes in `visuals/generated/`
+  as raster, where it takes precedence over the sketch.
+- Block 4 of the infographic has two layouts: `large` (default since
+  2026-09-20, a 13 mm icon above the label) and `rows` (`ICONS=rows`, the
+  earlier icon-and-text-on-one-line layout, kept for comparison). Both fit
+  one A5 page in both languages; in `large` the Dutch heat-recovery label
+  runs to four lines, which is the tightest spot on the sheet.
 - The provenance tags "(advice)", "(calc)", "(inference)" and
   "(assumption)" are hidden by default; `TAGS=true` shows them for review.
   The TBD highlight and CUT CANDIDATE tag still follow draft mode, and all
@@ -148,6 +161,9 @@ Prototype conventions:
 
 Open choices:
 
+- Shorter block-4 labels. The `large` layout works with the current
+  wording, but the Dutch heat-recovery label runs to four lines and leaves
+  no slack above the footer rule.
 - QR code generation: the prototype uses the Typst package `tiaoma` 0.3.0
   (downloaded on first build). To confirm.
 - Font for the printed documents: Noto Sans in the prototype, provisional.
@@ -175,6 +191,10 @@ Current:
 | `site/style.css`, `site/app.js` | Hand-written styles and the language choice. No framework. |
 | `site/favicon.svg`, `site/fonts/` | Icon, and the Fira Sans subsets (SIL OFL, see `site/fonts/OFL.txt`). |
 | `tools/build-site.py` | Fills `site/assets/` and generates `site/sources.html`. Run by `build.sh` and by the workflow. |
+| `visuals/` | SVG sketches for the infographic visuals, the style contract they share, and the image-generator prompts for I1 and I2. |
+| `visuals/manifest.json` | Which asset each visual ID has. Written by `tools/scan-visuals.py`; Typst cannot test for a file itself. |
+| `tools/render-sketches.py` | Rasterises the sketches into `visuals/render/`, plus a contact sheet of the icons at true printed size. |
+| `tools/scan-visuals.py` | Writes `visuals/manifest.json`. Run by `build.sh`. |
 | `.github/workflows/pages.yml` | Builds and deploys the site. |
 | `PUBLISHING.md` | GitHub Pages set-up and maintenance. |
 | `changelog/` | Per-task notes on specifications, decisions and progress. |
@@ -187,8 +207,10 @@ Current:
 | `sources/references.yml` | Reference list (Hayagriva YAML) for all cited sources. |
 | `build.sh` | Local build into `build/` (ignored by git). |
 
-Generated, and git-ignored: `build/`, `site/assets/` and
-`site/sources.html`. Nothing built is committed.
+Generated, and git-ignored: `build/`, `site/assets/`, `site/sources.html`
+and `visuals/render/`. Nothing built is committed, except
+`visuals/manifest.json`, which is committed so that a plain `typst compile`
+works without running `build.sh` first.
 
 ## About `script-sketch.md`
 

@@ -14,3 +14,4 @@ node_modules
 # site/fonts/.
 /site/assets/
 /site/sources.html
+/visuals/render/

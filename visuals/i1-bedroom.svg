@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 280" width="620" height="280">
+  <!-- I1: bedroom at night. Door closed, window closed, stale air building
+       up toward the ceiling, a small mould stain in the ceiling corner
+       above the window. Flat elevation, no perspective. -->
+  <g stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- room shell -->
+    <rect x="18" y="14" width="584" height="222" fill="#e4f0f3"/>
+    <rect x="18" y="236" width="584" height="26" fill="#c9d3d8"/>
+    <rect x="18" y="14" width="584" height="248" rx="6" fill="none" stroke="#1d2a33" stroke-width="3"/>
+
+    <!-- stale air building up, denser toward the ceiling -->
+    <g fill="#1f6f8b" opacity="0.28">
+      <circle cx="72" cy="46" r="6"/>
+      <circle cx="132" cy="34" r="4.5"/>
+      <circle cx="196" cy="52" r="6.5"/>
+      <circle cx="262" cy="36" r="5"/>
+      <circle cx="330" cy="50" r="6"/>
+      <circle cx="398" cy="34" r="4.5"/>
+      <circle cx="458" cy="48" r="6"/>
+      <circle cx="512" cy="36" r="5"/>
+    </g>
+    <g fill="#1f6f8b" opacity="0.18">
+      <circle cx="104" cy="98" r="4.5"/>
+      <circle cx="232" cy="108" r="4"/>
+      <circle cx="356" cy="96" r="5"/>
+      <circle cx="430" cy="120" r="4"/>
+      <circle cx="300" cy="150" r="4.5"/>
+    </g>
+
+    <!-- mould stain, ceiling corner above the window -->
+    <g fill="#5b6770">
+      <ellipse cx="566" cy="48" rx="18" ry="12" opacity="0.42"/>
+      <ellipse cx="546" cy="56" rx="10" ry="7" opacity="0.3"/>
+      <ellipse cx="578" cy="64" rx="8" ry="5.5" opacity="0.28"/>
+      <circle cx="556" cy="38" r="5" opacity="0.36"/>
+      <circle cx="583" cy="40" r="3.5" opacity="0.3"/>
+    </g>
+
+    <!-- door, closed -->
+    <rect x="52" y="74" width="92" height="162" rx="2" fill="#ffffff" stroke="#1d2a33" stroke-width="3"/>
+    <rect x="66" y="90" width="64" height="58" rx="2" fill="none" stroke="#1f6f8b" stroke-width="2.4"/>
+    <rect x="66" y="160" width="64" height="58" rx="2" fill="none" stroke="#1f6f8b" stroke-width="2.4"/>
+    <circle cx="134" cy="156" r="4.5" fill="#1d2a33"/>
+
+    <!-- window, closed. Dim panes and a moon: the scene is at night. -->
+    <rect x="452" y="80" width="126" height="98" rx="3" fill="#c9d3d8" stroke="#1d2a33" stroke-width="3"/>
+    <circle cx="484" cy="105" r="13" fill="#ffffff"/>
+    <path d="M515 80 L515 178" stroke="#1d2a33" stroke-width="2.6"/>
+    <path d="M452 129 L578 129" stroke="#1d2a33" stroke-width="2.6"/>
+    <path d="M508 123 L522 123" stroke="#1d2a33" stroke-width="3"/>
+    <path d="M440 184 L590 184" stroke="#1d2a33" stroke-width="3"/>
+
+    <!-- bed, with someone asleep under the blanket -->
+    <rect x="192" y="126" width="26" height="94" rx="4" fill="#e4f0f3" stroke="#1d2a33" stroke-width="3"/>
+    <rect x="206" y="186" width="200" height="34" rx="6" fill="#ffffff" stroke="#1d2a33" stroke-width="3"/>
+    <path d="M216 218 L216 238" stroke="#1d2a33" stroke-width="3"/>
+    <path d="M396 218 L396 238" stroke="#1d2a33" stroke-width="3"/>
+    <rect x="216" y="166" width="54" height="22" rx="10" fill="#ffffff" stroke="#1d2a33" stroke-width="3"/>
+    <circle cx="248" cy="164" r="15" fill="#ffffff" stroke="#1d2a33" stroke-width="3"/>
+    <path d="M242 161 C 244 159, 246 159, 248 161" fill="none" stroke="#1d2a33" stroke-width="2.4"/>
+    <path d="M252 161 C 254 159, 256 159, 258 161" fill="none" stroke="#1d2a33" stroke-width="2.4"/>
+    <path d="M260 220 L260 204 C 260 190, 276 180, 300 180 C 334 180, 360 187, 398 187 C 403 187, 406 190, 406 195 L406 220 Z" fill="#1f6f8b" stroke="#1d2a33" stroke-width="3"/>
+  </g>
+</svg>

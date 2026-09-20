@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <!-- I10: heat-recovery ventilation. Fresh air in (accent, top), stale air
+       out (muted, bottom), heat carried back from the outgoing stream into
+       the incoming one (yellow).
+       Band yellow is the one documented departure from the monochrome-accent
+       rule for icons: warmth does not read without a warm colour.
+       The first sketch also drew the heat-exchanger X inside the box; at
+       7 mm the X, the arrows and the box collapsed into a blur. Dropped. -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <g stroke="#1f6f8b" stroke-width="2.8">
+      <path d="M2 16 L12 16"/>
+      <path d="M8.5 12.5 L12 16 L8.5 19.5"/>
+      <path d="M36 16 L46 16"/>
+      <path d="M42.5 12.5 L46 16 L42.5 19.5"/>
+    </g>
+    <g stroke="#5b6770" stroke-width="2.8">
+      <path d="M46 34 L36 34"/>
+      <path d="M39.5 30.5 L36 34 L39.5 37.5"/>
+      <path d="M12 34 L2 34"/>
+      <path d="M5.5 30.5 L2 34 L5.5 37.5"/>
+    </g>
+    <rect x="12" y="9" width="24" height="32" rx="4" fill="#e4f0f3" stroke="#1d2a33" stroke-width="2.8"/>
+    <g stroke="#f0c233" stroke-width="3.4">
+      <path d="M24 32 L24 20"/>
+      <path d="M19.5 24 L24 19.5 L28.5 24"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <!-- B3 call-out 4: the resident gets up and leaves. Same door as
+       door-in.svg with the arrow reversed. -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="22" y="5" width="21" height="38" rx="3" fill="#ffffff" stroke="#1d2a33" stroke-width="2.8"/>
+    <path d="M34 8.5 L34 39.5 L43 43 L43 5 Z" fill="#e4f0f3" stroke="#1d2a33" stroke-width="2.6"/>
+    <g stroke="#1f6f8b" stroke-width="2.8">
+      <path d="M28 24 L4 24"/>
+      <path d="M9 19 L4 24 L9 29"/>
+    </g>
+  </g>
+</svg>

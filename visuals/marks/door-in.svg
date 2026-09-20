@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <!-- B3 call-out 1: someone comes into the bedroom. Open door, arrow going
+       in. Paired with door-out.svg, which is the same door with the arrow
+       reversed; the arrow is the only thing that differs, on purpose. -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="22" y="5" width="21" height="38" rx="3" fill="#ffffff" stroke="#1d2a33" stroke-width="2.8"/>
+    <path d="M34 8.5 L34 39.5 L43 43 L43 5 Z" fill="#e4f0f3" stroke="#1d2a33" stroke-width="2.6"/>
+    <g stroke="#1f6f8b" stroke-width="2.8">
+      <path d="M4 24 L26 24"/>
+      <path d="M21 19 L26 24 L21 29"/>
+    </g>
+  </g>
+</svg>

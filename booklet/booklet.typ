@@ -11,7 +11,7 @@
 
 #import "/shared/facts.typ" as f
 #import "/shared/style.typ": *
-#import "/shared/diagrams.typ": band-scale, level-scale
+#import "/shared/diagrams.typ": band-scale, level-scale, night-graph
 #import "@preview/tiaoma:0.3.0": qrcode
 
 #let render(t) = {
@@ -31,7 +31,24 @@
     #text(size: 13pt, fill: accent, t.subtitle)
   ]
 
-  placeholder("B1", "Classroom sketch next to a bedroom sketch.", height: 45mm)
+  // One visual in two panels, framed separately like I1 and I2 on the
+  // infographic. The gap is held here rather than drawn into the images,
+  // so each panel is a self-contained square: (124mm - 5mm) / 2 = 59.5mm,
+  // which is also the height, so the panels come out square.
+  grid(
+    columns: (1fr, 1fr),
+    column-gutter: 5mm,
+    placeholder(
+      "B1a",
+      "Classroom on a winter afternoon: board, shut window, pupils at desks, stale air building up at the ceiling.",
+      height: 59.5mm,
+    ),
+    placeholder(
+      "B1b",
+      "Bedroom at night: shut window and shut door, one person asleep, the same stale air. Not the same room as I1.",
+      height: 59.5mm,
+    ),
+  )
 
   heading(level: 2, t.p1.hook-head)
   t.p1.hook
@@ -134,11 +151,29 @@
   list(..t.p5.read-bullets)
   t.p5.read-after
 
-  placeholder(
-    "B3",
-    "Example overnight graph from a real measurement with a test meter, with date and room described. Do not draw invented values.",
-    height: 30mm,
+  // B3. A measured night, not a drawn one: the curve comes from
+  // shared/night-data.typ. The numbered call-outs under the graph repeat
+  // the four moments as icons, for readers who do not read graphs. No
+  // heading of its own: the bullets just above end on "look at the graph",
+  // and the page has no room to spare.
+  night-graph(
+    title: t.p5.night-head,
+    band-labels: t.band-labels,
+    vent-label: t.p5.night-vent,
+    x-caption: t.p5.night-x,
+    y-caption: t.p5.night-y,
+    steps: t.p5.night-steps,
   )
+  // Caption and explanation are set smaller than the body: they belong to
+  // the graph above them, not to the running text.
+  {
+    set text(size: 7pt)
+    set par(leading: 0.42em)
+    t.p5.night-caption
+    parbreak()
+    t.p5.night-explain
+  }
+
 
   // =====================================================================
   // Page 6 — What helps and what doesn't

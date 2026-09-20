@@ -56,12 +56,12 @@
   set table(stroke: 0.4pt + rule, inset: (x: 1.6mm, y: 1.2mm))
   show table.cell.where(y: 0): set text(weight: "bold")
   show heading.where(level: 1): it => block(
-    below: 0.7em,
+    below: 0.85em,
     text(size: 14pt, weight: "bold", fill: accent, it.body),
   )
   show heading.where(level: 2): it => block(
     above: 0.9em,
-    below: 0.45em,
+    below: 0.6em,
     text(size: 9.8pt, weight: "bold", fill: accent, it.body),
   )
   show link: set text(hyphenate: false)

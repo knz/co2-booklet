@@ -5,8 +5,9 @@ two different purposes, and it matters which:
 
 - **I3–I10 (icons) are the final assets.** They are placed as vector SVG in
   the document. No image generator touches them.
-- **I1 and I2 (scenes) are input for an image generator.** The SVG fixes
-  the composition, proportions and palette; a generator is then asked to
+- **The scenes are input for an image generator** — I1 and I2 on the
+  infographic, B1a and B1b on the booklet cover. The SVG fixes the
+  composition, proportions and palette; a generator is then asked to
   "improve" the render into a finished flat illustration. The result lands
   in `generated/` as raster and is what the document places.
 
@@ -20,18 +21,22 @@ set. Departing from it is what makes a set look assembled from stock.
 | | |
 |---|---|
 | Icon canvas | `viewBox="0 0 48 48"`, drawing kept inside 4–44 |
-| Scene canvas | `viewBox="0 0 620 280"` (the 62 × 28 mm slots, ×10) |
-| Outline stroke | `#1d2a33` (ink), width 2.8 on icons, 3 on scenes |
+| Scene canvas | the slot's proportions, ×10: `0 0 620 280` for the infographic's 62 × 28 mm scenes, `0 0 600 600` for the booklet's square panels |
+| Outline stroke | `#1d2a33` (ink), width 2.8 on icons, 3–4 on scenes |
 | Detail stroke | `#1f6f8b` (accent), width 2.2–2.6 on icons |
 | Fill | `#e4f0f3` (accent-soft) for bodies, `#ffffff` for highlights |
 | Caps / joins | `round` everywhere |
 | Corners | `rx` 2–6 on icons, 3–12 on scenes. No hard 90° corners |
 | Gradients | none |
-| Perspective | none. Flat elevation or flat profile only |
+| Projection | per image, and stated in its prompt. The infographic scenes (I1, I2) are flat elevation or flat profile. The booklet cover panels (B1a, B1b) are perspective corner views — decided 2026-09-21, because the cover carries one large image where depth reads, while the infographic scenes are 28 mm thumbnails where it would cost legibility |
 
 Colours are the literals from `shared/style.typ`. Two further colours
-appear in scenes only: `#c9d3d8` (rule) for floors and inert surfaces, and
-`#5b6770` (muted) for the mould stain in I1.
+appear in scenes only: `#c9d3d8` (rule) for floors, inert surfaces and
+daylight or night sky behind glass, and `#5b6770` (muted) for the mould
+stain in I1.
+
+One trap the booklet panels hit: the wall fill in a scene is `#e4f0f3`, so
+a figure filled with `#e4f0f3` disappears into it. Bodies in B1a are white.
 
 **Icons are monochrome-accent.** Ink outline, accent detail, accent-soft
 fill — nothing else. The ✓ / ✗ in the layout carries whether an item helps,
@@ -62,6 +67,8 @@ stay inside what usvg supports:
 |---|---|---|
 | `i1-bedroom.svg` | I1 | 62 × 28 mm (generator input) |
 | `i2-breath-meter.svg` | I2 | 62 × 28 mm (generator input) |
+| `b1a-classroom.svg` | B1a | 59.5 mm square, booklet cover (generator input) |
+| `b1b-bedroom.svg` | B1b | 59.5 mm square, booklet cover (generator input) |
 | `i3-grille.svg` | I3 | 7 mm, or 16 mm in the large-icon variant |
 | `i4-window-ajar.svg` | I4 | idem |
 | `i5-mech-vent.svg` | I5 | idem |
@@ -70,8 +77,22 @@ stay inside what usvg supports:
 | `i8-aircon.svg` | I8 | idem |
 | `i9-airing-clock.svg` | I9 | idem |
 | `i10-hrv.svg` | I10 | idem |
+| `marks/door-in.svg` | — | 5.6 mm, booklet B3 call-out 1 |
+| `marks/asleep.svg` | — | 5.6 mm, booklet B3 call-out 2 |
+| `marks/door-out.svg` | — | 5.6 mm, booklet B3 call-out 4 |
 
-`render/` holds the rasterised sketches (generated, git-ignored).
+`marks/` is a category of its own. Those icons are *part of* a diagram
+rather than a visual in their own right: three of them label the call-outs
+on the booklet's overnight graph, and `i10-hrv.svg` labels the fourth. They
+follow the same style contract and appear on the contact sheet, but they
+carry no visual ID, so `scan-visuals.py` does not look in `marks/` and they
+can never turn into a placeholder box. They are placed at 5.6 mm, under the
+7 mm the icons are drawn for, which is why the two doors differ by the
+direction of the arrow and by nothing finer.
+
+`render/` holds the rasterised sketches (generated, git-ignored). Which
+files are icons and which are scenes is read from the viewBox, not the file
+name: a 48-unit canvas is an icon.
 `generated/` holds what comes back from the image generator.
 `manifest.json` records which IDs have an asset; see below.
 
@@ -81,10 +102,18 @@ stay inside what usvg supports:
 ./tools/render-sketches.py      # SVG -> visuals/render/*.png + contact-sheet.png
 ```
 
-Then, for I1 and I2 only: open `visuals/render/i1-bedroom.png` in a chat
-image editor, paste the prompt from `visuals/prompts/i1.md` (which already
-includes the shared preamble), and save the result as
-`visuals/generated/I1.png`. Same for I2.
+Then, for the scenes only: open the render in a chat image editor, paste
+`visuals/prompts/_style.md` followed by the per-image prompt, and save the
+result into `visuals/generated/`.
+
+`_style.md` is image-agnostic; each per-image file states its own aspect
+ratio and any colour that image may use beyond the core palette.
+
+**B1a and B1b are generated in that order, and B1b is given the finished
+B1a as a second attachment.** They are printed side by side and the point
+of the pair is that the air looks identical in both. Two independent
+generations will not produce that; `b1b.md` is written to be run with the
+finished companion in hand.
 
 `visuals/render/contact-sheet.png` shows every icon at its true printed
 size next to a magnified view. It is the check for whether an icon still

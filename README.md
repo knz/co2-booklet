@@ -134,16 +134,23 @@ Prototype conventions:
   the words live in `text-en.typ` / `text-nl.typ`.
 - Dutch is written at roughly B1 and uses "je". Numbers follow the language:
   `1,200 ppm` in English, `1.200 ppm` in Dutch.
-- Visuals carry an ID (I1–I10 on the infographic, B1–B3 in the booklet). An
+- Visuals carry an ID (I1–I10 on the infographic, B1a/B1b in the booklet;
+  B2 was retired in an earlier task and is not reused). An
   ID with an asset in `visuals/` is drawn; one without keeps a hatched
   placeholder box with its brief, and `build.sh` lists what is still open.
   The briefs stay English in both languages: they are production notes.
-- The infographic visuals are sketched as SVG in `visuals/`, in one shared
-  style contract (`visuals/README.md`). The eight icons are the final
-  assets and stay vector. The two scenes, I1 and I2, are input for an image
-  generator: the SVG fixes the composition and palette, a generator is
-  asked to improve the render, and the result goes in `visuals/generated/`
-  as raster, where it takes precedence over the sketch.
+- B3 no longer carries an ID: it is a data diagram, not a commissioned
+  illustration. It plots a measured night from `sources/night-2026-09-16.csv`
+  and is drawn by `night-graph` in `shared/diagrams.typ`, the same way the
+  colour-band scales are. The small icons beside its four call-outs live in
+  `visuals/marks/`, which is outside the ID scheme.
+- The visuals are sketched as SVG in `visuals/`, in one shared style
+  contract (`visuals/README.md`). The eight icons are the final assets and
+  stay vector. The scenes — I1 and I2 on the infographic, B1a and B1b on
+  the booklet cover — are input for an image generator: the SVG fixes the
+  composition and palette, a generator is asked to improve the render, and
+  the result goes in `visuals/generated/` as raster, where it takes
+  precedence over the sketch.
 - Block 4 of the infographic has two layouts: `large` (default since
   2026-09-20, a 13 mm icon above the label) and `rows` (`ICONS=rows`, the
   earlier icon-and-text-on-one-line layout, kept for comparison). Both fit
@@ -200,6 +207,7 @@ Current:
 | `changelog/` | Per-task notes on specifications, decisions and progress. |
 | `CLAUDE.md` | Working rules for agent sessions in this repository. |
 | `infographic/infographic.typ` | Layout of the A5 infographic; `text-en.typ` and `text-nl.typ` hold the words, `infographic-en.typ` and `infographic-nl.typ` are the entry points. |
+| `visuals/prompts/` | The image-generator prompts: one shared preamble plus one file per scene. |
 | `booklet/booklet.typ` | Layout of the booklet (8 A5 pages in reading order); `text-en.typ` and `text-nl.typ` hold the words, `booklet-en.typ` and `booklet-nl.typ` are the entry points. |
 | `shared/facts.typ` | Shared facts F1–F15 from `script.md` (thresholds, figures, colour bands). |
 | `shared/style.typ` | Page setup, styles, placeholders, draft markers, citation helper. |

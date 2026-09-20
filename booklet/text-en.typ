@@ -49,7 +49,7 @@
     // §1b–1c
     stuffy-head: [Stuffy rooms during the day],
     stuffy: [In stuffy, poorly ventilated rooms, more people report
-      headaches and tiredness#src("zhang2017", "norback2013").],
+      headaches and drowsiness#src("zhang2017", "norback2013").],
     // §14
     damp-head: [Damp and mould],
     damp: [Breathing, cooking and showering add moisture to the air. Without
@@ -181,13 +181,12 @@
     lending-title: [Borrow a CO₂ meter],
     lending: [Borrow a CO₂ meter: \[where\] · \[for how long\] · \[how to
       reserve\] · \[what you get: meter, short instruction\].],
-    buy: [Or buy one: a CO₂ meter with an NDIR sensor can be found starting
+    buy: [With your own: a CO₂ meter with an NDIR sensor can be found starting
       at about €#f.meter-price-min#note-cite("market-check", body: [Check of
         Dutch and EU retail listings, 16 September 2026: several meters
         whose manufacturer specifies an NDIR sensor were offered from about
         €#f.meter-price-min. The consumer organisation Milieu Centraal gives
-        €80–300.]). Milieu Centraal also advises measuring, or borrowing a
-      meter, in the living room and bedrooms#src("mc-natuurlijke").],
+        €80–300.]). Milieu Centraal also advises measuring in the living room and bedrooms#src("mc-natuurlijke").],
     // §10
     choose-head: [Choose the right meter],
     choose: [Choose a meter with an NDIR sensor. Meters that show "eCO₂" or
@@ -216,6 +215,25 @@
     ),
     read-after: [Then change one thing at a time, for example one night with
       the grille closed and one night with it open, and compare. #advice],
+    // B3. Curve and events from sources/night-2026-09-16.csv; see
+    // shared/night-data.typ and tools/make-night-data.py.
+    night-head: [How CO#sub[2] changes through the night (example)],
+    night-x: [hours after coming into the bedroom],
+    night-y: [ppm],
+    night-vent: [ventilation \ higher],
+    night-steps: (
+      [Someone comes into the bedroom. CO#sub[2] starts to rise.],
+      [Asleep. The rise slows down, but it does not stop.],
+      [The ventilation steps up by itself. More fresh air in, CO#sub[2] reduced.],
+      [Out of bed and out of the room. The air clears.],
+    ),
+    night-caption: [One real night: one adult, door and window
+      closed. This home's ventilation always runs and automatically
+      adjusts with CO#sub[2]. For more than
+      eight hours the room stayed above #ppm(f.mc-good-max), but below #ppm(f.bedroom-max). Without it, CO#sub[2] in this room would rise above
+      #ppm(4000) within three hours.],
+    night-explain: [Without an automatic system, you should open a grille, or put a
+      window ajar. #advice],
   ),
 
   p6: (
@@ -228,6 +246,9 @@
         year#src("mc-natuurlijke").],
       [*No grilles?* Ensure there's a window ajar in the rooms where you
         live#src("mc-natuurlijke").],
+	  [*Can't open the window?* Leave the door open to the rest of the home.],
+      [*Above #ppm(f.nl-reference)?* Open the grille, door or window
+        further#src("mc-natuurlijke").],
       [*Mechanical ventilation.* Leave the fan on at all
         times#src("mc-woning"). Studies of new Dutch homes found systems
         were often left on the lowest setting, partly because of noise, and
@@ -240,9 +261,7 @@
         lose less heat in winter. When the air outside is cooler than
         inside, a bypass lets it in directly. There are also units for a
         single room, called decentralised balanced
-        ventilation#src("mc-balans").],
-      [*Above #ppm(f.nl-reference)?* Open the grille or window
-        further#src("mc-natuurlijke").],
+        ventilation#src("mc-balans"). Only then can you remain health with doors and windows closed.],
     ),
     not-replace-head: [This does not replace ventilation],
     not-replace: (

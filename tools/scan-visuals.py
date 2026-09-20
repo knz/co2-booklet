@@ -28,6 +28,7 @@ Usage: ./tools/scan-visuals.py
 
 import json
 import pathlib
+import re
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -36,8 +37,21 @@ GENERATED = VISUALS / "generated"
 
 
 def ident_of(path: pathlib.Path) -> str:
-    """The visual ID a file belongs to: the leading token of its name."""
-    return path.stem.split("-")[0].upper()
+    """The visual ID a file belongs to: the leading token of its name,
+    written the way the documents write it -- letters and digits upper
+    case, any panel suffix lower case, so `b1a-classroom.svg` is B1a and
+    `i10-hrv.svg` is I10. The documents look the ID up as a literal
+    string, so this has to match them exactly."""
+    token = path.stem.split("-")[0]
+    m = re.match(r"([A-Za-z]+)(\d+)(.*)", token)
+    return f"{m[1].upper()}{m[2]}{m[3].lower()}" if m else token.upper()
+
+
+def sort_key(ident: str) -> tuple[str, int, str]:
+    """Document order for an ID. Not all IDs are a letter plus digits:
+    a visual split across panels takes a suffix, as B1a and B1b do."""
+    m = re.match(r"([A-Z]+)(\d+)(.*)", ident)
+    return (m[1], int(m[2]), m[3]) if m else (ident, 0, "")
 
 
 def main() -> int:
@@ -59,7 +73,7 @@ def main() -> int:
         if len(imgs) > 1:
             superseded[ident] = [p.name for p in imgs[1:]]
 
-    ordered = dict(sorted(manifest.items(), key=lambda kv: int(kv[0][1:])))
+    ordered = dict(sorted(manifest.items(), key=lambda kv: sort_key(kv[0])))
     out = VISUALS / "manifest.json"
     out.write_text(json.dumps(ordered, indent=2) + "\n")
 

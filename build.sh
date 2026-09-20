@@ -31,6 +31,11 @@ mkdir -p build
 # its hatched placeholder box.
 python3 tools/scan-visuals.py > /dev/null
 
+# The measured curve on booklet B3, as Typst data. Committed, so a plain
+# `typst compile` works; regenerated here so it cannot go stale against the
+# CSV or the script that reads it.
+python3 tools/make-night-data.py > /dev/null
+
 status=0
 check_pages() {
   local pdf=$1 expected=$2 pages

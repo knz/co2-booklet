@@ -52,7 +52,7 @@
     // §1b–1c
     stuffy-head: [Bedompte kamers overdag],
     stuffy: [In bedompte, slecht geventileerde ruimtes hebben meer mensen
-      last van hoofdpijn en vermoeidheid#src("zhang2017", "norback2013").],
+      last van hoofdpijn en slaperigheid#src("zhang2017", "norback2013").],
     // §14
     damp-head: [Vocht en schimmel],
     damp: [Door ademen, koken en douchen komt er vocht in de lucht. Zonder
@@ -187,13 +187,13 @@
     lending-title: [Leen een CO₂-meter],
     lending: [Leen een CO₂-meter: \[waar\] · \[hoe lang\] · \[hoe
       reserveren\] · \[wat je krijgt: meter, korte uitleg\].],
-    buy: [Of koop er een: een CO₂-meter met NDIR-sensor is er vanaf ongeveer
+    buy: [Zelf regelen: een CO₂-meter met NDIR-sensor is er vanaf ongeveer
       € #f.meter-price-min#note-cite("market-check", body: [Controle van
         Nederlandse en Europese webwinkels, 16 september 2026: meerdere
         meters waarvan de fabrikant een NDIR-sensor opgeeft, werden
         aangeboden vanaf ongeveer € #f.meter-price-min.
         Consumentenorganisatie Milieu Centraal noemt € 80–300.]). Milieu
-      Centraal adviseert ook om te meten, of een meter te lenen, in de
+      Centraal adviseert ook om te meten, in de
       woonkamer en slaapkamers#src("mc-natuurlijke").],
     // §10
     choose-head: [Kies de goede meter],
@@ -224,6 +224,24 @@
     ),
     read-after: [Verander daarna steeds één ding, bijvoorbeeld één nacht met
       het rooster dicht en één nacht met het rooster open, en vergelijk. #advice],
+    // B3. Curve en gebeurtenissen uit sources/night-2026-09-16.csv; zie
+    // shared/night-data.typ en tools/make-night-data.py.
+    night-head: [Hoe de CO#sub[2] door de nacht verandert (voorbeeld)],
+    night-x: [uren nadat iemand de slaapkamer binnenkwam],
+    night-y: [ppm],
+    night-vent: [ventilatie \ hoger],
+    night-steps: (
+      [Iemand komt de slaapkamer binnen. De CO#sub[2] begint te stijgen.],
+      [In slaap. De stijging gaat langzamer, maar gaat door.],
+      [De ventilatie gaat vanzelf een stand hoger. Meer frisse lucht erin, CO#sub[2] omlaag.],
+      [Uit bed en de kamer uit. De lucht wordt weer fris.],
+    ),
+    night-caption: [Eén echte nacht: één volwassene, deur en raam dicht.,
+	  De ventilatie van deze woning draait altijd en regelt
+      zichzelf op CO#sub[2]. De kamer zat ruim acht uur boven de
+      #ppm(f.mc-good-max), maar onder de #ppm(f.bedroom-max). Zonder ventilatie zou de CO#sub[2] in deze kamer binnen
+      drie uur boven #ppm(4000) stijgen.],
+    night-explain: [Zonder automatische ventilatie, zet een ventilatierooster open, of zet een raam op een kier. #advice],
   ),
 
   p6: (
@@ -236,6 +254,9 @@
         één keer per jaar schoon#src("mc-natuurlijke").],
       [*Geen roosters?* Zorg dat er een raam op een kier staat in de kamers
         waar je bent#src("mc-natuurlijke").],
+	  [*Raam kan niet open?* Laat de deur open naar de rest van de woning.], 
+      [*Boven #ppm(f.nl-reference)?* Zet het rooster, de deur of het raam verder
+        open#src("mc-natuurlijke").],
       [*Mechanische ventilatie.* Laat de ventilator altijd
         aanstaan#src("mc-woning"). Onderzoek in nieuwe Nederlandse woningen
         liet zien dat systemen vaak op de laagste stand stonden, deels door
@@ -248,9 +269,7 @@
         die buitenlucht alvast op te warmen. Zo verlies je in de winter
         minder warmte. Is de lucht buiten koeler dan binnen, dan laat een
         bypass die lucht rechtstreeks binnen. Er zijn ook units voor één
-        kamer: decentrale balansventilatie#src("mc-balans").],
-      [*Boven #ppm(f.nl-reference)?* Zet het rooster of het raam verder
-        open#src("mc-natuurlijke").],
+        kamer: decentrale balansventilatie#src("mc-balans"). Alleen dan blijf je gezond met deuren en ramen dicht.],
     ),
     not-replace-head: [Dit vervangt ventileren niet],
     not-replace: (
@@ -350,8 +369,7 @@
       eraan en gaan er honderden naar het ziekenhuis. De eerste klachten
       (hoofdpijn, duizeligheid, misselijkheid) lijken op
       griep#src("brandweer-co"). Een CO-melder meet geen CO₂, en een
-      CO₂-meter waarschuwt niet voor CO: ze doen verschillend
-      werk#src("co2meter2023").],
+      CO₂-meter waarschuwt niet voor CO: ze zijn gewoon anders#src("co2meter2023").],
     // §16
     voc-title: [Andere stoffen],
     voc: [Dampen van verf, meubels, schoonmaakmiddelen,

@@ -17,7 +17,10 @@
 /* Sets the initial language before the page paints, so a returning visitor
    never sees the gate flash or the wrong language. app.js handles clicks. */
 (function(){var d=document.documentElement;d.className='js';
-var h=location.hash.replace('#','');var l=(h==='nl'||h==='en')?h:null;
+var h=location.hash.replace('#','');
+/* #lezen and #read are the in-page anchors of the documents block; they
+   imply their language, so a reload or a shared link keeps it. */
+var l={nl:'nl',en:'en',lezen:'nl',read:'en'}[h]||null;
 try{if(!l)l=localStorage.getItem('co2-lang');}catch(e){}
 if(l==='nl'||l==='en'){d.setAttribute('data-lang',l);d.lang=l;}})();
 </script>
@@ -53,8 +56,8 @@ if(l==='nl'||l==='en'){d.setAttribute('data-lang',l);d.lang=l;}})();
   <main class="wrap">
     <h1>Frisse lucht in je slaapkamer? Meet het!</h1>
     <p class="deck">Bedompte lucht is slecht voor je gezondheid. Maar hoe
-      weet je of de lucht bedompt is? In deze gids lees je hoe je het
-      meet.</p>
+      weet je of de lucht bedompt is? In deze <a href="#lezen">gids</a>
+      lees je hoe je het meet.</p>
     <p class="lede">Iedereen ademt CO₂ uit. Komt er te weinig frisse lucht
       binnen, dan loopt de CO₂ op — en met de CO₂ ook al het andere dat
       mensen binnen afgeven: vocht, geurtjes, bedompte lucht. Dat komt
@@ -92,17 +95,24 @@ if(l==='nl'||l==='en'){d.setAttribute('data-lang',l);d.lang=l;}})();
       <li>Slaaponderzoekers: onder 1.000 ppm in slaapkamers.</li>
     </ul>
 
-    <h2 class="visually-hidden">De infographic</h2>
-    <a class="sheet" href="assets/infographic-nl.pdf">
-      <img src="assets/infographic-nl.webp" width="1165" height="1654" loading="lazy"
-        alt="Infographic: Frisse lucht in je slaapkamer? Meet het! Met uitleg over
-             CO₂ en slapen, een kleurenschaal van 425 tot 2.000 ppm, en wat wel en
-             niet helpt tegen te veel CO₂.">
-    </a>
-    <p class="sheet-note">Open de infographic als pdf om alles goed te kunnen lezen.</p>
-    <ul class="downloads">
-      <li><a href="assets/infographic-nl.pdf">Infographic <em>pdf, A5</em></a></li>
-      <li><a href="assets/booklet-nl.pdf">Gids <em>pdf, 8 pagina’s</em></a></li>
+    <!-- Booklet and infographic side by side at the same size: both are
+         A5 portrait, and neither should outweigh the other. Booklet first,
+         because a visitor arriving from the QR code already holds the
+         infographic. -->
+    <h2 id="lezen">Lees de gids of de infographic</h2>
+    <ul class="pubs">
+      <li><a href="assets/booklet-nl.pdf">
+        <img src="assets/booklet-cover-nl.webp" width="583" height="827" alt="">
+        <b>Gids</b>
+        <span>Meer uitleg, met bronnen en links.</span>
+        <em>pdf, 8 pagina’s</em>
+      </a></li>
+      <li><a href="assets/infographic-nl.pdf">
+        <img src="assets/infographic-thumb-nl.webp" width="583" height="828" alt="">
+        <b>Infographic</b>
+        <span>De hoofdpunten op één A5-blad.</span>
+        <em>pdf, 1 pagina</em>
+      </a></li>
     </ul>
 
     <div class="measure-it">
@@ -140,7 +150,8 @@ if(l==='nl'||l==='en'){d.setAttribute('data-lang',l);d.lang=l;}})();
   <main class="wrap">
     <h1>Fresh air in your bedroom? Measure it.</h1>
     <p class="deck">Stale air leads to negative health effects. How do we
-      know air is stale? Here is a guide on how to measure it.</p>
+      know air is stale? Here is a <a href="#read">guide</a> on how to
+      measure it.</p>
     <p class="lede">Everyone breathes out CO₂. When too little fresh air
       comes in, it builds up — and so does everything else people give off
       indoors: moisture, smells, stale air. They build up for the same
@@ -175,17 +186,20 @@ if(l==='nl'||l==='en'){d.setAttribute('data-lang',l);d.lang=l;}})();
       <li>Sleep researchers: below 1,000 ppm in bedrooms.</li>
     </ul>
 
-    <h2 class="visually-hidden">The infographic</h2>
-    <a class="sheet" href="assets/infographic-en.pdf">
-      <img src="assets/infographic-en.webp" width="1165" height="1654" loading="lazy"
-        alt="Infographic: Fresh air in your bedroom? Measure it. With an explanation
-             of CO₂ and sleep, a colour scale from 425 to 2,000 ppm, and what does
-             and does not help against too much CO₂.">
-    </a>
-    <p class="sheet-note">Open the infographic as a pdf to read it at full size.</p>
-    <ul class="downloads">
-      <li><a href="assets/infographic-en.pdf">Infographic <em>pdf, A5</em></a></li>
-      <li><a href="assets/booklet-en.pdf">Booklet <em>pdf, 8 pages</em></a></li>
+    <h2 id="read">Read the booklet or the infographic</h2>
+    <ul class="pubs">
+      <li><a href="assets/booklet-en.pdf">
+        <img src="assets/booklet-cover-en.webp" width="583" height="827" alt="">
+        <b>Booklet</b>
+        <span>More explanation, with the evidence and links.</span>
+        <em>pdf, 8 pages</em>
+      </a></li>
+      <li><a href="assets/infographic-en.pdf">
+        <img src="assets/infographic-thumb-en.webp" width="583" height="828" alt="">
+        <b>Infographic</b>
+        <span>The main points on one A5 sheet.</span>
+        <em>pdf, 1 page</em>
+      </a></li>
     </ul>
 
     <div class="measure-it">

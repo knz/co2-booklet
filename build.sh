@@ -53,6 +53,10 @@ for lang in $langs; do
   typst compile "${args[@]}" "infographic/infographic-$lang.typ" "build/infographic-$lang.pdf"
   typst compile "${args[@]}" --pages 1 --ppi 200 \
     "infographic/infographic-$lang.typ" "build/infographic-$lang.png"
+  # Booklet cover, shown as a thumbnail on the landing page next to the
+  # infographic. 100 ppi is about twice its largest display size.
+  typst compile "${args[@]}" --pages 1 --ppi 100 \
+    "booklet/booklet-$lang.typ" "build/booklet-cover-$lang.png"
   check_pages "build/booklet-$lang.pdf" 8
   check_pages "build/infographic-$lang.pdf" 1
 done

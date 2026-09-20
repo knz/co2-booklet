@@ -6,6 +6,8 @@ Run by build.sh after a successful Typst build, and by
 
   * converts each infographic PNG to a lossless WebP of the same size and
     copies it into site/assets/;
+  * makes two lossy WebP thumbnails per language for the landing page, of
+    the infographic and of the booklet cover;
   * copies the four PDFs into site/assets/;
   * generates site/sources.html from sources/references.yml.
 
@@ -17,6 +19,12 @@ infographic is text and line art, where lossy WebP rings around the glyphs
 and, measured on this material, comes out larger anyway (q82: 144 kB
 against 126 kB lossless). Resampling before compressing also makes the file
 bigger, because it adds anti-aliasing noise for the encoder to store.
+
+The thumbnails are the other way round: they are shown at most 208 px wide,
+so nobody reads their text, and they carry illustrations. Measured at 583 px
+wide, q80: booklet cover 44 kB (lossless 133 kB), infographic 52 kB (the
+full-size lossless file is 258 kB). The full-size infographic is still
+published, as the og:image.
 
 Needs Pillow and PyYAML.
 """
@@ -37,6 +45,9 @@ BUILD = ROOT / "build"
 SITE = ROOT / "site"
 ASSETS = SITE / "assets"
 LANGS = ("nl", "en")
+# Pixel width of the landing page thumbnails: the booklet cover comes out of
+# build.sh at this width (A5 at 100 ppi), and the infographic is scaled to it.
+THUMB_WIDTH = 583
 
 # Headings for the source list. The English keys are the section comments
 # in sources/references.yml; the file's own order is kept.
@@ -61,14 +72,21 @@ SECTIONS = {
 # Images and PDFs
 
 
-def to_webp(src: Path, dst: Path) -> None:
+def to_webp(src: Path, dst: Path, quality=None, width=None) -> None:
+    """Lossless at the native size, unless a quality or a width is given."""
     with Image.open(src) as im:
         if im.mode == "RGBA":
             flat = Image.new("RGB", im.size, "white")
             flat.paste(im, mask=im.split()[-1])
         else:
             flat = im.convert("RGB")
-        flat.save(dst, format="WEBP", lossless=True, method=6)
+        if width is not None:
+            height = round(width * flat.height / flat.width)
+            flat = flat.resize((width, height), Image.LANCZOS)
+        if quality is None:
+            flat.save(dst, format="WEBP", lossless=True, method=6)
+        else:
+            flat.save(dst, format="WEBP", quality=quality, method=6)
     print("  %s  %d kB" % (dst.name, dst.stat().st_size // 1024))
 
 
@@ -79,8 +97,19 @@ def copy_assets() -> None:
         png = BUILD / ("infographic-%s.png" % lang)
         if png.exists():
             to_webp(png, ASSETS / ("infographic-%s.webp" % lang))
+            to_webp(
+                png,
+                ASSETS / ("infographic-thumb-%s.webp" % lang),
+                quality=80,
+                width=THUMB_WIDTH,
+            )
         else:
             missing.append(png)
+        cover = BUILD / ("booklet-cover-%s.png" % lang)
+        if cover.exists():
+            to_webp(cover, ASSETS / ("booklet-cover-%s.webp" % lang), quality=80)
+        else:
+            missing.append(cover)
         for name in ("infographic-%s.pdf" % lang, "booklet-%s.pdf" % lang):
             pdf = BUILD / name
             if pdf.exists():

@@ -479,59 +479,71 @@ a:focus-visible {
   margin-bottom: 0.3rem;
 }
 
-/* --- Infographic and downloads ----------------------------------------- */
+/* --- The two publications ----------------------------------------------
+ * Booklet and infographic are both A5 portrait, so the two thumbnails are
+ * the same size and neither outweighs the other. No box around an entry:
+ * the hairline is the edge of the sheet of paper, not a card. The width
+ * cap keeps the pair a preview on a wide screen, not a second hero.
+ */
 
-.sheet {
-  display: block;
-  margin: 1.5rem 0 1rem;
+/* The deck links here; keep the heading clear of the viewport edge. */
+h2[id] {
+  scroll-margin-top: 1rem;
 }
 
-.sheet img {
+.pubs {
+  list-style: none;
+  margin: 1rem 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 13rem));
+  gap: 1.25rem;
+}
+
+.pubs a {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.pubs img {
   display: block;
   width: 100%;
   height: auto;
+  margin-bottom: 0.65rem;
   border: 1px solid var(--rule);
   border-radius: 2px;
   background: var(--paper);
 }
 
-.sheet-note {
-  font-size: 0.875rem;
-  color: var(--muted);
-  margin: -0.5rem 0 1.25rem;
-}
-
-.downloads {
-  list-style: none;
-  margin: 0 0 1rem;
-  padding: 0;
-  border-top: 1px solid var(--rule);
-}
-
-.downloads li {
-  border-bottom: 1px solid var(--rule);
-}
-
-.downloads a {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.85rem 0;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.downloads a:hover {
+.pubs b {
+  display: block;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.3125rem;
+  line-height: 1.15;
+  color: var(--teal);
   text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
 }
 
-.downloads em {
+.pubs a:hover b {
+  text-decoration-thickness: 2px;
+}
+
+.pubs span {
+  display: block;
+  margin: 0.3rem 0 0.2rem;
+  font-size: 0.9375rem;
+  line-height: 1.4;
+}
+
+.pubs em {
+  display: block;
   font-style: normal;
-  font-weight: 400;
   font-size: 0.875rem;
   color: var(--muted);
-  white-space: nowrap;
 }
 
 /* --- The one boxed element on the page --------------------------------- */

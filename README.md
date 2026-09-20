@@ -40,8 +40,11 @@ keep the English text equally plain.
    and English versions. It explains the topics in more depth and gives
    evidence and links to sources.
 3. **Landing page** — https://knz.github.io/co2-booklet/, the target of the
-   QR code. The visitor chooses Dutch or English, then sees the infographic
-   in that language as an inline image, with links to the PDFs underneath.
+   QR code. The visitor chooses Dutch or English, then sees a short
+   introduction and the CO₂ scale, followed by the booklet and the
+   infographic in that language, side by side as two thumbnails of equal
+   size, each linking to its PDF. The word "guide" in the introduction
+   links down to them.
 
 ## Content scope
 
@@ -181,7 +184,10 @@ Settled on 2026-09-16:
 - Image format for the infographic on the landing page: **lossless WebP**
   at the native pixel size. Measured on this material, lossy WebP is both
   larger (q82: 144 kB against 126 kB) and rings around the text, and
-  downscaling first makes the lossless file bigger, not smaller.
+  downscaling first makes the lossless file bigger, not smaller. Since
+  2026-09-21 that file serves as the share preview (`og:image`) only; the
+  page itself shows two lossy WebP thumbnails, 583 px wide (infographic
+  and booklet cover, about 50 kB each).
 - Typst version pinned in the workflow: 0.15.1.
 
 ## Repository layout
@@ -194,7 +200,7 @@ Current:
 | `script-sketch.md` | First script drafted by another agent. Reference only, see below. |
 | `input2.txt` | Second input: core messages and revised direction for the script. |
 | `script.md` | Working script (draft 2) for the infographic and booklet, with shared facts and source tags. |
-| `site/index.html` | Landing page: language gate, then the infographic and the downloads per language. |
+| `site/index.html` | Landing page: language gate, then per language the introduction, the CO₂ scale, and the booklet and infographic thumbnails. |
 | `site/style.css`, `site/app.js` | Hand-written styles and the language choice. No framework. |
 | `site/favicon.svg`, `site/fonts/` | Icon, and the Fira Sans subsets (SIL OFL, see `site/fonts/OFL.txt`). |
 | `tools/build-site.py` | Fills `site/assets/` and generates `site/sources.html`. Run by `build.sh` and by the workflow. |

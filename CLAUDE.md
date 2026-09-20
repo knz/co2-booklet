@@ -50,8 +50,9 @@ Deliverables (all in Dutch and English):
 - **Booklet:** max 4 A4 pages of content, printed as 8 A5 pages; more
   explanation plus evidence and links; available as PDF.
 - **Landing page:** https://knz.github.io/co2-booklet/ (QR target). Visitor
-  chooses NL or EN, then sees the infographic in that language as an inline
-  image with links to the PDFs underneath. Use the `frontend-design` skill
+  chooses NL or EN, then sees a short introduction, the CO₂ scale and,
+  side by side at equal size, thumbnails of the booklet and the
+  infographic in that language, each linking to its PDF. Use the `frontend-design` skill
   when designing it; Tailwind CSS and daisyUI components are accepted.
 
 Audience: the median Diemen resident at any education level, and immigrants.

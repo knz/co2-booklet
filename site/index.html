@@ -37,6 +37,9 @@ if(l==='nl'||l==='en'){d.setAttribute('data-lang',l);d.lang=l;}})();
       <a class="gate__button" href="#nl" data-lang-choice="nl" hreflang="nl" lang="nl">Nederlands</a>
       <a class="gate__button" href="#en" data-lang-choice="en" hreflang="en" lang="en">English</a>
     </div>
+    <!-- The sender is stated up front, in both languages: the page is not a
+         municipal publication and should not be taken for one. -->
+    <p class="gate__sender"><span lang="nl">Een initiatief van leden van de gemeenteraad van Diemen</span><span lang="en">An initiative of members of the Diemen city council</span></p>
   </div>
   <div class="gate__bands" aria-hidden="true"><span></span><span></span><span></span></div>
 </div>
@@ -46,7 +49,10 @@ if(l==='nl'||l==='en'){d.setAttribute('data-lang',l);d.lang=l;}})();
 <!-- ==================== Nederlands ==================== -->
 <div class="lang" lang="nl">
   <header class="topbar"><div class="topbar__inner">
-    <span class="wordmark">Gezonde lucht, gezond huis</span>
+    <span class="brand">
+      <span class="wordmark">Gezonde lucht, gezond huis</span>
+      <span class="sender">Een initiatief van leden van de gemeenteraad van Diemen</span>
+    </span>
     <nav class="langswitch" aria-label="Taal">
       <a href="#nl" data-lang-choice="nl" aria-current="true" hreflang="nl">NL</a>
       <a href="#en" data-lang-choice="en" hreflang="en">EN</a>
@@ -131,7 +137,11 @@ if(l==='nl'||l==='en'){d.setAttribute('data-lang',l);d.lang=l;}})();
       <li>RIVM, Binnenmilieu in woningen:
         <a href="https://www.rivm.nl/binnenmilieu/binnenmilieu-in-woningen">rivm.nl</a></li>
     </ul>
-    <p class="colophon">Uitgegeven door Thaumogen Consulting BV, september 2026.
+    <p class="colophon"><b>Van wie is deze informatie?</b> Dit is een
+      initiatief van leden van de gemeenteraad van Diemen. Het is geen
+      publicatie van de gemeente Diemen. Thaumogen Consulting BV zet de
+      website en de documenten online.</p>
+    <p class="colophon">September 2026.
       Bronnen gecontroleerd op 15 september 2026.
       Dit geeft algemene informatie. Het is geen medisch advies.</p>
   </div></footer>
@@ -140,7 +150,10 @@ if(l==='nl'||l==='en'){d.setAttribute('data-lang',l);d.lang=l;}})();
 <!-- ==================== English ==================== -->
 <div class="lang" lang="en">
   <header class="topbar"><div class="topbar__inner">
-    <span class="wordmark">Healthy air, healthy home</span>
+    <span class="brand">
+      <span class="wordmark">Healthy air, healthy home</span>
+      <span class="sender">An initiative of members of the Diemen city council</span>
+    </span>
     <nav class="langswitch" aria-label="Language">
       <a href="#nl" data-lang-choice="nl" hreflang="nl">NL</a>
       <a href="#en" data-lang-choice="en" aria-current="true" hreflang="en">EN</a>
@@ -218,7 +231,11 @@ if(l==='nl'||l==='en'){d.setAttribute('data-lang',l);d.lang=l;}})();
       <li>RIVM, indoor environment in homes (Dutch):
         <a href="https://www.rivm.nl/binnenmilieu/binnenmilieu-in-woningen">rivm.nl</a></li>
     </ul>
-    <p class="colophon">Published by Thaumogen Consulting BV, September 2026.
+    <p class="colophon"><b>Who is behind this information?</b> This is an
+      initiative of members of the Diemen city council. It is not a
+      publication of the municipality of Diemen. Thaumogen Consulting BV
+      hosts the website and the documents.</p>
+    <p class="colophon">September 2026.
       Sources checked on 15 September 2026.
       This gives general information. It is not medical advice.</p>
   </div></footer>

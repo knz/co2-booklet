@@ -5,11 +5,9 @@
 // Landing page (QR target). Must stay stable, see PUBLISHING.md.
 #let url = "https://knz.github.io/co2-booklet/"
 
-// Colophon (user, 2026-09-16). The publisher name is the same in both
-// languages; the date wording ("September 2026" / "september 2026") and
-// the date the sources were checked (2026-09-15) live in the per-language
-// text files.
-#let publisher = "Thaumogen Consulting BV"
+// Colophon: the sender statement, the date wording ("September 2026" /
+// "september 2026") and the date the sources were checked (2026-09-15) live
+// in the per-language text files.
 
 // F1 Outdoor CO₂, NOAA 2025 annual means.
 #let outdoor = 425

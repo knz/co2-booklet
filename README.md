@@ -186,7 +186,8 @@ Open choices:
 - QR code generation: the prototype uses the Typst package `tiaoma` 0.3.0
   (downloaded on first build). To confirm.
 - Font for the printed documents: Noto Sans in the prototype, provisional.
-  (The landing page is settled: Fira Sans, self-hosted.)
+  (The landing page uses Nunito, self-hosted; see
+  `changelog/20260921-landing-official-look-feedback.md`.)
 
 Settled on 2026-09-16:
 
@@ -211,7 +212,7 @@ Current:
 | `script.md` | Working script (draft 2) for the infographic and booklet, with shared facts and source tags. |
 | `site/index.html` | Landing page: language gate, then per language the introduction, the CO₂ scale, and the booklet and infographic thumbnails. |
 | `site/style.css`, `site/app.js` | Hand-written styles and the language choice. No framework. |
-| `site/favicon.svg`, `site/fonts/` | Icon, and the Fira Sans subsets (SIL OFL, see `site/fonts/OFL.txt`). |
+| `site/favicon.svg`, `site/fonts/` | Icon, and the Nunito Latin subset (SIL OFL, see `site/fonts/OFL.txt`). |
 | `tools/build-site.py` | Fills `site/assets/` and generates `site/sources.html`. Run by `build.sh` and by the workflow. |
 | `visuals/` | SVG sketches for the infographic visuals, the style contract they share, and the image-generator prompts for I1 and I2. |
 | `visuals/manifest.json` | Which asset each visual ID has. Written by `tools/scan-visuals.py`; Typst cannot test for a file itself. |

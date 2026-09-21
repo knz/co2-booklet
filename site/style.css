@@ -4,45 +4,33 @@
  * target of a printed QR code, so it has to load fast on mobile data and
  * keep working for years without a dependency going stale.
  *
- * Colours and the CO2 bands are the same values as the print material
- * (shared/style.typ, shared/facts.typ), so paper and screen match.
+ * Ink, greys and the CO2 bands are the same values as the print material
+ * (shared/style.typ, shared/facts.typ). The print accent colour is not
+ * used for the page chrome.
  */
 
 /* --- Fonts ------------------------------------------------------------
- * Fira Sans (SIL OFL, see fonts/OFL.txt), Latin subsets only. A humanist
- * grotesque in the lineage Dutch public information uses: tall x-height
- * for reading at B1 on a phone, full Dutch diacritics, tabular figures so
- * ppm values line up. Condensed 700 carries the headings; the width
- * contrast gives them a voice without a second, unrelated family.
+ * Nunito (SIL OFL, see fonts/OFL.txt), Latin subset, one variable file for
+ * all weights. Rounded terminals give the page a friendlier voice than a
+ * neutral grotesque; a reader took the earlier, more institutional look for
+ * a government template (changelog/20260921-landing-official-look-feedback.md).
+ * Headings use the same family at 800.
  */
 @font-face {
-  font-family: 'Fira Sans';
-  src: url('fonts/fira-sans-400-latin.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Fira Sans';
-  src: url('fonts/fira-sans-600-latin.woff2') format('woff2');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Fira Sans Condensed';
-  src: url('fonts/fira-sans-cond-700-latin.woff2') format('woff2');
-  font-weight: 700;
+  font-family: 'Nunito';
+  src: url('fonts/nunito-latin-var.woff2') format('woff2');
+  font-weight: 400 800;
   font-style: normal;
   font-display: swap;
 }
 
 :root {
   --ink: #1d2a33;
-  --teal: #1f6f8b;
-  --teal-deep: #143f4d;
+  /* The page chrome is ink on white. Colour is left to the CO2 bands and
+     to the illustrations inside the two publications. */
+  --accent: #1d2a33;
   --paper: #ffffff;
-  --mist: #f2f6f7;
+  --mist: #eef1f2;
   --muted: #5b6770;
   --rule: #c9d3d8;
   --green: #3f9b5c;
@@ -52,9 +40,8 @@
   --measure: 36rem;
   --gutter: 1.25rem;
 
-  --sans: 'Fira Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
-  --display: 'Fira Sans Condensed', 'Fira Sans', 'Segoe UI Condensed',
-    system-ui, sans-serif;
+  --sans: 'Nunito', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --display: var(--sans);
 }
 
 *,
@@ -125,7 +112,7 @@ html.js[data-lang='en'] .lang[lang='nl'] {
 .gate {
   min-height: 100svh;
   min-height: 100vh;
-  background: var(--teal-deep);
+  background: var(--accent);
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -145,11 +132,11 @@ html.js[data-lang='en'] .lang[lang='nl'] {
 
 .gate__title {
   font-family: var(--display);
-  font-weight: 700;
-  font-size: clamp(2.25rem, 11vw, 3.5rem);
-  line-height: 1.02;
+  font-weight: 800;
+  font-size: clamp(2rem, 9.5vw, 3.1rem);
+  line-height: 1.06;
   margin: 0 0 2.5rem;
-  letter-spacing: -0.005em;
+  letter-spacing: -0.01em;
 }
 
 .gate__title span {
@@ -157,7 +144,7 @@ html.js[data-lang='en'] .lang[lang='nl'] {
 }
 
 .gate__title span + span {
-  color: #9fc6d2;
+  color: #aebbc3;
 }
 
 .gate__choice {
@@ -173,19 +160,19 @@ html.js[data-lang='en'] .lang[lang='nl'] {
   background: var(--paper);
   color: var(--ink);
   border: 2px solid var(--paper);
-  border-radius: 3px;
+  border-radius: 2rem;
   font: inherit;
   font-family: var(--display);
-  font-weight: 700;
-  font-size: 1.375rem;
-  text-align: left;
+  font-weight: 800;
+  font-size: 1.25rem;
+  text-align: center;
   text-decoration: none;
   cursor: pointer;
 }
 
 .gate__button:hover {
-  background: #d9ecf1;
-  border-color: #d9ecf1;
+  background: #dfe5e8;
+  border-color: #dfe5e8;
 }
 
 .gate__button:focus-visible {
@@ -193,10 +180,22 @@ html.js[data-lang='en'] .lang[lang='nl'] {
   outline-offset: 3px;
 }
 
+/* Who is behind the page, stated before the visitor goes any further. */
+.gate__sender {
+  margin: 2rem 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  color: #c3ced4;
+}
+
+.gate__sender span {
+  display: block;
+}
+
 /* Signature strip: the CO2 bands, the object the whole project is about. */
 .gate__bands {
   display: flex;
-  height: 0.5rem;
+  height: 0.6rem;
   margin-top: 2.5rem;
 }
 
@@ -219,38 +218,71 @@ html.js[data-lang='en'] .lang[lang='nl'] {
 
 /* --- Page chrome ------------------------------------------------------- */
 
-.topbar {
-  border-bottom: 1px solid var(--rule);
-  background: var(--mist);
-}
+/* No bar: the wordmark and the sender line sit on the page itself. */
 
 .topbar__inner {
   max-width: var(--measure);
   margin: 0 auto;
-  padding: 0.6rem var(--gutter);
+  padding: 1rem var(--gutter) 0.25rem;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 1rem;
 }
 
+.brand {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  line-height: 1.25;
+}
+
 .wordmark {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45rem;
   font-family: var(--display);
-  font-weight: 700;
-  font-size: 1.125rem;
-  color: var(--teal);
+  font-weight: 800;
+  font-size: 1rem;
+  /* On a narrow phone the name breaks after the comma, as on the gate,
+     instead of leaving one word on the second line. */
+  text-wrap: balance;
+  color: var(--accent);
+}
+
+/* The CO2 bands again, as a small mark next to the name. */
+.wordmark::before {
+  content: '';
+  flex: none;
+  width: 1.5rem;
+  height: 0.6rem;
+  /* Sits on the first line when the name wraps on a narrow phone. */
+  margin-top: 0.33rem;
+  border-radius: 0.3rem;
+  background: linear-gradient(
+    90deg,
+    var(--green) 0 33%,
+    var(--amber) 33% 66%,
+    var(--red) 66%
+  );
+}
+
+.sender {
+  font-size: 0.8125rem;
+  color: var(--muted);
 }
 
 .langswitch {
+  flex: none;
   display: flex;
   gap: 0.35rem;
   font-size: 0.9375rem;
 }
 
 .langswitch a {
-  padding: 0.2rem 0.5rem;
-  border-radius: 2px;
-  color: var(--teal);
+  padding: 0.15rem 0.6rem;
+  border-radius: 1rem;
+  color: var(--accent);
   text-decoration: none;
   border: 1px solid transparent;
 }
@@ -260,12 +292,12 @@ html.js[data-lang='en'] .lang[lang='nl'] {
 }
 
 .langswitch a[aria-current='true'] {
-  background: var(--teal);
+  background: var(--accent);
   color: #fff;
 }
 
 .langswitch a:focus-visible {
-  outline: 2px solid var(--teal);
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
 
@@ -277,19 +309,19 @@ html.js[data-lang='en'] .lang[lang='nl'] {
 
 h1 {
   font-family: var(--display);
-  font-weight: 700;
-  font-size: clamp(2rem, 8.5vw, 2.75rem);
-  line-height: 1.05;
-  letter-spacing: -0.005em;
+  font-weight: 800;
+  font-size: clamp(1.8rem, 7.6vw, 2.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
   /* Tight under the h1: a deck line follows it on both language sections.
      .gate__title sets its own margin, so the gate is unaffected. */
-  margin: 2rem 0 0.4rem;
+  margin: 1.25rem 0 0.4rem;
 }
 
 h2 {
   font-family: var(--display);
-  font-weight: 700;
-  font-size: 1.5rem;
+  font-weight: 800;
+  font-size: 1.375rem;
   line-height: 1.15;
   margin: 2.75rem 0 0.75rem;
 }
@@ -306,7 +338,6 @@ p {
   font-size: 1.3125rem;
   line-height: 1.4;
   font-weight: 600;
-  color: var(--teal);
   margin: 0 0 0.9rem;
 }
 
@@ -316,11 +347,11 @@ p {
 }
 
 a {
-  color: var(--teal);
+  color: var(--accent);
 }
 
 a:focus-visible {
-  outline: 2px solid var(--teal);
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
 
@@ -380,7 +411,7 @@ a:focus-visible {
 .scale__bar {
   display: flex;
   height: 2.25rem;
-  border-radius: 2px;
+  border-radius: 1.125rem;
   overflow: hidden;
 }
 
@@ -448,7 +479,7 @@ a:focus-visible {
   flex: none;
   width: 0.9rem;
   height: 0.9rem;
-  border-radius: 2px;
+  border-radius: 50%;
   transform: translateY(0.1rem);
 }
 
@@ -512,17 +543,17 @@ h2[id] {
   height: auto;
   margin-bottom: 0.65rem;
   border: 1px solid var(--rule);
-  border-radius: 2px;
+  border-radius: 0.5rem;
   background: var(--paper);
 }
 
 .pubs b {
   display: block;
   font-family: var(--display);
-  font-weight: 700;
-  font-size: 1.3125rem;
+  font-weight: 800;
+  font-size: 1.1875rem;
   line-height: 1.15;
-  color: var(--teal);
+  color: var(--accent);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.15em;
@@ -550,8 +581,8 @@ h2[id] {
 
 .measure-it {
   background: var(--mist);
-  border-left: 4px solid var(--teal);
-  padding: 1.1rem 1.25rem 0.35rem;
+  border-radius: 1rem;
+  padding: 1.25rem 1.4rem 0.5rem;
   margin: 2rem 0;
 }
 
@@ -570,10 +601,10 @@ h2[id] {
 /* --- Footer ------------------------------------------------------------ */
 
 .foot {
-  margin-top: 3rem;
-  border-top: 3px solid var(--teal);
+  margin-top: 3.5rem;
+  border-radius: 1.5rem 1.5rem 0 0;
   background: var(--mist);
-  padding: 1.5rem 0 2.5rem;
+  padding: 2rem 0 2.5rem;
 }
 
 .foot h2 {
@@ -598,6 +629,17 @@ h2[id] {
   font-size: 0.875rem;
   color: var(--muted);
   margin: 0;
+}
+
+.colophon + .colophon {
+  margin-top: 0.6rem;
+}
+
+/* The question "who is behind this?" is the part a doubtful reader looks
+   for, so it stands out from the rest of the small print. */
+.colophon b {
+  font-weight: 600;
+  color: var(--ink);
 }
 
 /* --- Sources page ------------------------------------------------------ */

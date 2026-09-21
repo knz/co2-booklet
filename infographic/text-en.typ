@@ -57,6 +57,6 @@
   // [F13; HSE §10] and the market check of 2026-09-16.
   buy: [Or buy a meter with an "NDIR" sensor (from about €#f.meter-price-min).],
   sources-line: [Sources: see the booklet, via the QR code.],
-  colophon: [Published by #f.publisher · September 2026],
+  colophon: [An initiative of members of the Diemen city council · September 2026],
   qr-caption: [More information \ and sources],
 )

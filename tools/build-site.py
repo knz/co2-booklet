@@ -241,7 +241,10 @@ if(l!=='nl'&&l!=='en')l='nl';d.setAttribute('data-lang',l);d.lang=l;})();
 
 SOURCES_SECTION = """<div class="lang" lang="%(lang)s">
   <header class="topbar"><div class="topbar__inner">
-    <span class="wordmark">%(wordmark)s</span>
+    <span class="brand">
+      <span class="wordmark">%(wordmark)s</span>
+      <span class="sender">%(sender)s</span>
+    </span>
     <nav class="langswitch" aria-label="%(navlabel)s">
       <a href="#nl" data-lang-choice="nl"%(nlcur)s hreflang="nl">NL</a>
       <a href="#en" data-lang-choice="en"%(encur)s hreflang="en">EN</a>
@@ -259,6 +262,7 @@ SOURCES_SECTION = """<div class="lang" lang="%(lang)s">
 COPY = {
     "nl": {
         "wordmark": "Gezonde lucht, gezond huis",
+        "sender": "Een initiatief van leden van de gemeenteraad van Diemen",
         "navlabel": "Taal",
         "title": "Bronnen",
         "lede": (
@@ -269,6 +273,7 @@ COPY = {
     },
     "en": {
         "wordmark": "Healthy air, healthy home",
+        "sender": "An initiative of members of the Diemen city council",
         "navlabel": "Language",
         "title": "Sources",
         "lede": (
@@ -300,6 +305,7 @@ def render_sources() -> str:
             % {
                 "lang": lang,
                 "wordmark": copy["wordmark"],
+                "sender": copy["sender"],
                 "navlabel": copy["navlabel"],
                 "title": copy["title"],
                 "lede": copy["lede"],

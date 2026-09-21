@@ -383,12 +383,11 @@
       [Milieu Centraal, ventileren: #ref-url("mc-woning")],
       [RIVM, "Binnenmilieu in woningen": #ref-url("rivm-woningen")],
     ),
-    qr-caption: [Meer informatie en bronnen],
+    qr-caption: [U kunt deze informatie ook online raadplegen],
     colophon-head: [Over deze gids],
-    colophon: [Uitgegeven door #f.publisher. \
-      september 2026. \
+    colophon: [Een initiatief van leden van de gemeenteraad van Diemen  · September 2026. \
       Bronnen gecontroleerd op 15 september 2026. \
-      Deze gids geeft algemene informatie. Het is geen medisch advies.],
+      Dit is geen medisch advies.],
     sources-head: [Bronnen],
   ),
 )

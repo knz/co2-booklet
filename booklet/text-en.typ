@@ -372,12 +372,11 @@
       [Milieu Centraal, ventilation: #ref-url("mc-woning")],
       [RIVM, "Binnenmilieu in woningen": #ref-url("rivm-woningen")],
     ),
-    qr-caption: [More information and sources],
+    qr-caption: [You can also find this information online],
     colophon-head: [About this booklet],
-    colophon: [Published by #f.publisher. \
-      September 2026. \
+    colophon: [An initiative of members of the Diemen city council · September 2026. \
       Sources checked on 15 September 2026. \
-      This booklet gives general information. It is not medical advice.],
+      This is not medical advice.],
     sources-head: [Sources],
   ),
 )

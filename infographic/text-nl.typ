@@ -51,6 +51,6 @@
   lending: [Leen een CO₂-meter: \[waar\] · \[hoe lang\] · \[hoe reserveren\].],
   buy: [Of koop een meter met een "NDIR"-sensor (vanaf ongeveer € #f.meter-price-min).],
   sources-line: [Bronnen: zie de gids, via de QR-code.],
-  colophon: [Uitgegeven door #f.publisher · september 2026],
-  qr-caption: [Meer informatie \ en bronnen],
+  colophon: [Initiatief van leden van de gemeenteraad van Diemen · September 2026],
+  qr-caption: [Meer informatie en bronnen],
 )

@@ -125,6 +125,15 @@ lists the visual placeholders to commission. It exits non-zero when a
 document runs over its page budget, which is what makes the deploy fail
 rather than publish a document that no longer fits its print format.
 
+Print versions on A4 landscape (`print/impose.typ`, made from the PDFs
+above, so they follow the same `DRAFT` setting; use `DRAFT=false` to print):
+
+- `build/booklet-print-<lang>.pdf`: the 8 pages imposed on 2 sheets. Print
+  double-sided with "flip on short edge", put sheet 2 inside sheet 1, fold
+  in the middle and staple.
+- `build/infographic-a4.pdf` (when both languages are built): the Dutch and
+  English A5 infographic side by side on one sheet, to cut in half.
+
 When both languages are built, `build.sh` finishes by running
 `tools/build-site.py`, which fills `site/assets/` (infographic as lossless
 WebP, plus the four PDFs) and generates `site/sources.html` from
@@ -220,6 +229,7 @@ Current:
 | `shared/diagrams.typ` | Data diagrams drawn from the shared facts (colour-band scale, level scale). |
 | `sources/references.yml` | Reference list (Hayagriva YAML) for all cited sources. |
 | `build.sh` | Local build into `build/` (ignored by git). |
+| `print/impose.typ` | A4 print imposition of the built booklet and infographic PDFs. Run by `build.sh`. |
 
 Generated, and git-ignored: `build/`, `site/assets/`, `site/sources.html`
 and `visuals/render/`. Nothing built is committed, except

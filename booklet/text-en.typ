@@ -261,7 +261,7 @@
         lose less heat in winter. When the air outside is cooler than
         inside, a bypass lets it in directly. There are also units for a
         single room, called decentralised balanced
-        ventilation#src("mc-balans"). Only then can you remain health with doors and windows closed.],
+        ventilation#src("mc-balans"). Only then can you remain healthy with doors and windows closed.],
     ),
     not-replace-head: [This does not replace ventilation],
     not-replace: (

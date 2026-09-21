@@ -61,6 +61,21 @@ for lang in $langs; do
   check_pages "build/infographic-$lang.pdf" 1
 done
 
+# Print versions on A4 landscape, from the PDFs just built (see
+# print/impose.typ): the booklet imposed for folding, and both infographic
+# sides on one sheet.
+for lang in $langs; do
+  typst compile --root . --input mode=booklet --input "src=build/booklet-$lang.pdf" \
+    print/impose.typ "build/booklet-print-$lang.pdf"
+  check_pages "build/booklet-print-$lang.pdf" 4
+done
+if [ -z "${langs##*en*}" ] && [ -z "${langs##*nl*}" ]; then
+  typst compile --root . --input mode=infographic \
+    --input nl=build/infographic-nl.pdf --input en=build/infographic-en.pdf \
+    print/impose.typ build/infographic-a4.pdf
+  check_pages build/infographic-a4.pdf 1
+fi
+
 for lang in $langs; do
   echo
   echo "Booklet ($lang): PDF pages used per script page:"

@@ -86,7 +86,7 @@ with meter and QR code.
 
 ### Block 1 — Stale air, poorer sleep
 
-- **NL headline:** Bedompte lucht, slechter slapen
+- **NL headline:** Gebruikte lucht, slechter slapen
 - **EN text:** In studies, people slept less deeply and woke up more often
   in poorly ventilated bedrooms. Too little fresh air also raises the risk
   of damp and mould.

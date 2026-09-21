@@ -50,9 +50,9 @@
       één onderzoek voelden mensen zich ook meer uitgerust na nachten met
       betere ventilatie#src("stromtejsen2016").],
     // §1b–1c
-    stuffy-head: [Bedompte kamers overdag],
-    stuffy: [In bedompte, slecht geventileerde ruimtes hebben meer mensen
-      last van hoofdpijn en slaperigheid#src("zhang2017", "norback2013").],
+    stuffy-head: [Slecht geventileerde kamers overdag],
+    stuffy: [In slecht geventileerde ruimtes hebben meer mensen last van
+      hoofdpijn en slaperigheid#src("zhang2017", "norback2013").],
     // §14
     damp-head: [Vocht en schimmel],
     damp: [Door ademen, koken en douchen komt er vocht in de lucht. Zonder
@@ -324,7 +324,7 @@
         [*"CO₂ is onschuldig, we ademen het toch uit."*],
         // §3, §1d
         [Deels waar: bij waarden die thuis voorkomen is CO₂ zelf niet
-          giftig. Maar veel CO₂ betekent bedompte lucht: te weinig frisse
+          giftig. Maar veel CO₂ betekent gebruikte lucht: te weinig frisse
           lucht voor de mensen in de kamer#src("ashrae2025"). In onderzoeken
           sliepen mensen minder diep in zulke
           slaapkamers#src("fan2023sleep", "kang2024").],
@@ -332,7 +332,7 @@
       (
         [*"Ik merk niks, dus het zit goed."*],
         // §4
-        [Je neus is geen goede gids. CO₂ heeft geen geur, en aan bedompte
+        [Je neus is geen goede gids. CO₂ heeft geen geur, en aan gebruikte
           lucht wen je binnen een paar
           minuten#src("gunnarsen1992", "zhang2017"). Een meter laat zien wat
           je neus mist.],

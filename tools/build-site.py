@@ -54,7 +54,7 @@ THUMB_WIDTH = 583
 SECTIONS = {
     "Health: sleep": "Gezondheid: slaap",
     "Health: cognition, headache, stuffy rooms": (
-        "Gezondheid: concentratie, hoofdpijn, bedompte ruimtes"
+        "Gezondheid: concentratie, hoofdpijn, slecht geventileerde ruimtes"
     ),
     "Schools": "Scholen",
     "CO₂ as a ventilation indicator; toxic levels": (

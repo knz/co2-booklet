@@ -11,7 +11,7 @@
   title: [Frisse lucht in je slaapkamer? Meet het!],
   subtitle: [CO₂ laat zien of er genoeg frisse lucht binnenkomt.],
 
-  block1-head: [Bedompte lucht, slechter slapen],
+  block1-head: [Gebruikte lucht, slechte slaap],
   block1: [In onderzoeken sliepen mensen minder diep en werden ze vaker
     wakker in slecht geventileerde slaapkamers. Te weinig frisse lucht
     vergroot ook de kans op vocht en schimmel.],

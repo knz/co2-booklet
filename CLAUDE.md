@@ -49,10 +49,17 @@ Deliverables (all in Dutch and English):
   with a QR code to the landing page.
 - **Booklet:** max 4 A4 pages of content, printed as 8 A5 pages; more
   explanation plus evidence and links; available as PDF.
+- **"Why now" sheet:** a second A5 sheet, Dutch on one side, English on the
+  other: why indoor air needs attention now (sealing and insulation, which
+  homes depend on grilles, why nobody notices). Meant to stimulate
+  discussion; closes in the first person as "members of the city council
+  of Diemen". No citations on the sheet; see `whynow-storyline.md` for the
+  sources and the wording limits per block before changing its text.
 - **Landing page:** https://knz.github.io/co2-booklet/ (QR target). Visitor
-  chooses NL or EN, then sees a short introduction, the CO₂ scale and,
-  side by side at equal size, thumbnails of the booklet and the
-  infographic in that language, each linking to its PDF. Use the `frontend-design` skill
+  chooses NL or EN, then sees a short introduction, the CO₂ scale, a short
+  "why now" block with that sheet and, side by side at equal size,
+  thumbnails of the booklet and the infographic in that language, each
+  linking to its PDF. Use the `frontend-design` skill
   when designing it; Tailwind CSS and daisyUI components are accepted.
 
 Audience: the median Diemen resident at any education level, and immigrants.
@@ -90,13 +97,17 @@ Key files:
   them.
 - `README.md` — project outline, decisions, proposed layout, open decisions.
 - `PUBLISHING.md` — GitHub Pages set-up and QR/URL stability notes.
-- `infographic/`, `booklet/` — Typst prototypes in Dutch and English, built
-  with `./build.sh` into `build/`. Visuals are placeholders. Each document
-  is one layout file (`booklet.typ`, `infographic.typ`) plus a text file
+- `brief-isolatie.md`, `whynow-storyline.md` — the user's brief for the
+  "why now" sheet, and the storyline worked out from it after a source
+  check: argument, sources and wording limits per block.
+- `infographic/`, `booklet/`, `whynow/` — Typst prototypes in Dutch and
+  English, built with `./build.sh` into `build/`. Visuals are placeholders.
+  Each document is one layout file (`booklet.typ`, `infographic.typ`,
+  `whynow.typ`) plus a text file
   per language (`text-en.typ`, `text-nl.typ`) and a thin entry point per
   language; put structure in the layout file and words in the text files,
   so the languages cannot drift apart.
-- `shared/facts.typ` — the shared facts (F1–F15); use these values instead
+- `shared/facts.typ` — the shared facts (F1–F16); use these values instead
   of typing numbers into the documents.
 - `shared/style.typ`, `shared/diagrams.typ` — styles, helpers (`src`,
   `placeholder`, `tbd`, `cut`) and data diagrams.

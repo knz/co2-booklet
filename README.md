@@ -41,10 +41,18 @@ keep the English text equally plain.
    evidence and links to sources.
 3. **Landing page** — https://knz.github.io/co2-booklet/, the target of the
    QR code. The visitor chooses Dutch or English, then sees a short
-   introduction and the CO₂ scale, followed by the booklet and the
-   infographic in that language, side by side as two thumbnails of equal
-   size, each linking to its PDF. The word "guide" in the introduction
-   links down to them.
+   introduction and the CO₂ scale, then a short "why now" block with the
+   sheet below (4), followed by the booklet and the infographic in that
+   language, side by side as two thumbnails of equal size, each linking to
+   its PDF. The word "guide" in the introduction links down to them.
+4. **"Why should you care now?" sheet** (added 2026-09-21) — a second A5
+   sheet, Dutch on one side and English on the other. It argues why indoor
+   air needs attention now: homes are being sealed and insulated, most
+   homes depend on grilles and habits for bedroom air, and nobody notices
+   when the air gets worse. Its purpose is to stimulate discussion more
+   than to instruct, and it closes in the first person ("we, members of the
+   city council of Diemen"). Storyline, sources per block and the wording
+   limits from the source check: `whynow-storyline.md`.
 
 ## Content scope
 
@@ -119,7 +127,8 @@ ICONS=rows ./build.sh      # infographic block 4 as icon + text on one line
 ```
 
 Output per language: `build/booklet-<lang>.pdf`,
-`build/infographic-<lang>.pdf` and `build/infographic-<lang>.png`. The
+`build/infographic-<lang>.pdf`, `build/infographic-<lang>.png`,
+`build/whynow-<lang>.pdf` and `build/whynow-<lang>.png`. The
 script reports how many PDF pages each script page uses (overflow) and
 lists the visual placeholders to commission. It exits non-zero when a
 document runs over its page budget, which is what makes the deploy fail
@@ -133,10 +142,11 @@ above, so they follow the same `DRAFT` setting; use `DRAFT=false` to print):
   in the middle and staple.
 - `build/infographic-a4.pdf` (when both languages are built): the Dutch and
   English A5 infographic side by side on one sheet, to cut in half.
+- `build/whynow-a4.pdf`: the same for the "why now" sheet.
 
 When both languages are built, `build.sh` finishes by running
 `tools/build-site.py`, which fills `site/assets/` (infographic as lossless
-WebP, plus the four PDFs) and generates `site/sources.html` from
+WebP, the thumbnails, plus the six PDFs) and generates `site/sources.html` from
 `sources/references.yml`. Open `site/index.html` in a browser to preview.
 
 Prototype conventions:
@@ -146,8 +156,9 @@ Prototype conventions:
   the words live in `text-en.typ` / `text-nl.typ`.
 - Dutch is written at roughly B1 and uses "je". Numbers follow the language:
   `1,200 ppm` in English, `1.200 ppm` in Dutch.
-- Visuals carry an ID (I1–I10 on the infographic, B1a/B1b in the booklet;
-  B2 was retired in an earlier task and is not reused). An
+- Visuals carry an ID (I1–I10 on the infographic, B1a/B1b in the booklet,
+  W1–W4 on the "why now" sheet; B2 was retired in an earlier task and is
+  not reused). An
   ID with an asset in `visuals/` is drawn; one without keeps a hatched
   placeholder box with its brief, and `build.sh` lists what is still open.
   The briefs stay English in both languages: they are production notes.
@@ -175,7 +186,10 @@ Prototype conventions:
 - Citations in the booklet are numbered in order of first appearance, one
   number per source, reused when the source is cited again. The numbered
   list of all sources is printed at the end of the booklet. The
-  infographic has no citations.
+  infographic and the "why now" sheet have no citations. The sheet's
+  sources are a section of their own in `sources/references.yml`, shown in
+  the site's source list, and `whynow/text-en.typ` names them per block in
+  comments.
 - Numbers from the shared facts table come from `shared/facts.typ`.
 
 Open choices:
@@ -210,7 +224,7 @@ Current:
 | `script-sketch.md` | First script drafted by another agent. Reference only, see below. |
 | `input2.txt` | Second input: core messages and revised direction for the script. |
 | `script.md` | Working script (draft 2) for the infographic and booklet, with shared facts and source tags. |
-| `site/index.html` | Landing page: language gate, then per language the introduction, the CO₂ scale, and the booklet and infographic thumbnails. |
+| `site/index.html` | Landing page: language gate, then per language the introduction, the CO₂ scale, the "why now" block, and the booklet and infographic thumbnails. |
 | `site/style.css`, `site/app.js` | Hand-written styles and the language choice. No framework. |
 | `site/favicon.svg`, `site/fonts/` | Icon, and the Nunito Latin subset (SIL OFL, see `site/fonts/OFL.txt`). |
 | `tools/build-site.py` | Fills `site/assets/` and generates `site/sources.html`. Run by `build.sh` and by the workflow. |
@@ -222,10 +236,13 @@ Current:
 | `PUBLISHING.md` | GitHub Pages set-up and maintenance. |
 | `changelog/` | Per-task notes on specifications, decisions and progress. |
 | `CLAUDE.md` | Working rules for agent sessions in this repository. |
+| `whynow/whynow.typ` | Layout of the A5 "why now" sheet; `text-en.typ` and `text-nl.typ` hold the words, `whynow-en.typ` and `whynow-nl.typ` are the entry points. |
+| `whynow-storyline.md` | Storyline of the "why now" sheet: the argument, sources and wording limits per block, what was dropped from the brief and why. |
+| `brief-isolatie.md` | The user's brief for the "why now" sheet. |
 | `infographic/infographic.typ` | Layout of the A5 infographic; `text-en.typ` and `text-nl.typ` hold the words, `infographic-en.typ` and `infographic-nl.typ` are the entry points. |
 | `visuals/prompts/` | The image-generator prompts: one shared preamble plus one file per scene. |
 | `booklet/booklet.typ` | Layout of the booklet (8 A5 pages in reading order); `text-en.typ` and `text-nl.typ` hold the words, `booklet-en.typ` and `booklet-nl.typ` are the entry points. |
-| `shared/facts.typ` | Shared facts F1–F15 from `script.md` (thresholds, figures, colour bands). |
+| `shared/facts.typ` | Shared facts F1–F16 from `script.md` (thresholds, figures, colour bands). |
 | `shared/style.typ` | Page setup, styles, placeholders, draft markers, citation helper. |
 | `shared/diagrams.typ` | Data diagrams drawn from the shared facts (colour-band scale, level scale). |
 | `sources/references.yml` | Reference list (Hayagriva YAML) for all cited sources. |

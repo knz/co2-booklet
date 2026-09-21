@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# Builds the infographic and booklet prototypes, in both languages, into
-# build/.
+# Builds the infographic, the "why now" sheet and the booklet prototypes, in
+# both languages, into build/.
 #
 #   ./build.sh                 draft mode (TBD highlights, cut tags)
 #   DRAFT=false ./build.sh     without draft markers
@@ -57,13 +57,18 @@ for lang in $langs; do
   # infographic. 100 ppi is about twice its largest display size.
   typst compile "${args[@]}" --pages 1 --ppi 100 \
     "booklet/booklet-$lang.typ" "build/booklet-cover-$lang.png"
+  # "Why now" sheet, and its thumbnail for the landing page.
+  typst compile "${args[@]}" "whynow/whynow-$lang.typ" "build/whynow-$lang.pdf"
+  typst compile "${args[@]}" --pages 1 --ppi 100 \
+    "whynow/whynow-$lang.typ" "build/whynow-$lang.png"
   check_pages "build/booklet-$lang.pdf" 8
   check_pages "build/infographic-$lang.pdf" 1
+  check_pages "build/whynow-$lang.pdf" 1
 done
 
 # Print versions on A4 landscape, from the PDFs just built (see
-# print/impose.typ): the booklet imposed for folding, and both infographic
-# sides on one sheet.
+# print/impose.typ): the booklet imposed for folding, and both sides of the
+# infographic, and of the "why now" sheet, on one sheet each.
 for lang in $langs; do
   typst compile --root . --input mode=booklet --input "src=build/booklet-$lang.pdf" \
     print/impose.typ "build/booklet-print-$lang.pdf"
@@ -74,6 +79,10 @@ if [ -z "${langs##*en*}" ] && [ -z "${langs##*nl*}" ]; then
     --input nl=build/infographic-nl.pdf --input en=build/infographic-en.pdf \
     print/impose.typ build/infographic-a4.pdf
   check_pages build/infographic-a4.pdf 1
+  typst compile --root . --input mode=infographic \
+    --input nl=build/whynow-nl.pdf --input en=build/whynow-en.pdf \
+    print/impose.typ build/whynow-a4.pdf
+  check_pages build/whynow-a4.pdf 1
 fi
 
 for lang in $langs; do
@@ -101,7 +110,7 @@ done
 
 echo
 echo "Visuals still to make (same in both languages):"
-for doc in infographic/infographic-en.typ booklet/booklet-en.typ; do
+for doc in infographic/infographic-en.typ whynow/whynow-en.typ booklet/booklet-en.typ; do
   typst eval "${args[@]}" --in "$doc" --format json 'query(<visual>).map(it => it.value)' \
     | python3 -c 'import json, sys
 done_ = 0

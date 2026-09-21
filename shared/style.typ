@@ -185,6 +185,23 @@
 )
 
 // ---------------------------------------------------------------------
+// Numbered block headings of the A5 sheets (infographic, "why now").
+
+#let badge(n) = box(baseline: 22%, circle(
+  radius: 2.5mm,
+  fill: accent,
+  inset: 0pt,
+  align(center + horizon, text(fill: white, weight: "bold", size: 7.5pt, str(n))),
+))
+
+#let block-head(n, title) = block(below: 0.5em, grid(
+  columns: (auto, 1fr),
+  column-gutter: 1.6mm,
+  align: horizon,
+  badge(n), text(size: 10pt, weight: "bold", fill: accent, title),
+))
+
+// ---------------------------------------------------------------------
 // Citations: one footnote number per source. The first citation of a
 // source creates a footnote with the full reference; later citations of
 // the same source reuse its number.

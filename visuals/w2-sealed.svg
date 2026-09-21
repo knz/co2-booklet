@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 150" width="620" height="150">
+  <!-- W2: the same door and window as w1-gaps.svg, sealed. A draught strip
+       (accent) closes the gap around the door and the window, the letterbox
+       has a brush, the window has double glazing. No air arrows; the one
+       heat arrow turns back into the room ("the heat stays in"). -->
+  <g stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- wall and floor -->
+    <rect x="8" y="6" width="604" height="130" fill="#e4f0f3"/>
+    <rect x="8" y="136" width="604" height="8" fill="#c9d3d8"/>
+    <rect x="8" y="6" width="604" height="138" rx="8" fill="none" stroke="#1d2a33" stroke-width="4"/>
+
+    <!-- door: the gap is filled by a draught strip -->
+    <rect x="104" y="14" width="92" height="122" rx="2" fill="#ffffff" stroke="#1d2a33" stroke-width="4"/>
+    <path d="M108 136 L108 18 L192 18 L192 136" fill="none" stroke="#1f6f8b" stroke-width="5"/>
+    <rect x="112" y="22" width="76" height="114" rx="2" fill="#ffffff" stroke="#1d2a33" stroke-width="3"/>
+    <!-- letterbox, closed by a brush -->
+    <rect x="132" y="82" width="38" height="9" rx="2" fill="#ffffff" stroke="#1d2a33" stroke-width="2.5"/>
+    <g stroke="#1f6f8b" stroke-width="2">
+      <path d="M139 84 L139 89"/>
+      <path d="M146 84 L146 89"/>
+      <path d="M153 84 L153 89"/>
+      <path d="M160 84 L160 89"/>
+    </g>
+    <circle cx="180" cy="72" r="4" fill="#1d2a33"/>
+
+    <!-- window: draught strip around the sash, double glazing -->
+    <rect x="326" y="22" width="188" height="82" rx="3" fill="#ffffff" stroke="#1d2a33" stroke-width="4"/>
+    <rect x="330" y="26" width="180" height="74" rx="2" fill="none" stroke="#1f6f8b" stroke-width="5"/>
+    <rect x="334" y="30" width="172" height="66" rx="2" fill="#ffffff" stroke="#1d2a33" stroke-width="3"/>
+    <path d="M420 30 L420 96" stroke="#1d2a33" stroke-width="3"/>
+    <g fill="none" stroke="#1f6f8b" stroke-width="2.5">
+      <rect x="342" y="38" width="70" height="50" rx="2"/>
+      <rect x="428" y="38" width="70" height="50" rx="2"/>
+    </g>
+    <path d="M318 110 L522 110" stroke="#1d2a33" stroke-width="4"/>
+
+    <!-- the fresh air from W1, now gone: the same three arrows as in W1,
+         each crossed out in band red (the red of the infographic's
+         "does not replace ventilation" badge). The crosses sit on the
+         arrows, not on the door or window, so they do not read as
+         "sealing is wrong". -->
+    <g fill="none" stroke="#1f6f8b" stroke-width="6">
+      <path d="M198 60 C 216 60, 224 46, 248 46"/>
+      <path d="M238 37 L248 46 L238 55"/>
+      <path d="M130 90 C 112 90, 102 106, 78 106"/>
+      <path d="M88 97 L78 106 L88 115"/>
+      <path d="M516 74 C 534 74, 542 90, 568 90"/>
+      <path d="M558 81 L568 90 L558 99"/>
+    </g>
+    <g stroke="#d4493f" stroke-width="5">
+      <path d="M213 42 L233 62"/>
+      <path d="M233 42 L213 62"/>
+      <path d="M84 92 L104 112"/>
+      <path d="M104 92 L84 112"/>
+      <path d="M532 72 L552 92"/>
+      <path d="M552 72 L532 92"/>
+    </g>
+
+    <!-- heat stays in: the arrow turns back at the window -->
+    <g fill="none" stroke="#f0c233" stroke-width="4">
+      <path d="M272 30 C 318 30, 318 56, 272 56"/>
+      <path d="M280 49 L272 56 L280 63"/>
+    </g>
+  </g>
+</svg>

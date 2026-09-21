@@ -48,6 +48,16 @@ One deliberate exception: **I10** uses `#f0c233` (band yellow) for the
 retained heat. Warmth does not read without a warm colour, and the icon is
 meaningless without that contrast.
 
+A second exception, same reason: **W1 and W2** on the "why now" sheet use
+band yellow for heat (going out through the gaps in W1, turning back into
+the room in W2). Fresh air is the message of the pair, so the heat arrow is
+single and thinner (stroke 4 against 6 for the air arrows).
+
+W1 and W2 are also a category of their own: drawn on a scene-shaped canvas
+(`0 0 620 150`, the 62 × 15 mm slot ×10) but placed as final vector assets,
+with no generator pass. Their strokes are heavier than on the other scenes
+(outline 4, air arrows 6), since they print at 15 mm tall.
+
 ## Renderer constraints
 
 There is no `rsvg-convert` or `inkscape` on the build machine. Typst 0.15
@@ -69,14 +79,16 @@ stay inside what usvg supports:
 | `i2-breath-meter.svg` | I2 | 62 × 28 mm (generator input) |
 | `b1a-classroom.svg` | B1a | 59.5 mm square, booklet cover (generator input) |
 | `b1b-bedroom.svg` | B1b | 59.5 mm square, booklet cover (generator input) |
-| `i3-grille.svg` | I3 | 7 mm, or 16 mm in the large-icon variant |
+| `w1-gaps.svg` | W1 | 62.5 × 15 mm, "why now" sheet (final asset) |
+| `w2-sealed.svg` | W2 | idem |
+| `i3-grille.svg` | I3 | 7 mm, or 16 mm in the large-icon variant; also 9 mm as W3 on the "why now" sheet |
 | `i4-window-ajar.svg` | I4 | idem |
 | `i5-mech-vent.svg` | I5 | idem |
 | `i6-plant.svg` | I6 | idem |
 | `i7-purifier.svg` | I7 | idem |
 | `i8-aircon.svg` | I8 | idem |
 | `i9-airing-clock.svg` | I9 | idem |
-| `i10-hrv.svg` | I10 | idem |
+| `i10-hrv.svg` | I10 | idem; also 9 mm as W4 on the "why now" sheet |
 | `marks/door-in.svg` | — | 5.6 mm, booklet B3 call-out 1 |
 | `marks/asleep.svg` | — | 5.6 mm, booklet B3 call-out 2 |
 | `marks/door-out.svg` | — | 5.6 mm, booklet B3 call-out 4 |

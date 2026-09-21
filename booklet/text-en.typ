@@ -171,7 +171,7 @@
     // §7
     common-head: [How common is it in Dutch homes?],
     common: [In a national study of about #num(f.tno-homes) Dutch homes,
-      measured around #f.tno-year, almost half of main bedrooms went above
+      measured in #f.tno-year, almost half of main bedrooms went above
       #ppm(f.nl-reference) at least once during the measured
       week#src("tno2007", "rivm2007").],
   ),
@@ -329,7 +329,7 @@
       (
         [*"My house is old and draughty, so the air is fine."*],
         // §7, §8
-        [Not necessarily. In the national Dutch study (measured around
+        [Not necessarily. In the national Dutch study (measured in
           #f.tno-year), living rooms in homes built between 1945 and 1970
           had higher CO₂ than in newer homes#src("tno2007"). And many people
           seal gaps against draughts; then grilles or windows must bring in

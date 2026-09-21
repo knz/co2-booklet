@@ -25,19 +25,8 @@
   ("I9", "Icon: window opened briefly, morning and evening (clock)"),
 )
 
-#let badge(n) = box(baseline: 22%, circle(
-  radius: 2.5mm,
-  fill: accent,
-  inset: 0pt,
-  align(center + horizon, text(fill: white, weight: "bold", size: 7.5pt, str(n))),
-))
-
-#let block-head(n, title) = block(below: 0.5em, grid(
-  columns: (auto, 1fr),
-  column-gutter: 1.6mm,
-  align: horizon,
-  badge(n), text(size: 10pt, weight: "bold", fill: accent, title),
-))
+// `badge` and `block-head` come from shared/style.typ, shared with the
+// "why now" sheet.
 
 #let item(id, brief, ok, body) = grid(
   columns: (7mm, 1fr),

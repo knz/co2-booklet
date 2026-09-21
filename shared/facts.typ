@@ -52,9 +52,11 @@
 #let unconscious-min = 70000
 #let unconscious-max = 100000
 
-// F9 Dutch bedroom data (TNO 2007; RIVM 2007).
+// F9 Dutch bedroom data (TNO 2007; RIVM 2007). Measured in the heating
+// season between October 2004 and April 2005 (TNO 2007, summary); earlier
+// drafts said "around 2006", corrected 2026-09-21.
 #let tno-homes = 1200
-#let tno-year = 2006
+#let tno-year = "2004–2005"
 
 // F10 Size of sleep effects (Kang 2024).
 #let kang-low-ppm = 1000
@@ -86,6 +88,12 @@
 // F15 ISDE subsidy (RVO 2026).
 #let isde-amount = 400
 #let isde-year = 2026
+
+// F16 Balanced ventilation: "van de woningen sinds het jaar 2000 gemiddeld
+// 1 op de 4" (Milieu Centraal, balansventilatie, 2026). Used on the "why
+// now" sheet.
+#let balanced-since = 2000
+#let balanced-one-in = 4
 
 // Worked example p6 (calc; Persily & de Jonge 2017): one adult in a closed
 // 30 m³ bedroom with no air leakage.

@@ -508,6 +508,113 @@ uba2020: # E4
   date: 2020
   url: { value: "https://www.kmk.org/fileadmin/Dateien/pdf/PresseUndAktuelles/2020/2020-10-15_Umweltbundesamt_Lueften-in-Schulen.pdf", date: "2026-09-15" }
 
+# --- Why now (A5 sheet) ----------------------------------------------------
+# Sources of the "why now" sheet (whynow/), added 2026-09-21 from the source
+# check of that date (local only: sources/archive/_report-why-now-local.md
+# and _report-why-now-web.md). The sheet carries no citations; the text file
+# whynow/text-en.typ names these keys per block. It also uses tno2007,
+# mc-natuurlijke, mc-woning, mc-balans, signalen2024, rivm-radon2024,
+# bader2009, rigo2009, bba2011, gunnarsen1992 and zhang2017 from above.
+
+duijm2009: # D5
+  type: report
+  title: "GGD-richtlijn medische milieukunde: beoordeling van ventilatie en ventilatievoorzieningen van woningen"
+  author: ["Duijm F", "van Ginkel JT", "Habets T", "Poelman B", "van Schie RJ", "Scholtes MM", "van Brederode NE"]
+  date: 2009
+  note: RIVM-rapport 609330011/2009
+  url: { value: "https://www.rivm.nl/bibliotheek/rapporten/609330011.pdf", date: "2026-09-21" }
+
+mc-ventilatie:
+  type: web
+  title: Ventilatie in huis
+  author: Milieu Centraal
+  date: 2026
+  url: { value: "https://www.milieucentraal.nl/energie-besparen/ventilatie/", date: "2026-09-21" }
+
+mc-mechanisch:
+  type: web
+  title: "Mechanische ventilatie: tips voor in huis"
+  author: Milieu Centraal
+  date: 2026
+  url: { value: "https://www.milieucentraal.nl/energie-besparen/ventilatie/ventilatie-met-mechanische-afvoer/", date: "2026-09-21" }
+
+woon2012:
+  type: report
+  title: "Energiebesparing: een samenspel van woning en bewoner. Analyse van de module Energie WoON 2012"
+  author: ["Tigchelaar C", "Leidelmeijer K"]
+  date: 2013
+  note: ECN-E--13-037 (ECN, RIGO)
+  url: { value: "https://publicaties.ecn.nl/PdfFetch.aspx?nr=ECN-E--13-037", date: "2026-09-21" }
+
+monicair2016:
+  type: report
+  title: "Eindrapportage MONICAIR deel A: monitoringonderzoek naar en verbetering van de IAQ- en energieprestatie van ventilatiesystemen"
+  author: ["van Holsteijn RCA"]
+  date: 2016
+  note: TKI-project TKIGBO1003
+  url: { value: "https://projecten.topsectorenergie.nl/storage/app/uploads/public/5a0/c16/1e4/5a0c161e43267740786871.pdf", date: "2026-09-21" }
+
+koudijs2011: # D23
+  type: report
+  title: Gezondheid, binnenmilieu en energiebesparing
+  author: ["Koudijs E", "Fischer P", "Schram D", "Knol A"]
+  date: 2011
+  note: RIVM briefrapport 609300029/2011
+  url: { value: "https://www.rivm.nl/bibliotheek/rapporten/609300029.pdf", date: "2026-09-21" }
+
+fisk2020:
+  type: article
+  title: "Association of residential energy efficiency retrofits with indoor environmental quality, comfort, and health: a review of empirical data"
+  author: ["Fisk WJ", "Singer BC", "Chan WR"]
+  date: 2020
+  page-range: "107067"
+  parent: { type: periodical, title: Building and Environment, volume: 180 }
+  serial-number: { doi: 10.1016/j.buildenv.2020.107067 }
+
+foldvary2017:
+  type: article
+  title: Effect of energy renovation on indoor air quality in multifamily residential buildings in Slovakia
+  author: ["Földváry V", "Bekö G", "Langer S", "Arrhenius K", "Petráš D"]
+  date: 2017
+  page-range: 363–372
+  parent: { type: periodical, title: Building and Environment, volume: 122 }
+  serial-number: { doi: 10.1016/j.buildenv.2017.06.009 }
+
+clo-isolatie:
+  type: web
+  title: Isolatiemaatregelen woningen, 1982–2018
+  author: Compendium voor de Leefomgeving (CBS, PBL, RIVM, WUR)
+  date: 2020
+  url: { value: "https://www.clo.nl/indicatoren/nl038307", date: "2026-09-21" }
+
+mc-gascrisis2023:
+  type: web
+  title: "Consumentenonderzoek gascrisis en energiebesparing"
+  author: Milieu Centraal, Motivaction
+  date: 2023
+  url: { value: "https://www.milieucentraal.nl/professionals/factsheets-en-rapporten/consumentenonderzoek-gascrisis-en-energiebesparing/", date: "2026-09-15" }
+
+ggd-zw2023: # D34
+  type: web
+  title: Panelonderzoek Energiecrisis
+  author: GGD Zaanstreek-Waterland
+  date: 2023
+  url: { value: "https://www.ggdzw.nl/panelonderzoek-energiecrisis/", date: "2026-09-15" }
+
+rivm-ventilatie:
+  type: web
+  title: Ventilatie en luchtreiniging
+  author: RIVM
+  date: 2026
+  url: { value: "https://www.rivm.nl/hygiene/ventilatie", date: "2026-09-21" }
+
+ggd-handinhand2020:
+  type: web
+  title: Ventileren, ventileren, ventileren!
+  author: GGD Leefomgeving
+  date: 2020
+  url: { value: "https://ggdleefomgeving.nl/nieuws/ventileren-ventileren-ventileren/", date: "2026-09-21" }
+
 # --- More information (booklet p8) ----------------------------------------
 
 rivm-woningen: # D6

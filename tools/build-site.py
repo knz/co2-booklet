@@ -6,9 +6,9 @@ Run by build.sh after a successful Typst build, and by
 
   * converts each infographic PNG to a lossless WebP of the same size and
     copies it into site/assets/;
-  * makes two lossy WebP thumbnails per language for the landing page, of
-    the infographic and of the booklet cover;
-  * copies the four PDFs into site/assets/;
+  * makes three lossy WebP thumbnails per language for the landing page,
+    of the infographic, the booklet cover and the "why now" sheet;
+  * copies the six PDFs into site/assets/;
   * generates site/sources.html from sources/references.yml.
 
 Everything it writes is generated and git-ignored: site/index.html,
@@ -48,6 +48,7 @@ LANGS = ("nl", "en")
 # Pixel width of the landing page thumbnails: the booklet cover comes out of
 # build.sh at this width (A5 at 100 ppi), and the infographic is scaled to it.
 THUMB_WIDTH = 583
+WHYNOW_THUMB_WIDTH = 300
 
 # Headings for the source list. The English keys are the section comments
 # in sources/references.yml; the file's own order is kept.
@@ -64,6 +65,7 @@ SECTIONS = {
     "Abroad": "Buitenland",
     "Measuring": "Meten",
     "What helps and what doesn't": "Wat helpt en wat niet",
+    "Why now (A5 sheet)": "Waarom juist nu (A5-blad)",
     "More information (booklet p8)": "Meer informatie",
 }
 
@@ -110,7 +112,23 @@ def copy_assets() -> None:
             to_webp(cover, ASSETS / ("booklet-cover-%s.webp" % lang), quality=80)
         else:
             missing.append(cover)
-        for name in ("infographic-%s.pdf" % lang, "booklet-%s.pdf" % lang):
+        # "Why now" sheet: shown smaller than the two thumbnails above, so
+        # a narrower file is enough (about twice its display width).
+        sheet = BUILD / ("whynow-%s.png" % lang)
+        if sheet.exists():
+            to_webp(
+                sheet,
+                ASSETS / ("whynow-thumb-%s.webp" % lang),
+                quality=80,
+                width=WHYNOW_THUMB_WIDTH,
+            )
+        else:
+            missing.append(sheet)
+        for name in (
+            "infographic-%s.pdf" % lang,
+            "booklet-%s.pdf" % lang,
+            "whynow-%s.pdf" % lang,
+        ):
             pdf = BUILD / name
             if pdf.exists():
                 shutil.copy2(pdf, ASSETS / name)

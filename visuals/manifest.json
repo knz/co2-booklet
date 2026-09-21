@@ -10,5 +10,7 @@
   "I7": "/visuals/i7-purifier.svg",
   "I8": "/visuals/i8-aircon.svg",
   "I9": "/visuals/i9-airing-clock.svg",
-  "I10": "/visuals/i10-hrv.svg"
+  "I10": "/visuals/i10-hrv.svg",
+  "W1": "/visuals/w1-gaps.svg",
+  "W2": "/visuals/w2-sealed.svg"
 }

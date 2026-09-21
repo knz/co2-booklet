@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 150" width="620" height="150">
+  <!-- W1: front door and window seen from inside, with gaps. Fresh air
+       (accent) comes in through the door gap, the letterbox and the window
+       frame; one thinner heat arrow (yellow) goes out. Air is the message,
+       heat is secondary, so the heat arrow is thinner and there is only one.
+       Kept to three air arrows: the sheet says "some fresh air", not
+       "enough". Same geometry as w2-sealed.svg, so the pair lines up.
+       Flat elevation. Strokes are heavier than on the 620x280 scenes: the
+       strip is placed at 15 mm tall and is a final asset, not generator
+       input. -->
+  <g stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- wall and floor -->
+    <rect x="8" y="6" width="604" height="130" fill="#e4f0f3"/>
+    <rect x="8" y="136" width="604" height="8" fill="#c9d3d8"/>
+    <rect x="8" y="6" width="604" height="138" rx="8" fill="none" stroke="#1d2a33" stroke-width="4"/>
+
+    <!-- door: frame with a visible gap around the door -->
+    <rect x="104" y="14" width="92" height="122" rx="2" fill="#c9d3d8" stroke="#1d2a33" stroke-width="4"/>
+    <rect x="112" y="22" width="76" height="114" rx="2" fill="#ffffff" stroke="#1d2a33" stroke-width="3"/>
+    <!-- letterbox, open slot -->
+    <rect x="132" y="82" width="38" height="9" rx="2" fill="#1d2a33"/>
+    <circle cx="180" cy="72" r="4" fill="#1d2a33"/>
+
+    <!-- window: frame with a visible gap around the sash -->
+    <rect x="326" y="22" width="188" height="82" rx="3" fill="#c9d3d8" stroke="#1d2a33" stroke-width="4"/>
+    <rect x="334" y="30" width="172" height="66" rx="2" fill="#ffffff" stroke="#1d2a33" stroke-width="3"/>
+    <path d="M420 30 L420 96" stroke="#1d2a33" stroke-width="3"/>
+    <path d="M318 110 L522 110" stroke="#1d2a33" stroke-width="4"/>
+
+    <!-- fresh air coming in -->
+    <g fill="none" stroke="#1f6f8b" stroke-width="6">
+      <!-- door gap -->
+      <path d="M198 60 C 216 60, 224 46, 248 46"/>
+      <path d="M238 37 L248 46 L238 55"/>
+      <!-- letterbox -->
+      <path d="M130 90 C 112 90, 102 106, 78 106"/>
+      <path d="M88 97 L78 106 L88 115"/>
+      <!-- window frame -->
+      <path d="M516 74 C 534 74, 542 90, 568 90"/>
+      <path d="M558 81 L568 90 L558 99"/>
+    </g>
+
+    <!-- heat going out, secondary -->
+    <g fill="none" stroke="#f0c233" stroke-width="4">
+      <path d="M272 36 L318 36"/>
+      <path d="M310 29 L318 36 L310 43"/>
+    </g>
+  </g>
+</svg>

@@ -44,13 +44,14 @@ report's rating.
 | F6 | Researchers' bedroom target | below 1,000 ppm, preferably below 800 ppm | Akimoto 2025 [§1d] | research recommendation |
 | F7 | Workplace limit | 5,000 ppm averaged over an 8-hour working day | Arboregeling Bijlage XIII; EU 2006/15/EC [§3] | well supported |
 | F8 | Toxic levels | headache, dizziness, breathlessness above ~50,000 ppm; unconsciousness at 70,000–100,000 ppm | NIOSH IDLH 1994; Azuma 2018 Table 1 [§3] | well supported / with caveats |
-| F9 | Dutch bedroom data | almost half of main bedrooms above 1,200 ppm at least once in a measured week (about 1,200 homes, measured around 2006) | TNO 2007; RIVM 2007 summary (47%) [§7] | supported with caveats (old data) |
+| F9 | Dutch bedroom data | almost half of main bedrooms above 1,200 ppm at least once in a measured week (about 1,200 homes, measured in 2004–2005) | TNO 2007; RIVM 2007 summary (47%) [§7] | supported with caveats (old data) |
 | F10 | Size of sleep effects | at ~1,000 ppm night average: about 5 min more awake, sleep efficiency 1.3% lower; at ~1,300 ppm: about 8 min more awake, 6–7 min less deep sleep | Kang 2024 [§1d] | one lab study |
 | F11 | CO deaths NL | on average 5–10 deaths a year, hundreds to hospital | Brandweer.nl "Koolmonoxide" [§15] | well supported |
 | F12 | Origin of ~1,000 ppm | 1850s, Max von Pettenkofer, as a sign of stale air | ASHRAE 2025; UBA 2008 [§3] | well supported |
 | F13 | Meter price | about €80–300 | Milieu Centraal 2026 [§6] | consumer page |
 | F14 | Good humidity | 40–60% | UBA "Wie lüfte ich richtig?"; Milieu Centraal 2026 [§14] | guidance |
 | F15 | ISDE subsidy | €400 for CO₂-controlled or heat-recovery ventilation, only with an insulation measure (2026) | RVO 2026 [§17f] | well supported, may change |
+| F16 | Balanced ventilation | about 1 in 4 homes built since 2000 has balanced ventilation ("why now" sheet only) | Milieu Centraal 2026, balansventilatie | advice page; consistent with WoON 2012 (about 28% for 1996 and later) |
 
 Derived values `(calc)`: Flanders 425 + 500 ≈ 925 ppm; Finland 425 + 1,150
 ≈ 1,575 ppm.
@@ -346,7 +347,7 @@ approximate absolute values are `(calc)` with outdoor air at 425 ppm.
 
 **How common is it in Dutch homes?** (NL: *Hoe vaak komt het voor?*)
 
-> In a national study of about 1,200 Dutch homes, measured around 2006,
+> In a national study of about 1,200 Dutch homes, measured in 2004–2005,
 > almost half of main bedrooms went above 1,200 ppm at least once during
 > the measured week [F9]. No newer national measurements were found.
 
@@ -486,7 +487,7 @@ Budget: about 300 words.
 |---|---|---|
 | "CO₂ is harmless — we breathe it out anyway." NL: *"CO₂ is onschuldig, we ademen het toch uit."* | Partly true: at home levels, CO₂ itself is not poisonous. But high CO₂ means stale air, too little fresh air for the people in the room. In studies, people slept less deeply in such bedrooms. | §3, §1d |
 | "I don't notice anything, so it's fine." NL: *"Ik merk niks, dus het zit goed."* | Your nose is not a good guide. CO₂ has no smell, and you stop noticing stale air within minutes. A meter shows what your nose misses. | Gunnarsen & Fanger 1992; Zhang 2017; §4 |
-| "My house is old and draughty, so the air is fine." NL: *"Mijn huis is oud en tochtig, dus de lucht is prima."* | Not necessarily. In the national Dutch study (measured around 2006), living rooms in homes built between 1945 and 1970 had higher CO₂ than in newer homes. And many people seal gaps against draughts; then grilles or windows must bring in the air. | TNO 2007 [§7, §8]; Milieu Centraal 2026 |
+| "My house is old and draughty, so the air is fine." NL: *"Mijn huis is oud en tochtig, dus de lucht is prima."* | Not necessarily. In the national Dutch study (measured in 2004–2005), living rooms in homes built between 1945 and 1970 had higher CO₂ than in newer homes. And many people seal gaps against draughts; then grilles or windows must bring in the air. | TNO 2007 [§7, §8]; Milieu Centraal 2026 |
 | "Plants help a little." NL: *"Planten helpen een beetje."* | Not measurably. See page 6. | Gubb 2018 [§11] |
 | "An air purifier with a CO₂ sensor is enough." NL: *"Een luchtreiniger met CO₂-sensor is genoeg."* | The sensor can show the problem, but the purifier doesn't fix it: it brings in no outdoor air. | EPA [§13] |
 
@@ -533,6 +534,16 @@ Budget: full page.
   - note that the booklet is general information, not medical advice.
 
 ---
+
+## 3b. "Why should you care now?" sheet (A5, one side per language)
+
+Added 2026-09-21 from `brief-isolatie.md`. Its script is kept separately in
+`whynow-storyline.md`: the argument, the text per block with sources and
+wording limits, and what was dropped from the brief after the source
+check. The sheet carries no citations; its sources are the section "Why
+now (A5 sheet)" in `sources/references.yml`. It extends the booklet's p1
+paragraph "Why this matters now" and keeps that paragraph's limit: no
+claim of a measured national trend of "worse since insulation" [§8].
 
 ## 4. Changes compared with `input2.txt`
 
@@ -593,7 +604,7 @@ Budget: full page.
   against windows left on tilt for hours in winter. The script uses both
   with "small window slightly open" vs "wide open on tilt for hours". Check
   the Dutch wording keeps that difference.
-- Dutch bedroom data are from around 2006 (loggers at 2 m height, capped at
+- Dutch bedroom data are from 2004–2005 (loggers at 2 m height, capped at
   3,000 ppm). No newer national data found.
 - The report and archive are local only (`sources/archive/` is ignored by
   git). A tracked reference list is needed before publishing.

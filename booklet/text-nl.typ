@@ -177,7 +177,7 @@
     // §7
     common-head: [Hoe vaak komt dit voor in Nederlandse huizen?],
     common: [In een landelijk onderzoek in ongeveer #num(f.tno-homes)
-      Nederlandse woningen, gemeten rond #f.tno-year, kwam bijna de helft
+      Nederlandse woningen, gemeten in #f.tno-year, kwam bijna de helft
       van de hoofdslaapkamers in de meetweek minstens één keer boven
       #ppm(f.nl-reference)#src("tno2007", "rivm2007").],
   ),
@@ -340,7 +340,7 @@
       (
         [*"Mijn huis is oud en tochtig, dus de lucht is prima."*],
         // §7, §8
-        [Niet per se. In het landelijke Nederlandse onderzoek (gemeten rond
+        [Niet per se. In het landelijke Nederlandse onderzoek (gemeten in
           #f.tno-year) hadden woonkamers in huizen uit 1945–1970 juist meer
           CO₂ dan in nieuwere huizen#src("tno2007"). En veel mensen maken
           kieren dicht tegen de tocht; dan moeten roosters of ramen de lucht

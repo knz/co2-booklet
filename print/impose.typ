@@ -3,7 +3,8 @@
 // are compiled; reads its inputs from `--input`:
 //
 //   mode=infographic  nl=<pdf> en=<pdf>
-//     One sheet: the Dutch infographic left, the English one right.
+//     One sheet: the Dutch infographic left, the English one right. Also
+//     used for the "why now" sheet, which has the same format.
 //   mode=booklet      src=<pdf>
 //     The 8-page booklet as 2 sheets (4 sides) for saddle stitching:
 //     8|1, 2|7 / 6|3, 4|5. Print double-sided, flip on the short edge, put
